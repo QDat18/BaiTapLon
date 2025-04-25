@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iPhone - Anh Em Rọt Store</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #000000;
+      --secondary: #ff3a2d;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+    }
+    
+    body {
+      background-color: #f5f5f7;
+      color: var(--dark);
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    .hero-section {
+      margin-top: 105px;
+      background: linear-gradient(135deg, #000000 0%, #2c3e50 100%);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+      border-radius: 0 0 20px 20px;
+    }
+    
+    .product-card {
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      background: white;
+      height: 100%;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--secondary);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .product-image {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #fbfbfb 0%, #f0f0f0 100%);
+      position: relative;
+    }
+    
+    .product-image img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    
+    .product-body {
+      padding: 1.5rem;
+    }
+    
+    .product-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .product-price {
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .product-variants {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 1rem;
+    }
+    
+    .product-container {
+      border: 2px solid #ddd;
+      border-radius: 16px;
+      background-color: #f8f9fa;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .product-card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 16px;
+      background-color: #fff;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-detail {
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-weight: 500;
+      width: 100%;
+      transition: all 0.3s;
+    }
+    
+    .btn-detail:hover {
+      background: #333;
+      transform: translateY(-2px);
+    }
+    
+    .section-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--secondary);
+    }
+
+    
+    .color-dot {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 4px;
+      border: 1px solid #ddd;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
+
+    <i class="fas fa-shopping-cart me-2"></i>Xem chi tiết
+  </a>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold mb-3">iPhone Chính Hãng</h1>
+      <p class="lead mb-4">Trải nghiệm công nghệ đỉnh cao với giá tốt nhất thị trường</p>
+      <a href="#products" class="btn btn-light btn-lg px-4">Khám phá ngay</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="container mb-5" id="products">
+    <h2 class="section-title">Danh mục iPhone</h2>
+    
+    <div class="product-container p-4 bg-light rounded shadow-sm">
+      <h2 class="text-center mb-4">Danh sách sản phẩm iPhone</h2>
+      <div class="row g-4" id="iphone-list">
+        <!-- Các sản phẩm sẽ được load tại đây bằng JS -->
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-3">Đang tải sản phẩm...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="scripts/loadcontent.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch("data/product.json")
+      .then(res => res.json())
+      .then(data => {
+        const iphoneList = document.getElementById("iphone-list");
+        const iphones = data.categories.find(cat => cat.name === "iPhone");
+        
+        if (iphones && iphones.products) {
+          iphoneList.innerHTML = '';
+          
+          iphones.products.forEach(product => {
+            // Get price range
+            const prices = product.variants.map(v => v.price);
+            const minPrice = Math.min(...prices);
+            const maxPrice = Math.max(...prices);
+            const priceRange = minPrice === maxPrice 
+              ? `${minPrice.toLocaleString("vi-VN")}₫` 
+              : `${minPrice.toLocaleString("vi-VN")}₫ - ${maxPrice.toLocaleString("vi-VN")}₫`;
+            
+            // Get all unique colors
+            const allColors = [];
+            product.variants.forEach(v => {
+              v.colors.forEach(c => {
+                if (!allColors.includes(c)) allColors.push(c);
+              });
+            });
+            
+            const card = document.createElement("div");
+            card.className = "col-12 col-sm-6 col-md-4 col-lg-3";
+            card.innerHTML = `
+              <div class="product-card">
+                <div class="product-image">
+                  ${new Date(product.releaseDate) > new Date(Date.now() - 30*24*60*60*1000) ? '<span class="product-badge">Mới</span>' : ''}
+                  <img src="${product.imageUrl}" alt="${product.name}">
+                </div>
+                <div class="product-body">
+                  <h3 class="product-title">${product.name}</h3>
+                  <div class="product-price">${priceRange}</div>
+                  <div class="product-variants mb-3">
+                    <div class="mb-2">
+                      ${allColors.slice(0, 5).map(color => `
+                        <span class="color-dot" style="background-color: ${getColorHex(color)}" title="${color}"></span>
+                      `).join('')}
+                      ${allColors.length > 5 ? `<span>+${allColors.length - 5}</span>` : ''}
+                    </div>
+                    ${product.variants.length} phiên bản
+                  </div>
+                  <a href="iphone_detail.html?product=${encodeURIComponent(product.name)}" class="btn btn-detail">
+                    <i class="fas fa-shopping-cart me-2"></i>Xem chi tiết
+                  </a>
+                </div>
+              </div>
+            `;
+            iphoneList.appendChild(card);
+          });
+        } else {
+          iphoneList.innerHTML = `
+            <div class="col-12 text-center py-5">
+              <i class="fas fa-box-open fa-3x mb-3 text-muted"></i>
+              <h4>Hiện chưa có sản phẩm iPhone nào</h4>
+            </div>
+          `;
+        }
+      })
+      .catch(err => {
+        console.error("Lỗi khi load sản phẩm:", err);
+        document.getElementById("iphone-list").innerHTML = `
+          <div class="col-12 text-center py-5">
+            <i class="fas fa-exclamation-triangle fa-3x mb-3 text-danger"></i>
+            <h4 class="text-danger">Đã có lỗi xảy ra khi tải sản phẩm</h4>
+            <button class="btn btn-outline-primary mt-3" onclick="window.location.reload()">
+              <i class="fas fa-sync-alt me-2"></i>Tải lại trang
+            </button>
+          </div>
+        `;
+      });
+  });
+  
+  function getColorHex(colorName) {
+    const colorMap = {
+      'Black Titanium': '#1a1a1a',
+      'White Titanium': '#f5f5f7',
+      'Desert Titanium': '#d2b48c',
+      'Nature Titanium': '#8b9e7e',
+      'Midnight': '#171E27',
+      'Starlight': '#F8F9EC',
+      'Blue': '#007AFF',
+      'Pink': '#FF2D55',
+      'Red': '#FF3B30',
+      'Yellow': '#FFD60A',
+      'Green': '#34C759',
+      'Purple': '#AF52DE',
+      'Gold': '#FFD700',
+      'Silver': '#C0C0C0',
+      'Space Gray': '#535150',
+      'Pacific Blue': '#2B5F8B',
+      'Sierra Blue': '#69ABCE',
+      'Deep Purple': '#5E5BA7',
+      'Natural Titanium': '#E4E4E2'
+    };
+    return colorMap[colorName] || '#cccccc';
+  }
+</script>
+</body>
+</html>
