@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Category Icons Section */
+        .category-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .category-item {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            width: calc(16.666% - 15px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            fill: #666;
+        }
+        
+        .category-name {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #333;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            color: #4e342e;
+            margin: 40px 0 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: #333;
+        }
+        
+        /* Product Grid */
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            width: calc(25% - 15px);
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .product-details {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 1rem;
+            margin: 0 0 10px;
+            font-weight: 500;
+            line-height: 1.4;
+            height: 2.8em;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+        
+        .star-rating {
+            color: #ffc107;
+            margin: 8px 0;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #555;
+        }
+        
+        .btn-view {
+            background-color: transparent;
+            border: 1px solid #333;
+            color: #333;
+            margin-top: 5px;
+        }
+        
+        .btn-view:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .filter-tab {
+            padding: 8px 15px;
+            background-color: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .filter-tab.active {
+            background-color: #333;
+            color: white;
+        }
+        
+        /* Quick View Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            color: #333;
+        }
+        
+        .modal-product-image {
+            width: 45%;
+            padding: 20px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-product-image img {
+            max-width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+        }
+        
+        .modal-product-details {
+            width: 55%;
+            padding: 30px;
+        }
+        
+        .modal-product-title {
+            font-size: 1.8rem;
+            margin: 0 0 15px;
+            color: #333;
+        }
+        
+        .modal-product-price {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #333;
+        }
+        
+        .modal-star-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .modal-star-rating .stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .modal-star-rating .reviews {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .modal-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .modal-feature {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .modal-feature i {
+            margin-right: 10px;
+            color: #555;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: #f2f2f2;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .modal-buy-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .modal-buy-btn:hover {
+            background-color: #555;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .product-card {
+                width: calc(33.333% - 14px);
+            }
+            
+            .category-item {
+                width: calc(33.333% - 10px);
+                margin-bottom: 15px;
+            }
+            
+            .modal-content {
+                flex-direction: column;
+            }
+            
+            .modal-product-image, .modal-product-details {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-card {
+                width: calc(50% - 10px);
+            }
+            
+            .category-item {
+                width: calc(50% - 10px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-card {
+                width: 100%;
+            }
+            
+            .category-item {
+                width: calc(33.333% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Categories Section -->
+        <div class="category-section">
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
+                </svg>
+                <p class="category-name">iPhone</p>
+            </div>
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M21.5,2L22.5,3L21.5,4L22.5,5L21.5,6L22.5,7L21.5,8L22.5,9L21.5,10L22.5,11L21.5,12L22.5,13L21.5,14L22.5,15L21.5,16L22.5,17L21.5,18L20,18L20,20H4V18L2.5,18L3.5,17L2.5,16L3.5,15L2.5,14L3.5,13L2.5,12L3.5,11L2.5,10L3.5,9L2.5,8L3.5,7L2.5,6L3.5,5L2.5,4L3.5,3L2.5,2M6,4H18V16H6V4M8,6V14H16V6H8Z" />
+                </svg>
+                <p class="category-name">iPad</p>
+            </div>
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z" />
+                </svg>
+                <p class="category-name">MacBook</p>
+            </div>
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M16,2H8A2,2 0 0,0 6,4V20A2,2 0 0,0 8,22H16A2,2 0 0,0 18,20V4A2,2 0 0,0 16,2M12,4A1,1 0 0,1 13,5A1,1 0 0,1 12,6A1,1 0 0,1 11,5A1,1 0 0,1 12,4M12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20Z" />
+                </svg>
+                <p class="category-name">Apple Watch</p>
+            </div>
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M12,21.5C10.46,21.5 8.95,21.36 7.53,21.07C6.7,21.18 4.07,21.46 2.5,21.13C2.5,21.13 4,19.5 3.91,17.17C2.8,15.83 2,14.21 2,12.5C2,7.53 6.47,3 12,3C17.53,3 22,7.53 22,12.5C22,17.47 17.5,21.5 12,21.5M12,4.5C7.31,4.5 3.5,8.19 3.5,12.5C3.5,14.08 4.05,15.55 5,16.72V17.5L5.13,18.11C5.08,18.32 5,18.5 4.89,18.67C6.22,18.54 7.76,18.23 7.76,18.23C7.76,18.23 8.37,18.35 9.03,18.44C10,18.63 11,18.5 12,18.5C16.69,18.5 20.5,15.33 20.5,11C20.5,6.67 16.69,4.5 12,4.5Z" />
+                </svg>
+                <p class="category-name">AirPods</p>
+            </div>
+            <div class="category-item">
+                <svg class="category-icon" viewBox="0 0 24 24">
+                    <path d="M21,13H3V11H21M13,19.96V10.86C11.93,10.44 11.18,9.5 11.18,8.3C11.18,6.94 12.3,5.84 13.66,5.84C14.07,5.84 14.46,5.94 14.81,6.14C14.96,4.94 15.18,3.56 15.79,2.85C16.28,2.27 17.17,2 18.28,2C19.39,2 20.28,2.27 20.77,2.85C21.71,3.94 21.5,7.36 21.13,9.4C21.4,9.62 21.64,9.86 21.82,10.14C22.57,11.25 22.5,12.61 21.94,13.77C21.57,14.5 21.04,15.09 20.41,15.5C20.97,16.29 21.22,17.2 20.95,18.15C20.45,19.93 18.61,20.64 16.86,19.75C16.15,20.5 15.14,21 13.82,21C12.31,21 11.18,19.96 11.18,18.65C11.18,17.89 11.59,17.14 12.24,16.65M13.82,19.5C14.84,19.5 15.57,18.83 15.57,18C15.57,17.17 14.84,16.5 13.82,16.5C12.79,16.5 12.07,17.17 12.07,18C12.07,18.83 12.79,19.5 13.82,19.5M18.04,8.97C17.87,8.92 17.71,8.85 17.56,8.75C17.17,8.5 16.8,8.08 16.56,7.54C16.17,6.67 16.13,5.73 16.36,5.07C16.36,5.07 16.25,6.3 17.12,7.5C17.79,8.46 18.79,8.86 18.79,8.86C18.42,9.02 18.04,9.05 18.04,8.97M19.86,17.62C20.42,16.67 19.34,15 17.87,15C16.39,15 14.77,16.85 15.42,18.17C15.09,18.38 14.7,18.5 14.28,18.5C14.3,16.5 16.34,13.5 18.95,13.5C21.57,13.5 21.79,17.4 19.86,17.62Z" />
+                </svg>
+                <p class="category-name">Phụ kiện</p>
+            </div>
+        </div>
+        
+        <!-- New Products Section -->
+        <h2 class="section-title">SẢN PHẨM MỚI NHẤT</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPhone 15 Pro">
+                    <span class="product-badge">Nổi bật</span>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPhone 15 Pro Max 256GB Titanium</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price">32.000.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="1">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="MacBook Air">
+                    <span class="discount-badge">20% Off</span>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">MacBook Air M3 13-inch</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price"><span class="original-price">29.990.000 đ</span>23.990.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="2">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPad Pro">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPad Pro M2 12.9-inch WiFi 256GB</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                    </div>
+                    <p class="product-price">28.900.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="3">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="AirPods Pro">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">AirPods Pro 2 with USB-C</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price">6.790.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="4">XEM NHANH</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Best Selling Products Section -->
+        <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
+        
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active">iPhone 15 Series</button>
+            <button class="filter-tab">MacBook Pro</button>
+            <button class="filter-tab">iPad Air</button>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPhone 15">
+                    <span class="product-badge">Nổi bật</span>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPhone 15 128GB - Black</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price">19.800.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="5">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPhone 15 Plus">
+                    <span class="discount-badge">20% Off</span>
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPhone 15 Plus 128GB - Blue</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price"><span class="original-price">25.990.000 đ</span>20.990.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="6">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPhone 15 Pro">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPhone 15 Pro 256GB - Natural Titanium</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price">27.900.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="7">XEM NHANH</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/300/300" alt="iPhone 15 Pro Max">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">iPhone 15 Pro Max 512GB - Blue Titanium</h3>
+                    <div class="star-rating">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                    <p class="product-price">33.500.000 đ</p>
+                    <button class="btn">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn btn-view" data-product-id="8">XEM NHANH</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-product-image">
+                <img id="modalProductImage" src="/api/placeholder/400/400" alt="Product">
+            </div>
+            <div class="modal-product-details">
+                <div class="modal-star-rating">
+                    <div class="stars">★★★★★</div>
+                    <div class="reviews">5 Stars</div>
+                </div>
+                <h2 class="modal-product-title" id="modalProductTitle">Product Title</h2>
+                <p class="modal-product-price" id="modalProductPrice">0 đ</p>
+                <div class="modal-description" id="modalProductDescription">
+                    Đặc điểm nổi bật của sản phẩm với công nghệ tiên tiến, thiết kế sang trọng.
+                    Lần đầu tiên có mặt tại Việt Nam, sản phẩm chất lượng cao đến từ Apple.
+                </div>
+                <div class="modal-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Bảo hành chính hãng 12 tháng</span>
+                </div>
+                <div class="modal-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Giao hàng miễ

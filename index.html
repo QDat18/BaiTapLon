@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Anh Em Rọt - Trang Chủ</title>
+    
+    <!-- CSS Links -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/flashsale.css">
+    <link rel="stylesheet" href="css/main_css.css">
+
+    <style>
+
+        /* .loading-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            font-size: 24px;
+            color: #999; */
+        /* } */
+
+    </style>
+</head>
+
+<body>
+    <!-- hieu ung load trang -->
+    <!-- <div class="andro_preloader">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div> -->
+
+    <!-- Navbar will be loaded here -->
+    <div id="navbar-placeholder"></div>
+    <main>
+        <!--Banner-->
+        <section class="banner-section" style="margin-top: 140px;">
+            <div class="container">
+              <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Timer indicator -->
+                <div class="carousel-timer" id="carousel-timer"></div>
+                
+                <!-- Indicators will be generated dynamically -->
+                <ul class="carousel-indicators" id="carousel-indicators"></ul>
+                
+                <!-- The slideshow will be generated dynamically -->
+                <div class="carousel-inner" id="carousel-inner"></div>
+                
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#bannerCarousel" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#bannerCarousel" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+              </div>
+            </div>
+          </section>
+        <!--Flash sale-->
+
+        <section class="flash-sale">
+            <div class="flash-sale-header">
+                <img src="assets/banner/icon-fs.png" alt="Flash Sale" style="height: 40px;" />
+                <span class="flash-sale-online">ONLINE ONLY - GIẢM ĐẾN 40%</span>
+                <span class="flash-sale-countdown"><span id="countdown">00:00:00</span></span>
+                <span class="flash-sale-time">Sắp diễn ra 21:00 - 23:59</span>
+            </div>
+            <div class="flash-sale-products row" id="flashSaleProducts">
+                <!-- Sản phẩm sẽ được hiển thị ở đây -->
+            </div>
+            <div class="text-center mt-4">
+                <a href="javascript:void(0);" id="loadMore" class="more-products">Xem thêm sản phẩm &gt;</a>
+            </div>
+        </section>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Thiết lập countdown
+                function updateCountdown() {
+                    const now = new Date();
+                    const today = new Date();
+                    today.setHours(21, 0, 0, 0); // Thời gian bắt đầu là 21:00
+                    
+                    let timeLeft;
+                    if (now.getHours() >= 21 || now.getHours() < 0) {
+                        // Nếu đã qua 21:00, đếm ngược đến ngày mai
+                        today.setDate(today.getDate() + 1);
+                    }
+                    
+                    timeLeft = today - now;
+                    
+                    // Tính giờ, phút, giây
+                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    // Format để luôn hiển thị 2 chữ số
+                    const formattedHours = String(hours).padStart(2, '0');
+                    const formattedMinutes = String(minutes).padStart(2, '0');
+                    const formattedSeconds = String(seconds).padStart(2, '0');
+                    
+                    document.getElementById('countdown').textContent = 
+                        `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+                }
+                
+                // Cập nhật đồng hồ đếm ngược mỗi giây
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+                
+                // Tải và hiển thị sản phẩm
+                fetch('data/flashsale.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok: ' + response.status);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const productsContainer = document.getElementById('flashSaleProducts');
+                        const products = data.products; // Lấy danh sách sản phẩm từ JSON
+                        const loadMoreButton = document.getElementById('loadMore');
+            
+                        const itemsPerPage = 8; // Số lượng sản phẩm mỗi lần hiển thị
+                        let displayedProducts = 0; // Biến đếm số sản phẩm đã hiển thị
+            
+                        // Hàm để hiển thị sản phẩm
+                        function displayProducts(startIndex, endIndex) {
+                            // Lặp qua các sản phẩm và thêm vào container
+                            for (let i = startIndex; i < endIndex && i < products.length; i++) {
+                                const product = products[i];
+                                const productCard = document.createElement('div');
+                                productCard.classList.add('col-lg-3', 'col-md-4', 'col-sm-6', 'mb-4'); // Cải thiện responsive
+                                
+                                // Chuyển đổi phần trăm giảm giá nếu có
+                                const discountText = product.discount ? 
+                                    `<span class="discount-badge">${product.discount}</span>` : '';
+                                
+                                // Stock status
+                                const stockStatus = parseInt(product.stock) > 0 ? 
+                                    `<p class="stock-status in-stock">Còn ${product.stock} sản phẩm</p>` : 
+                                    '<p class="stock-status out-of-stock">Hết hàng</p>';
+            
+                                // Thêm HTML vào card sản phẩm với thiết kế cải tiến
+                                productCard.innerHTML = `
+                                    <div class="card product-card">
+                                        <div class="product-image-container">
+                                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                                            ${discountText}
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">${product.name}</h5>
+                                            <div class="price-container">
+                                                <span class="old-price">${product.old_price}</span>
+                                                <span class="current-price">${product.price}</span>
+                                            </div>
+                                            ${stockStatus}
+                                            <a href="product_detail.html?id=${product.id}" class="btn btn-primary view-detail">Xem Chi Tiết</a>
+                                        </div>
+                                    </div>
+                                `;
+                                // Thêm sản phẩm vào container
+                                productsContainer.appendChild(productCard);
+                            }
+                            
+                            // Kiểm tra và cập nhật trạng thái nút "Xem thêm"
+                            if (displayedProducts >= products.length) {
+                                loadMoreButton.style.display = 'none';
+                            } else {
+                                loadMoreButton.style.display = 'inline-block';
+                            }
+                        }
+            
+                        // Hiển thị ban đầu 8 sản phẩm (2 hàng)
+                        displayProducts(displayedProducts, itemsPerPage);
+                        displayedProducts = itemsPerPage;
+            
+                        // Xử lý sự kiện "Xem thêm sản phẩm"
+                        loadMoreButton.addEventListener('click', () => {
+                            const nextIndex = displayedProducts;
+                            displayedProducts += itemsPerPage; // Hiển thị thêm 8 sản phẩm nữa
+                            displayProducts(nextIndex, displayedProducts);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching flash sale products:', error);
+                        document.getElementById('flashSaleProducts').innerHTML = 
+                            '<div class="col-12 text-center"><p class="error-message">Không thể tải sản phẩm. Vui lòng thử lại sau.</p></div>';
+                    });
+            });
+            </script>
+            
+         <!-- Product Categories -->
+        <section class="categories-section">
+            <h2 class="section-title"><i class="fas fa-list"></i> Danh Mục Sản Phẩm</h2>
+            <div class="category-grid" id="category-container">
+                <!-- Categories will be loaded from JSON -->
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="products-section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-bolt"></i> Sản Phẩm Nổi Bật</h2>
+                <a href="product_detail.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="product-grid" id="featured-products">
+                <!-- Sản phẩm sẽ được thêm bằng JavaScript -->
+            </div>
+        </section>
+        <!-- Promotion Section -->
+        <section class="promotion-section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-gift"></i> Khuyến Mãi</h2>
+                <a href="promotions.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="promotion-grid" id="promotion-container">
+                <!-- Promotion cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-newspaper"></i> Tin Tức</h2>
+                <a href="news.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="news-grid" id="news-container">
+                <!-- News cards will be inserted here -->
+            </div>
+        </section> 
+    </main>
+    <div class="container mt-3">
+        <h2>Media Object</h2>
+        <p>Create a media object with the .media and .media-body classes:</p>
+        <div class="media border p-3">
+          <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+          <div class="media-body">
+            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>      
+          </div>
+        </div>
+      </div>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer-placeholder"></div>
+    
+    <!-- Your Scripts -->
+    <script src="scripts/loadbanner.js"></script>
+    <script src="scripts/loadcontent.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

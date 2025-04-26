@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6f00ff, #3f0071);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-box {
+  background: #0f0f1a;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(100, 0, 255, 0.4);
+  position: relative;
+  z-index: 1;
+  width: 800px;
+  max-width: 95%;
+}
+
+.form-left,
+.form-right {
+  flex: 1;
+  padding: 40px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-left h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 2px solid #ffffff70;
+  color: #fff;
+  font-size: 16px;
+}
+
+.btn {
+  background: linear-gradient(to right, #6a00ff, #9a00ff);
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.footer-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-text a {
+  color: #a066ff;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+.form-right {
+  background: linear-gradient(135deg, #1f003f, #2f007f);
+  text-align: center;
+}
+
+.form-right h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.form-right p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .form-box {
+    flex-direction: column;
+  }
+
+  .form-right {
+    display: none;
+  }
+}

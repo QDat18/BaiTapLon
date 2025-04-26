@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chi tiết sản phẩm - Anh Em Rọt Store</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <style>
+    .product-detail-container {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .product-image {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      height: 100%;
+    }
+    .product-image img {
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+    }
+    .variant-option {
+      border: 1px solid #444;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .variant-option:hover {
+      border-color: #ffc107;
+      background-color: #333;
+    }
+    .variant-option.selected {
+      border-color: #ffc107;
+      background-color: rgba(255, 193, 7, 0.1);
+    }
+    .color-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+      border: 1px solid #666;
+    }
+    .btn-add-to-cart {
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body class="bg-dark text-white">
+  <div id="navbar-container"></div>
+
+  <div class="container py-5">
+    <div id="product-detail" class="product-detail-container p-4">
+      <!-- Nội dung sẽ được điền bằng JavaScript -->
+      <div class="text-center py-5">
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Đang tải thông tin sản phẩm...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+  
+  <script src="scripts/loadcontent.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lấy thông tin sản phẩm từ URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productName = urlParams.get('product');
+      
+      if (!productName) {
+        document.getElementById('product-detail').innerHTML = `
+          <div class="text-center py-5">
+            <h4 class="text-danger">Không tìm thấy sản phẩm</h4>
+            <a href="product.html" class="btn btn-outline-warning mt-3">Quay lại danh sách</a>
+          </div>
+        `;
+        return;
+      }
+
+      fetch("data/product.json")
+        .then(res => res.json())
+        .then(data => {
+          const iphones = data.categories.find(categories => categories.id === 1);
+          const product = iphones.products.find(p => p.name === decodeURIComponent(productName));
+          
+          if (!product) {
+            document.getElementById('product-detail').innerHTML = `
+              <div class="text-center py-5">
+                <h4 class="text-danger">Sản phẩm không tồn tại</h4>
+                <a href="product.html" class="btn btn-outline-warning mt-3">Quay lại danh sách</a>
+              </div>
+            `;
+            return;
+          }
+
+          // Tạo HTML cho chi tiết sản phẩm
+          const variantsHTML = product.variants.map(variant => `
+            <div class="variant-option" data-price="${variant.price}" data-capacity="${variant.capacity}">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="mb-1">${variant.capacity}</h5>
+                  <div class="mb-1">
+                    ${variant.colors.map(color => `
+                      <span class="color-circle" style="background-color: ${getColorCode(color)}" title="${color}"></span>
+                    `).join('')}
+                    <span class="text-muted">${variant.colors.join(', ')}</span>
+                  </div>
+                </div>
+                <h4 class="text-success mb-0">${variant.price.toLocaleString("vi-VN")}₫</h4>
+              </div>
+            </div>
+          `).join('');
+
+          document.getElementById('product-detail').innerHTML = `
+            <div class="row">
+              <div class="col-md-6">
+                <div class="product-image">
+                  <img src="${product.imageUrl}" alt="${product.name}" class="img-fluid">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h2 class="text-warning mb-3">${product.name}</h2>
+                <div class="mb-4">
+                  <h4 class="mb-3">Cấu hình & giá bán</h4>
+                  <div id="variants-container">
+                    ${variantsHTML}
+                  </div>
+                </div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-warning btn-lg btn-add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+                  <a href="product.html" class="btn btn-outline-light">QUAY LẠI DANH SÁCH</a>
+                </div>
+              </div>
+            </div>
+          `;
+
+          // Thêm sự kiện chọn variant
+          const variantOptions = document.querySelectorAll('.variant-option');
+          variantOptions.forEach(option => {
+            option.addEventListener('click', function() {
+              variantOptions.forEach(opt => opt.classList.remove('selected'));
+              this.classList.add('selected');
+            });
+          });
+        })
+        .catch(err => {
+          console.error("Lỗi khi load chi tiết sản phẩm:", err);
+          document.getElementById('product-detail').innerHTML = `
+            <div class="text-center py-5">
+              <h4 class="text-danger">Đã có lỗi xảy ra khi tải chi tiết sản phẩm</h4>
+              <button class="btn btn-outline-light mt-3" onclick="window.location.reload()">Tải lại trang</button>
+            </div>
+          `;
+        });
+    });
+
+    // Hàm chuyển đổi tên màu sang mã màu (có thể mở rộng thêm)
+    function getColorCode(colorName) {
+      const colors = {
+        'Đen': '#000000',
+        'Trắng': '#ffffff',
+        'Vàng': '#ffd700',
+        'Xanh': '#007aff',
+        'Xanh lá': '#34c759',
+        'Đỏ': '#ff3b30',
+        'Tím': '#af52de',
+        'Hồng': '#ff2d55',
+        'Bạc': '#c0c0c0',
+        'Xám': '#8e8e93',
+        'Xanh Navy': '#003366',
+        'Xanh ngọc': '#5ac8fa'
+      };
+      return colors[colorName] || '#cccccc';
+    }
+  </script>
+</body>
+</html>

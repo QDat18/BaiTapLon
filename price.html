@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Your Company</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .pricing-plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .plan {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .plan h3 {
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #3498db;
+        }
+        .price span {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .plan li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .popular {
+            border: 2px solid #3498db;
+            position: relative;
+        }
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Pricing Plans</h1>
+        <p>Choose the perfect plan for your needs</p>
+    </header>
+
+    <div class="container">
+        <div class="pricing-plans">
+            <!-- Basic Plan -->
+            <div class="plan">
+                <h3>Basic</h3>
+                <div class="price">$9.99 <span>/month</span></div>
+                <ul>
+                    <li>10 Projects</li>
+                    <li>5GB Storage</li>
+                    <li>Basic Support</li>
+                    <li>Email Assistance</li>
+                    <li>Community Access</li>
+                </ul>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+
+            <!-- Popular Plan -->
+            <div class="plan popular">
+                <div class="popular-tag">Most Popular</div>
+                <h3>Professional</h3>
+                <div class="price">$29.99 <span>/month</span></div>
+                <ul>
+                    <li>Unlimited Projects</li>
+                    <li>50GB Storage</li>
+                    <li>Priority Support</li>
+                    <li>Phone & Email Assistance</li>
+                    <li>Advanced Analytics</li>
+                </ul>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="plan">
+                <h3>Enterprise</h3>
+                <div class="price">$99.99 <span>/month</span></div>
+                <ul>
+                    <li>Unlimited Projects</li>
+                    <li>500GB Storage</li>
+                    <li>24/7 Support</li>
+                    <li>Dedicated Account Manager</li>
+                    <li>Custom Solutions</li>
+                </ul>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Have questions? <a href="mailto:support@yourcompany.com">Contact our sales team</a></p>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

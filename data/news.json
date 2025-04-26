@@ -1,0 +1,19 @@
+[
+    {
+      "id": "news01",
+      "title": "Apple chính thức ra mắt iPhone 15 tại Việt Nam",
+      "description": "Sự kiện ra mắt iPhone 15 với nhiều cải tiến mới về camera, pin và hiệu năng.",
+      "image": "assets/news/iphone15launch.jpg",
+      "startDate": "18/04/2025",
+      "details": "iPhone 15 đã chính thức có mặt tại các cửa hàng Anh Em Rọt trên toàn quốc. Nhiều ưu đãi dành cho khách hàng đặt trước..."
+    },
+    {
+      "id": "news02",
+      "title": "Apple Watch Ultra nhận bản cập nhật lớn",
+      "description": "Bản cập nhật phần mềm mới giúp nâng cấp tính năng thể thao và theo dõi sức khỏe cho Apple Watch Ultra.",
+      "image": "assets/news/applewatchultra.jpg",
+      "startDate": "17/04/2025",
+      "details": "Apple phát hành watchOS mới cho dòng Ultra. Người dùng có thể theo dõi nhịp tim, GPS chính xác hơn, và nhiều cải tiến..."
+    }
+  ]
+  

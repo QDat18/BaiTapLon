@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "name": "Apple Watch Series 9 GPS 41mm viền nhôm dây vải",
+      "image": "assets/products/apple-watch-series9.png",
+      "price": "7.290.000đ",
+      "old_price": "10.490.000đ",
+      "discount": "-30%",
+      "stock": "Còn 4/5 suất"
+    },
+    {
+      "name": "iPhone 15 Pro Max 256GB",
+      "image": "assets/products/iphone-15-pro-max.png",
+      "price": "30.990.000đ",
+      "old_price": "34.990.000đ",
+      "discount": "-11%",
+      "stock": "Còn 3/5 suất"
+    },
+    {
+      "name": "iPad Air 5 Wi-Fi 64GB",
+      "image": "assets/products/ipad-air-5.png",
+      "price": "13.990.000đ",
+      "old_price": "16.990.000đ",
+      "discount": "-18%",
+      "stock": "Còn 5/5 suất"
+    },
+    {
+      "name": "MacBook Air M2 256GB",
+      "image": "assets/products/macbook-air-m2.png",
+      "price": "25.990.000đ",
+      "old_price": "29.990.000đ",
+      "discount": "-13%",
+      "stock": "Còn 2/5 suất"
+    },
+    {
+      "name": "iPhone 14 Pro Max 128GB",
+      "image": "assets/products/iphone-14-pro-max.png",
+      "price": "28.990.000đ",
+      "old_price": "32.990.000đ",
+      "discount": "-12%",
+      "stock": "Còn 1/5 suất"
+    },
+    {
+      "name": "Apple Watch SE GPS 40mm viền nhôm dây vải",
+      "image": "assets/products/apple-watch-se.png",
+      "price": "5.490.000đ",
+      "old_price": "7.490.000đ",
+      "discount": "-27%",
+      "stock": "Còn 3/5 suất"
+    },
+    {
+      "name": "iPhone 15 128GB",
+      "image": "assets/products/iphone-15.png",
+      "price": "22.990.000đ",
+      "old_price": "24.990.000đ",
+      "discount": "-8%",
+      "stock": "Còn 4/5 suất"
+    },
+    {
+      "name": "iPad Pro M2 12.9 inch 128GB",
+      "image": "assets/products/ipad-pro-m2.png",
+      "price": "29.990.000đ",
+      "old_price": "34.990.000đ",
+      "discount": "-14%",
+      "stock": "Còn 2/5 suất"
+    },
+    {
+      "name": "iPhone 15 Pro 128GB",
+      "image": "assets/products/iphone-15-pro.png",
+      "price": "25.990.000đ",
+      "old_price": "29.990.000đ",
+      "discount": "-13%",
+      "stock": "Còn 3/5 suất"
+    },
+    {
+      "name": "MacBook Pro M2 512GB",
+      "image": "assets/products/macbook-pro-m2.png",
+      "price": "35.990.000đ",
+      "old_price": "39.990.000đ",
+      "discount": "-10%",
+      "stock": "Còn 1/5 suất"
+    }
+  ]
+}

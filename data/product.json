@@ -1,0 +1,1368 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "iPhone",
+        "products": [
+          {
+            "id": "iphone16prm",
+            "imageUrl": "/assets/products/iphone16promax.jpg",
+            "name": "iPhone 16 Pro Max",
+            "category": "iPhone",
+            "specs": ["A18 Pro", "8GB RAM", "USB-C", "Titanium", "3 Camera"],
+            "screen": "6.9 inch OLED",
+            "releaseDate": "2024-09-10",
+            "description": "iPhone 16 Pro Max với thiết kế Titanium siêu nhẹ, hiệu năng vượt trội cùng camera đỉnh cao.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Black Titanium", "White Titanium" , "Desert Titanium" ,"Nature Titanium"],
+                "price": 37990000 
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Black Titanium", "White Titanium", "Desert Titanium" ,"Nature Titanium"],
+                "price": 33990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Black Titanium", "White Titanium", "Desert Titanium" ,"Nature Titanium"],
+                "price": 37990000
+              }
+            ]
+          },
+          {
+            "id": "iphone16pro",
+            "imageUrl": "/assets/products/iphone16pro.jpg",
+            "name": "iPhone 16 Pro",
+            "category": "iPhone",
+            "specs": ["A18 Pro", "8GB RAM", "USB-C", "Titanium", "3 Camera"],
+            "screen": "6.3 inch OLED",
+            "releaseDate": "2024-09-10",
+            "description": "iPhone 16 Pro với thiết kế Titanium hiện đại, mang đến trải nghiệm đỉnh cao với camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Black Titanium", "White Titanium", "Desert Titanium", "Nature Titanium"],
+                "price": 35990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Black Titanium", "White Titanium", "Desert Titanium", "Nature Titanium"],
+                "price": 31990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Black Titanium", "White Titanium", "Desert Titanium", "Nature Titanium"],
+                "price": 28990000
+              }
+            ]
+          },
+          {
+            "id": "iphone16plus",
+            "imageUrl": "/assets/products/iphone16plus.jpg",
+            "name": "iPhone 16 Plus",
+            "category": "iPhone",
+            "specs": ["A17 Bionic", "6GB RAM", "USB-C", "Aluminum", "2 Camera"],
+            "screen": "6.7 inch OLED",
+            "releaseDate": "2024-09-10",
+            "description": "iPhone 16 Plus mang lại trải nghiệm mượt mà với màn hình lớn và pin bền bỉ.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Midnight", "Starlight", "Blue", "Pink"],
+                "price": 28990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Midnight", "Blue"],
+                "price": 25990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Starlight", "Pink"],
+                "price": 22990000
+              }
+            ]
+          },
+          {
+            "id": "iphone16e",
+            "imageUrl": "/assets/products/iphone16e.jpg",
+            "name": "iPhone 16e",
+            "category": "iPhone",
+            "specs": ["A16 Bionic", "4GB RAM", "USB-C", "Aluminum", "1 Camera"],
+            "screen": "6.1 inch LCD",
+            "releaseDate": "2024-10-05",
+            "description": "iPhone 16e là phiên bản tiết kiệm, phù hợp với nhu cầu cơ bản và giá cả phải chăng.",
+            "variants": [
+              {
+                "capacity": "256GB",
+                "colors": ["Red", "Black", "White"],
+                "price": 19990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Red", "White"],
+                "price": 17990000
+              },
+              {
+                "capacity": "64GB",
+                "colors": ["Black"],
+                "price": 15990000
+              }
+            ]
+          },
+          
+          {
+            "id": "iphone16",
+            "imageUrl": "/assets/products/iphone16.jpg",
+            "name": "iPhone 16",
+            "category": "iPhone",
+            "specs": ["A17 Bionic", "6GB RAM", "USB-C", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch OLED",
+            "releaseDate": "2024-09-10",
+            "description": "iPhone 16 với thiết kế mới, chip mạnh mẽ và camera kép nâng cấp.",
+            "variants": [
+              {
+                "capacity": "256GB",
+                "colors": ["Blue", "Pink", "Midnight", "Starlight"],
+                "price": 23990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Blue", "Pink", "Midnight", "Starlight"],
+                "price": 20990000
+              }
+            ]
+          },
+          
+          {
+            "id": "iphone15prm",
+            "imageUrl": "/assets/products/iphone15promax.jpg",
+            "name": "iPhone 15 Pro Max",
+            "category": "iPhone",
+            "specs": ["A17 Pro", "8GB RAM", "USB-C", "Titanium", "3 Camera"],
+            "screen": "6.7 inch OLED",
+            "releaseDate": "2023-09-22",
+            "description": "iPhone 15 Pro Max với thiết kế Titanium siêu nhẹ, hiệu năng vượt trội cùng camera đỉnh cao.",
+            "variants": [
+              {
+                "capacity": "256GB",
+                "colors": ["Black Titanium", "Blue Titanium"],
+                "price": 33990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Black Titanium", "White Titanium"],
+                "price": 37990000
+              }
+            ]
+          },
+          {
+            "id": "iphone15pro",
+            "imageUrl": "/assets/products/iphone15pro.jpg",
+            "name": "iPhone 15 Pro",
+            "category": "iPhone",
+            "specs": ["A17 Pro", "8GB RAM", "USB-C", "Titanium", "3 Camera"],
+            "screen": "6.1 inch OLED ProMotion",
+            "releaseDate": "2023-09-22",
+            "description": "iPhone 15 Pro với thiết kế titanium siêu nhẹ, hiệu năng mạnh mẽ và camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Black Titanium", "White Titanium"],
+                "price": 43990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Blue Titanium", "Natural Titanium"],
+                "price": 38990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Blue Titanium", "Black Titanium"],
+                "price": 34990000
+              }
+            ]
+          },
+          {
+            "id": "iphone15plus",
+            "imageUrl": "/assets/products/iphone15plus.jpg",
+            "name": "iPhone 15 Plus",
+            "category": "iPhone",
+            "specs": ["A16 Bionic", "6GB RAM", "USB-C", "Aluminum", "2 Camera"],
+            "screen": "6.7 inch OLED",
+            "releaseDate": "2023-09-22",
+            "description": "iPhone 15 Plus với màn hình lớn và thời lượng pin tuyệt vời cho nhu cầu giải trí và làm việc.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Blue", "Pink", "Yellow"],
+                "price": 30990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Green", "Black"],
+                "price": 26990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Blue", "Pink"],
+                "price": 23990000
+              }
+            ]
+          },
+          {
+            "id": "iphone15",
+            "imageUrl": "/assets/products/iphone15.jpg",
+            "name": "iPhone 15",
+            "category": "iPhone",
+            "specs": ["A16 Bionic", "6GB RAM", "USB-C", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch OLED",
+            "releaseDate": "2023-09-22",
+            "description": "iPhone 15 mang thiết kế mới với cổng USB-C, camera nâng cấp và hiệu năng mạnh mẽ.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Yellow", "Black", "Green"],
+                "price": 28990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Pink", "Blue"],
+                "price": 24990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Black", "Pink"],
+                "price": 21990000
+              }
+            ]
+          },
+          
+          
+          {
+            "id": "iphone14pm",
+            "imageUrl": "/assets/products/iphone14promax.jpg",
+            "name": "iPhone 14 Pro Max",
+            "category": "iPhone",
+            "specs": ["A16 Bionic", "6GB RAM", "USB-C", "Stainless Steel", "3 Camera"],
+            "screen": "6.7 inch OLED",
+            "releaseDate": "2022-09-16",
+            "description": "iPhone 14 Pro Max với thiết kế sang trọng và hiệu năng mạnh mẽ.",
+            "variants": [
+              {
+                "capacity": "128GB",
+                "colors": ["Space Black", "Silver"],
+                "price": 30990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Space Black", "Gold"],
+                "price": 35990000
+              }
+            ]
+          },
+          {
+            "id": "iphone14pro",
+            "imageUrl": "/assets/products/iphone14pro.jpg",
+            "name": "iPhone 14 Pro",
+            "category": "iPhone",
+            "specs": ["A16 Bionic", "6GB RAM", "Lightning", "Stainless Steel", "3 Camera", "Dynamic Island"],
+            "screen": "6.1 inch OLED ProMotion",
+            "releaseDate": "2022-09-16",
+            "description": "iPhone 14 Pro với Dynamic Island mới mẻ, hiệu năng đỉnh cao và cụm 3 camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Deep Purple", "Gold"],
+                "price": 38990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Silver", "Space Black"],
+                "price": 33990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Deep Purple", "Silver"],
+                "price": 29990000
+              }
+            ]
+          },
+          {
+            "id": "iphone14plus",
+            "imageUrl": "/assets/products/iphone14plus.jpg",
+            "name": "iPhone 14 Plus",
+            "category": "iPhone",
+            "specs": ["A15 Bionic", "6GB RAM", "Lightning", "Aluminum", "2 Camera"],
+            "screen": "6.7 inch OLED",
+            "releaseDate": "2022-10-07",
+            "description": "iPhone 14 Plus với màn hình lớn, pin siêu trâu và thiết kế nhẹ nhàng hiện đại.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Blue", "Purple"],
+                "price": 27990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Red", "Midnight"],
+                "price": 23990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Starlight", "Blue"],
+                "price": 20990000
+              }
+            ]
+          },
+          {
+            "id": "iphone14",
+            "imageUrl": "/assets/products/iphone14.jpg",
+            "name": "iPhone 14",
+            "category": "iPhone",
+            "specs": ["A15 Bionic", "6GB RAM", "Lightning", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch OLED",
+            "releaseDate": "2022-09-16",
+            "description": "iPhone 14 với camera cải tiến, hiệu năng mạnh mẽ và thiết kế quen thuộc nhưng hiện đại.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Purple", "Starlight"],
+                "price": 26990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Blue", "Red"],
+                "price": 22990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Midnight", "Purple"],
+                "price": 19990000
+              }
+            ]
+          },
+          
+          {
+            "id": "iphone13prm",
+            "imageUrl": "/assets/products/iphone13prm.jpg",
+            "name": "iPhone 13 Pro Max",
+            "category": "iPhone",
+            "specs": ["A15 Bionic", "6GB RAM", "Lightning", "Stainless Steel", "3 Camera", "ProMotion"],
+            "screen": "6.7 inch OLED ProMotion",
+            "releaseDate": "2021-09-24",
+            "description": "iPhone 13 Pro Max với màn hình lớn 6.7 inch, hiệu năng đỉnh cao và hệ thống 3 camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Graphite", "Sierra Blue"],
+                "price": 38990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Gold", "Silver"],
+                "price": 33990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Graphite", "Sierra Blue"],
+                "price": 28990000
+              }
+            ]
+          },
+          {
+            "id": "iphone13pro",
+            "imageUrl": "/assets/products/iphone13pro.jpg",
+            "name": "iPhone 13 Pro",
+            "category": "iPhone",
+            "specs": ["A15 Bionic", "6GB RAM", "Lightning", "Stainless Steel", "3 Camera", "ProMotion"],
+            "screen": "6.1 inch OLED ProMotion",
+            "releaseDate": "2021-09-24",
+            "description": "iPhone 13 Pro mang đến hiệu suất mạnh mẽ với màn hình ProMotion 120Hz và cụm 3 camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "1TB",
+                "colors": ["Sierra Blue", "Graphite"],
+                "price": 35990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Gold", "Silver"],
+                "price": 30990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Sierra Blue", "Graphite"],
+                "price": 26990000
+              }
+            ]
+          },
+          {
+            "id": "iphone13",
+            "imageUrl": "/assets/products/iphone13.jpg",
+            "name": "iPhone 13",
+            "category": "iPhone",
+            "specs": ["A15 Bionic", "4GB RAM", "Lightning", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch OLED",
+            "releaseDate": "2021-09-24",
+            "description": "iPhone 13 với thiết kế tinh tế, hiệu năng vượt trội và hệ thống camera kép chất lượng cao.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Pink", "Blue"],
+                "price": 24990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Red", "Midnight"],
+                "price": 20990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Starlight", "Pink"],
+                "price": 17990000
+              }
+            ]
+          },
+          {
+            "id": "iphone12prm",
+            "imageUrl": "/assets/products/iphone12prm.jpg",
+            "name": "iPhone 12 Pro Max",
+            "category": "iPhone",
+            "specs": ["A14 Bionic", "6GB RAM", "Lightning", "Stainless Steel", "3 Camera"],
+            "screen": "6.7 inch OLED Super Retina XDR",
+            "releaseDate": "2020-11-13",
+            "description": "iPhone 12 Pro Max với màn hình lớn 6.7 inch và cụm camera chuyên nghiệp, hiệu năng mạnh mẽ từ chip A14 Bionic.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Pacific Blue", "Graphite"],
+                "price": 30990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Gold", "Silver"],
+                "price": 25990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Pacific Blue", "Graphite"],
+                "price": 21990000
+              }
+            ]
+          },
+          {
+            "id": "iphone12pro",
+            "imageUrl": "/assets/products/iphone12pro.jpg",
+            "name": "iPhone 12 Pro",
+            "category": "iPhone",
+            "specs": ["A14 Bionic", "6GB RAM", "Lightning", "Stainless Steel", "3 Camera"],
+            "screen": "6.1 inch OLED Super Retina XDR",
+            "releaseDate": "2020-10-23",
+            "description": "iPhone 12 Pro với thiết kế sang trọng, hiệu năng mạnh mẽ cùng hệ thống 3 camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Pacific Blue", "Graphite"],
+                "price": 28990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Gold", "Silver"],
+                "price": 23990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Pacific Blue", "Graphite"],
+                "price": 19990000
+              }
+            ]
+          },
+          
+          {
+            "id": "iphone12",
+            "imageUrl": "/assets/products/iphone12.jpg",
+            "name": "iPhone 12",
+            "category": "iPhone",
+            "specs": ["A14 Bionic", "4GB RAM", "USB-C", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch OLED",
+            "releaseDate": "2020-10-23",
+            "description": "iPhone 12 với màn hình OLED đẹp và camera tốt.",
+            "variants": [
+              {
+                "capacity": "64GB",
+                "colors": ["Blue", "White"],
+                "price": 18990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Black", "Red"],
+                "price": 21990000
+              }
+            ]
+          },
+          {
+            "id": "iphone11prm",
+            "imageUrl": "/assets/products/iphone11prm.jpg",
+            "name": "iPhone 11 Pro Max",
+            "category": "iPhone",
+            "specs": ["A13 Bionic", "4GB RAM", "Lightning", "Stainless Steel", "3 Camera"],
+            "screen": "6.5 inch OLED Super Retina XDR",
+            "releaseDate": "2019-09-20",
+            "description": "iPhone 11 Pro Max với màn hình lớn, hiệu năng mạnh mẽ và hệ thống 3 camera chuyên nghiệp cho trải nghiệm đỉnh cao.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Midnight Green", "Space Gray"],
+                "price": 26990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Gold", "Silver"],
+                "price": 21990000
+              },
+              {
+                "capacity": "64GB",
+                "colors": ["Midnight Green", "Space Gray"],
+                "price": 18990000
+              }
+            ]
+          },
+          {
+            "id": "iphone11pro",
+            "imageUrl": "/assets/products/iphone11pro.jpg",
+            "name": "iPhone 11 Pro",
+            "category": "iPhone",
+            "specs": ["A13 Bionic", "4GB RAM", "Lightning", "Stainless Steel", "3 Camera"],
+            "screen": "5.8 inch OLED Super Retina XDR",
+            "releaseDate": "2019-09-20",
+            "description": "iPhone 11 Pro nhỏ gọn nhưng mạnh mẽ, sở hữu màn hình OLED cao cấp và hệ thống camera chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "512GB",
+                "colors": ["Midnight Green", "Space Gray"],
+                "price": 24990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Gold", "Silver"],
+                "price": 19990000
+              },
+              {
+                "capacity": "64GB",
+                "colors": ["Midnight Green", "Space Gray"],
+                "price": 16990000
+              }
+            ]
+          },
+                   
+          {
+            "id": "iphone11",
+            "imageUrl": "/assets/products/iphone11.jpg",
+            "name": "iPhone 11",
+            "category": "iPhone",
+            "specs": ["A13 Bionic", "4GB RAM", "Lightning", "Aluminum", "2 Camera"],
+            "screen": "6.1 inch LCD",
+            "releaseDate": "2019-09-20",
+            "description": "iPhone 11 với hiệu năng ổn định và camera kép.",
+            "variants": [
+              {
+                "capacity": "64GB",
+                "colors": ["Purple", "Green"],
+                "price": 16990000
+              },
+              {
+                "capacity": "128GB",
+                "colors": ["Black", "Yellow"],
+                "price": 19990000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "iPad",
+        "products": [
+          {
+            "id": "ipada16",
+            "imageUrl": "/assets/products/ipada16.jpg",
+            "name": "iPad Gen 11 (A16 Bionic)",
+            "category": "iPad",
+            "specs": ["A16 Bionic chip", "10.9 inch Liquid Retina display", "12 MP Ultra Wide camera", "Touch ID"],
+            "screen": "10.9 inch",
+            "releaseDate": "2024-10-25",
+            "description": "iPad Gen 11 với chip A16 mạnh mẽ, hiệu năng vượt trội và màn hình sắc nét.",
+            "variants": [
+              {
+                "capacity": "128GB",
+                "colors": ["Blue", "Pink", "Silver", "Yellow"],
+                "price": 11990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Blue", "Pink", "Silver", "Yellow"],
+                "price": 14990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Blue", "Pink", "Silver", "Yellow"],
+                "price": 17990000
+              }
+            ]
+          },
+          {
+            "id": "ipadairm3",
+            "imageUrl": "/assets/products/ipadairm3.jpg",
+            "name": "iPad Air (M3, 2025)",
+            "category": "iPad",
+            "specs": ["M3 chip", "11 inch Liquid Retina display", "12 MP Ultra Wide camera", "Touch ID"],
+            "screen": "11 inch",
+            "releaseDate": "2025-05-01",
+            "description": "iPad Air M3 mang đến hiệu năng vượt trội với chip M3, thiết kế mỏng nhẹ và dung lượng linh hoạt từ 128GB đến 1TB.",
+            "variants": [
+              {
+                "capacity": "128GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 18990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 21990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 25990000
+              },
+              {
+                "capacity": "1TB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 29990000
+              }
+            ]
+          },
+          
+          {
+            "id": "ipadairm2",
+            "imageUrl": "/assets/products/ipadairm2.jpg",
+            "name": "iPad Air (M2, 2024)",
+            "category": "iPad",
+            "specs": ["M2 chip", "11 inch Liquid Retina display", "12 MP Ultra Wide camera", "Touch ID"],
+            "screen": "11 inch",
+            "releaseDate": "2024-05-07",
+            "description": "iPad Air M2 với thiết kế mỏng nhẹ, hiệu năng vượt trội và nhiều lựa chọn dung lượng phù hợp với mọi nhu cầu.",
+            "variants": [
+              {
+                "capacity": "128GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 16990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 19990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 23990000
+              },
+              {
+                "capacity": "1TB",
+                "colors": ["Space Gray", "Starlight", "Blue", "Purple"],
+                "price": 27990000
+              }
+            ]
+          },
+          
+          {
+            "id": "ipadprom4",
+            "imageUrl": "/assets/products/ipadprom4.jpg",
+            "name": "iPad Pro (M4, 2025)",
+            "category": "iPad",
+            "specs": ["M4 chip", "12.9 inch Tandem OLED display", "5G", "12 MP Ultra Wide camera", "Face ID"],
+            "screen": "12.9 inch",
+            "releaseDate": "2025-05-01",
+            "description": "iPad Pro M4 với công nghệ màn hình OLED đột phá, chip M4 mạnh mẽ và tuỳ chọn dung lượng lớn đến 2TB, phục vụ tối đa cho nhu cầu chuyên nghiệp.",
+            "variants": [
+              {
+                "capacity": "256GB",
+                "colors": ["Space Black", "Silver"],
+                "price": 29990000
+              },
+              {
+                "capacity": "512GB",
+                "colors": ["Space Black", "Silver"],
+                "price": 33990000
+              },
+              {
+                "capacity": "1TB",
+                "colors": ["Space Black", "Silver"],
+                "price": 38990000
+              },
+              {
+                "capacity": "2TB",
+                "colors": ["Space Black", "Silver"],
+                "price": 44990000
+              }
+            ]
+          },
+          
+          {
+            "id": "ipad10",
+            "imageUrl": "/assets/products/ipad10.jpg",
+            "name": "iPad 10th Gen",
+            "category": "iPad",
+            "specs": ["A14 Bionic chip", "10.9 inch Liquid Retina display", "12 MP Ultra Wide camera", "Touch ID"],
+            "screen": "10.9 inch",
+            "releaseDate": "2022-10-26",
+            "description": "iPad 10th Gen với chip A14 Bionic, màn hình Retina lớn và khả năng xử lý mạnh mẽ.",
+            "variants": [
+              {
+                "capacity": "64GB",
+                "colors": ["Blue", "Pink", "Yellow", "Silver"],
+                "price": 10990000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Blue", "Pink", "Yellow", "Silver"],
+                "price": 13990000
+              }
+            ]
+          },
+          {
+            "id": "ipad9",
+            "imageUrl": "/assets/products/ipad9.jpg",
+            "name": "iPad 9th Gen",
+            "category": "iPad",
+            "specs": ["A13 Bionic chip", "10.2 inch Retina display", "8 MP camera", "Touch ID"],
+            "screen": "10.2 inch",
+            "releaseDate": "2021-09-14",
+            "description": "iPad Gen 9 là lựa chọn tiết kiệm với chip A13 Bionic, đủ mạnh mẽ cho học tập và giải trí.",
+            "variants": [
+              {
+                "capacity": "64GB",
+                "colors": ["Space Gray", "Silver"],
+                "price": 8490000
+              },
+              {
+                "capacity": "256GB",
+                "colors": ["Space Gray", "Silver"],
+                "price": 11490000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Mac",
+        "products": [
+          {
+            "id": "macbook-air-13",
+            "name": "MacBook Air 13\"",
+            "imageUrl": "/assets/products/macbookair13.jpg",
+            "specs": ["M1/M2/M3/M4 chip", "8GB/16GB RAM", "SSD 256GB/512GB", "13.6 inch Retina"],
+            "screen": "13.6 inch",
+            "releaseDate": "2022-07-15",
+            "description": "MacBook Air 13 inch siêu mỏng nhẹ, phù hợp cho học sinh sinh viên và người dùng cơ bản.",
+            "variants": [
+              {
+                "chip": "M1",
+                "capacity": "256GB",
+                "ram": "8GB",
+                "colors": ["Silver", "Gold"],
+                "price": 21990000
+              },
+              {
+                "chip": "M2",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Midnight", "Starlight"],
+                "price": 28990000
+              },
+              {
+                "chip": "M3",
+                "capacity": "512GB",
+                "ram": "8GB",
+                "colors": ["Midnight", "Silver"],
+                "price": 29990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Silver", "Space Gray"],
+                "price": 34990000
+              }
+            ]
+          },
+          {
+            "id": "macbook-air-15",
+            "name": "MacBook Air 15\"",
+            "imageUrl": "/assets/products/macbookair15.jpg",
+            "specs": ["M4 chip", "8GB/16GB RAM", "SSD 256GB/512GB", "15.3 inch Retina"],
+            "screen": "15.3 inch",
+            "releaseDate": "2024-03-20",
+            "description": "MacBook Air 15 inch với màn hình lớn hơn, hiệu năng M4 hiện đại.",
+            "variants": [
+              {
+                "chip": "M4",
+                "capacity": "256GB",
+                "ram": "8GB",
+                "colors": ["Silver", "Midnight"],
+                "price": 33990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Starlight", "Space Gray"],
+                "price": 38990000
+              }
+            ]
+          },
+          {
+            "id": "macbook-pro-14",
+            "name": "MacBook Pro 14\"",
+            "imageUrl": "/assets/products/macbookpro14.jpg",
+            "specs": ["M3/M4 chip", "16GB/24GB/36GB/48GB RAM", "SSD 512GB/1TB", "14.2 inch Liquid Retina XDR"],
+            "screen": "14.2 inch",
+            "releaseDate": "2023-11-01",
+            "description": "MacBook Pro 14 inch mạnh mẽ, lý tưởng cho người dùng chuyên nghiệp.",
+            "variants": [
+              {
+                "chip": "M3",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Silver", "Space Gray"],
+                "price": 49990000
+              },
+              {
+                "chip": "M3",
+                "capacity": "1TB",
+                "ram": "36GB",
+                "colors": ["Silver", "Space Gray"],
+                "price": 64990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "24GB",
+                "colors": ["Silver", "Space Black"],
+                "price": 59990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "1TB",
+                "ram": "48GB",
+                "colors": ["Silver", "Space Black"],
+                "price": 68990000
+              }
+            ]
+          },
+          {
+            "id": "macbook-pro-16",
+            "name": "MacBook Pro 16\"",
+            "imageUrl": "/assets/products/macbookpro16.jpg",
+            "specs": ["M3/M4 chip", "16GB/24GB/36GB/48GB RAM", "SSD 512GB/1TB", "16.2 inch Liquid Retina XDR"],
+            "screen": "16.2 inch",
+            "releaseDate": "2023-11-01",
+            "description": "MacBook Pro 16 inch dành cho người dùng chuyên nghiệp cần hiệu năng tối đa.",
+            "variants": [
+              {
+                "chip": "M3",
+                "capacity": "512GB",
+                "ram": "24GB",
+                "colors": ["Silver", "Space Gray"],
+                "price": 69990000
+              },
+              {
+                "chip": "M3",
+                "capacity": "1TB",
+                "ram": "48GB",
+                "colors": ["Silver", "Space Gray"],
+                "price": 81990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "36GB",
+                "colors": ["Silver", "Space Black"],
+                "price": 76990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "1TB",
+                "ram": "48GB",
+                "colors": ["Silver", "Space Black"],
+                "price": 85990000
+              }
+            ]
+          },
+          {
+            "id": "imac-24",
+            "name": "iMac 24\"",
+            "imageUrl": "/assets/products/imac24.jpg",
+            "specs": ["M3/M4 chip", "8GB/16GB RAM", "SSD 256GB/512GB", "24 inch 4.5K Retina"],
+            "screen": "24 inch",
+            "releaseDate": "2023-10-30",
+            "description": "iMac 24 inch với nhiều màu sắc, thiết kế mỏng nhẹ và hiệu năng hiện đại.",
+            "variants": [
+              {
+                "chip": "M3",
+                "capacity": "256GB",
+                "ram": "8GB",
+                "colors": ["Blue", "Green", "Silver"],
+                "price": 34990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Silver", "Pink"],
+                "price": 42990000
+              }
+            ]
+          },
+          {
+            "id": "mac-mini",
+            "name": "Mac mini",
+            "imageUrl": "/assets/products/macmini.jpg",
+            "specs": ["M4/M4 Pro chip", "16GB–48GB RAM", "SSD 512GB–1TB", "Compact Desktop"],
+            "screen": "None",
+            "releaseDate": "2025-02-12",
+            "description": "Mac mini với tùy chọn chip M4 hoặc M4 Pro cho hiệu năng vượt trội trong thiết kế siêu nhỏ gọn.",
+            "variants": [
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "16GB",
+                "colors": ["Silver"],
+                "price": 24990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "1TB",
+                "ram": "24GB",
+                "colors": ["Silver"],
+                "price": 28990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "1TB",
+                "ram": "36GB",
+                "colors": ["Silver"],
+                "price": 32990000
+              },
+              {
+                "chip": "M4 Pro",
+                "capacity": "512GB",
+                "ram": "24GB",
+                "colors": ["Silver"],
+                "price": 31990000
+              },
+              {
+                "chip": "M4 Pro",
+                "capacity": "1TB",
+                "ram": "36GB",
+                "colors": ["Silver"],
+                "price": 36990000
+              },
+              {
+                "chip": "M4 Pro",
+                "capacity": "1TB",
+                "ram": "48GB",
+                "colors": ["Silver"],
+                "price": 40990000
+              }
+            ]
+          },
+          {
+            "id": "mac-studio",
+            "name": "Mac Studio",
+            "imageUrl": "/assets/products/macstudio.jpg",
+            "specs": ["M4/M2 Ultra chip", "32GB–96GB RAM", "SSD 512GB–1TB", "Performance Desktop"],
+            "screen": "None",
+            "releaseDate": "2024-06-10",
+            "description": "Mac Studio với hiệu năng cực cao, thiết kế nhỏ gọn, phù hợp cho công việc chuyên nghiệp như đồ họa, dựng phim và AI.",
+            "variants": [
+              {
+                "chip": "M4",
+                "capacity": "512GB",
+                "ram": "32GB",
+                "colors": ["Silver"],
+                "price": 52990000
+              },
+              {
+                "chip": "M4",
+                "capacity": "1TB",
+                "ram": "48GB",
+                "colors": ["Silver"],
+                "price": 58990000
+              },
+              {
+                "chip": "M2 Ultra",
+                "capacity": "512GB",
+                "ram": "64GB",
+                "colors": ["Silver"],
+                "price": 79990000
+              },
+              {
+                "chip": "M2 Ultra",
+                "capacity": "1TB",
+                "ram": "96GB",
+                "colors": ["Silver"],
+                "price": 94990000
+              }
+            ]
+          },
+          {
+            "id": "studio-display",
+            "name": "Apple Studio Display Standard",
+            "imageUrl": "/assets/products/studiodisplay.jpg",
+            "specs": ["27 inch Retina 5K", "True Tone", "P3 wide color", "Thunderbolt"],
+            "screen": "27 inch 5K Retina",
+            "releaseDate": "2022-03-08",
+            "description": "Apple Studio Display phiên bản chuẩn với màn hình 5K tuyệt đẹp, màu bạc sang trọng, lý tưởng cho các dòng Mac cao cấp.",
+            "variants": [
+              {
+                "glass": "Standard glass",
+                "stand": "Tilt-adjustable stand",
+                "color": "Silver",
+                "price": 39990000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Apple Watch",
+        "products": [
+          {
+            "id": "applewatchultra2",
+            "imageUrl": "/assets/products/applewatchultra2.jpg",
+            "name": "Apple Watch Ultra 2",
+            "category": "Watch",
+            "specs": ["Titanium case", "S9 chip", "Always-On Retina display", "Precision dual-frequency GPS", "Double Tap gesture"],
+            "screen": "49mm",
+            "releaseDate": "2023-09-22",
+            "description": "Apple Watch Ultra 2 với thiết kế siêu bền, hiệu năng mạnh mẽ cùng nhiều lựa chọn dây đeo phù hợp với hoạt động chuyên biệt.",
+            "variants": [
+              {
+                "capacity": "Không có",
+                "colors": ["Ocean Blue", "Midnight Ocean", "White Ocean"],
+                "bandType": "Ocean Band",
+                "price": 19990000
+              },
+              {
+                "capacity": "Không có",
+                "colors": ["Blue/Gray", "Green/Gray", "Orange/Beige"],
+                "bandType": "Trail Loop",
+                "price": 19990000
+              },
+              {
+                "capacity": "Không có",
+                "colors": ["Blue Alpine", "Indigo Alpine", "Green Alpine"],
+                "bandType": "Alpine Loop",
+                "price": 19990000
+              }
+            ]
+          },
+          
+          {
+            "id": "applewatchseries10",
+            "imageUrl": "/assets/products/applewatchseries10.jpg",
+            "name": "Apple Watch Series 10",
+            "category": "Watch",
+            "specs": ["S10 chip", "Always-On Retina display", "Cảm biến sức khỏe tiên tiến", "Màn hình lớn hơn"],
+            "screen": "41mm, 45mm",
+            "releaseDate": "2024-09-20",
+            "description": "Apple Watch Series 10 với màn hình lớn hơn, hiệu suất nhanh hơn và các tính năng sức khỏe hiện đại.",
+            "variants": [
+              {
+                "capacity": "Không có",
+                "colors": ["Midnight", "Starlight", "Silver"],
+                "price": 11990000
+              }
+            ]
+          },
+          {
+            "id": "applewatchseries9",
+            "imageUrl": "/assets/products/applewatchseries9.jpg",
+            "name": "Apple Watch Series 9",
+            "category": "Watch",
+            "specs": ["S9 chip", "Double Tap gesture", "Always-On Retina display", "Cảm biến nhịp tim thế hệ mới"],
+            "screen": "41mm, 45mm",
+            "releaseDate": "2023-09-22",
+            "description": "Apple Watch Series 9 mang đến thao tác Double Tap mới, màn hình sáng hơn và hiệu năng vượt trội với chip S9.",
+            "variants": [
+              {
+                "capacity": "Không có",
+                "colors": ["Midnight", "Pink", "Starlight", "Silver", "Product(RED)"],
+                "price": 10990000
+              }
+            ]
+          },
+          {
+            "id": "applewatchse2",
+            "imageUrl": "/assets/products/applewatchse2.jpg",
+            "name": "Apple Watch SE (2nd Gen)",
+            "category": "Watch",
+            "specs": ["S8 chip", "Retina display", "Cảm biến nhịp tim", "Phát hiện tai nạn"],
+            "screen": "40mm, 44mm",
+            "releaseDate": "2022-09-16",
+            "description": "Apple Watch SE thế hệ thứ hai cung cấp các tính năng thiết yếu trong một thiết kế nhẹ và giá hợp lý.",
+            "variants": [
+              {
+                "capacity": "Không có",
+                "colors": ["Midnight", "Starlight", "Silver"],
+                "price": 7990000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Tai nghe",
+        "products": [
+          {
+            "id": "airpods-pro-2",
+            "name": "AirPods Pro 2",
+            "imageUrl": "/assets/products/airpodspro2.jpg",
+            "specs": ["ANC", "Adaptive Transparency", "MagSafe"],
+            "releaseDate": "2022-09-23",
+            "description": "AirPods Pro 2 với âm thanh tuyệt hảo và khả năng chống ồn chủ động.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 6490000
+              }
+            ]
+          },
+          {
+            "id": "earpods",
+            "name": "EarPods",
+            "imageUrl": "/assets/products/earpods.jpg",
+            "specs": ["Thiết kế truyền thống", "Điều khiển tích hợp", "Âm thanh rõ nét"],
+            "releaseDate": "2012-09-12",
+            "description": "EarPods là tai nghe có dây cổ điển của Apple, mang lại trải nghiệm âm thanh ổn định với 2 tùy chọn cổng kết nối.",
+            "variants": [
+              {
+                "type": "Lightning",
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 550000,
+                "releaseDate": "2016-09-07"
+              },
+              {
+                "type": "USB-C",
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 550000,
+                "releaseDate": "2023-09-12"
+              }
+            ]
+          },
+          {
+            "id": "airpods-4",
+            "name": "AirPods 4",
+            "imageUrl": "/assets/products/airpods4.jpg",
+            "specs": ["Spatial Audio", "Chống nước IPX4", "MagSafe"],
+            "releaseDate": "2025-03-10",
+            "description": "AirPods 4 thế hệ mới với hai phiên bản: có chống ồn và không chống ồn, phù hợp với nhiều nhu cầu sử dụng.",
+            "variants": [
+              {
+                "type": "Không chống ồn",
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 5190000
+              },
+              {
+                "type": "Chống ồn (ANC)",
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 6490000
+              }
+            ]
+          },
+          {
+            "id": "airpods-max",
+            "name": "AirPods Max",
+            "imageUrl": "/assets/products/airpodsmax.jpg",
+            "specs": ["ANC", "Spatial Audio", "Digital Crown", "Apple H1 chip"],
+            "releaseDate": "2020-12-15",
+            "description": "Tai nghe over-ear cao cấp nhất của Apple với chất âm đỉnh cao và thiết kế sang trọng. Có hai phiên bản: USB-C và Lightning.",
+            "variants": [
+              {
+                "type": "Lightning",
+                "capacity": "—",
+                "colors": ["Space Gray", "Silver", "Sky Blue", "Green", "Pink"],
+                "price": 13990000
+              },
+              {
+                "type": "USB-C",
+                "capacity": "—",
+                "colors": ["Space Gray", "Silver", "Sky Blue", "Green", "Pink"],
+                "price": 14490000
+              }
+            ]
+          },
+          {
+            "id": "airpods-3",
+            "name": "AirPods (Thế hệ 3)",
+            "imageUrl": "/assets/products/airpods3.jpg",
+            "specs": ["Spatial Audio", "Chống nước IPX4", "MagSafe"],
+            "releaseDate": "2021-10-26",
+            "description": "AirPods 3 với thiết kế mới, hỗ trợ Spatial Audio và thời lượng pin lâu hơn.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 4990000
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Phụ kiện",
+        "products": [
+          {
+            "id": "magsafe-charger",
+            "name": "MagSafe Charger",
+            "imageUrl": "/assets/products/magsafe.jpg",
+            "specs": ["Sạc không dây", "Tương thích iPhone 12 trở lên"],
+            "releaseDate": "2020-10-23",
+            "description": "Sạc nhanh không dây MagSafe với thiết kế từ tính tiện lợi.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["Silver"],
+                "price": 1190000
+              }
+            ]
+          },
+          {
+            "id": "usb-c-cable",
+            "name": "USB-C Cable",
+            "imageUrl": "/assets/products/usbc-cable.jpg",
+            "specs": ["Cáp USB-C to Lightning", "Tốc độ truyền tải nhanh"],
+            "releaseDate": "2021-04-23",
+            "description": "Cáp USB-C to Lightning giúp sạc nhanh và truyền tải dữ liệu hiệu quả.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 590000
+              }
+            ]
+          },
+          {
+            "id": "adapter-20w",
+            "name": "20W USB-C Power Adapter",
+            "imageUrl": "/assets/products/adapter20w.jpg",
+            "specs": ["Adapter sạc nhanh", "Tương thích với các thiết bị USB-C"],
+            "releaseDate": "2020-10-23",
+            "description": "Adapter sạc nhanh 20W giúp sạc các thiết bị nhanh chóng và hiệu quả.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["White"],
+                "price": 690000
+              }
+            ]
+          },
+          {
+            "id": "iphone-screen-protector",
+            "name": "Kính cường lực iPhone",
+            "imageUrl": "/assets/products/screen-protector.jpg",
+            "specs": ["Kính cường lực chống trầy xước", "Tương thích với iPhone 12/13/14"],
+            "releaseDate": "2021-11-15",
+            "description": "Kính cường lực bảo vệ màn hình iPhone khỏi trầy xước và va đập.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["Clear"],
+                "price": 299000
+              }
+            ]
+          },
+          {
+            "id": "apple-watch-band",
+            "name": "Dây đeo Apple Watch",
+            "imageUrl": "/assets/products/apple-watch-band.jpg",
+            "specs": ["Dây đeo Apple Watch", "Chất liệu Silicone, Thép, Nylon, Cao su"],
+            "releaseDate": "2021-09-14",
+            "description": "Dây đeo Apple Watch với nhiều lựa chọn chất liệu và màu sắc.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["Silver", "Black", "Gold", "Pink"],
+                "material": "Thép",
+                "price": 2590000
+              },
+              {
+                "capacity": "—",
+                "colors": ["Gray", "Black", "Navy"],
+                "material": "Nylon",
+                "price": 1390000
+              },
+              {
+                "capacity": "—",
+                "colors": ["Black", "White", "Gray"],
+                "material": "Cao su",
+                "price": 890000
+              },
+              {
+                "capacity": "—",
+                "colors": ["Midnight", "Starlight", "Pink"],
+                "material": "Silicon",
+                "price": 1290000
+              }
+            ]
+          },
+          {
+            "id": "apple-magic-mouse",
+            "name": "Apple Magic Mouse",
+            "imageUrl": "/assets/products/apple-magic-mouse.jpg",
+            "specs": ["Chuột không dây", "Cảm ứng đa điểm", "Tương thích với macOS"],
+            "releaseDate": "2021-10-18",
+            "description": "Apple Magic Mouse với thiết kế hiện đại, hỗ trợ cảm ứng đa điểm và kết nối không dây với Mac.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["Silver", "White"],
+                "price": 2190000
+              }
+            ]
+          },
+          {
+            "id": "magic-trackpad",
+            "name": "Magic Trackpad",
+            "imageUrl": "/assets/products/magic-trackpad.jpg",
+            "specs": ["Bàn di chuột không dây", "Cảm ứng đa điểm", "Tương thích với macOS"],
+            "releaseDate": "2021-10-18",
+            "description": "Magic Trackpad cung cấp trải nghiệm cảm ứng mượt mà, chính xác với hỗ trợ đa điểm, dễ dàng kết nối với Mac.",
+            "variants": [
+              {
+                "capacity": "—",
+                "colors": ["Silver", "White"],
+                "price": 2990000
+              }
+            ]
+          }
+        ]
+      }
+      
+    ]
+  }
+  
