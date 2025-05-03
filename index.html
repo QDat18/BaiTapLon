@@ -10,21 +10,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"> 
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/flashsale.css">
     <link rel="stylesheet" href="css/main_css.css">
 
     <style>
 
-        /* .loading-placeholder {
+        .loading-placeholder {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
             height: 100%;
             font-size: 24px;
-            color: #999; */
-        /* } */
+            color: #999;
+        }
 
     </style>
 </head>
@@ -200,7 +201,30 @@
         <section class="categories-section">
             <h2 class="section-title"><i class="fas fa-list"></i> Danh Mục Sản Phẩm</h2>
             <div class="category-grid" id="category-container">
-                <!-- Categories will be loaded from JSON -->
+                <div class="category-card" id="category1">
+                    <a href="iphone.html"><img src="assets/banner/category1.jpg" alt="Category 1"></a>
+                    <h3>Iphone</h3>
+                </div>
+                <div class="category-card" id="category2">
+                    <a href="ipad.html"><img src="assets/banner/category2.jpg" alt="Category 2"></a>
+                    <h3>Ipad</h3>
+                </div>
+                <div class="category-card" id="category3">
+                    <a href="macbook.html"><img src="assets/banner/category3.jpg" alt="Category 3"></a>
+                    <h3>Macbook</h3>
+                </div>
+                <div class="category-card" id="category4">
+                    <a href="tainghe_loa.html"><img src="assets/banner/category4.jpg" alt="Category 4"></a>
+                    <h3>Tai nghe, Loa</h3>
+                </div>
+                <div class="category-card" id="category5">
+                    <a href="phukien.html"><img src="assets/banner/category3.jpg" alt="Category 5"></a>
+                    <h3>Phụ Kiện</h3>
+                </div>
+                <div class="category-card" id="category6">
+                    <a href="Watch"><img src="assets/banner/category4.jpg" alt="Category 6"></a>
+                    <h3>Watch</h3>
+                </div>
             </div>
         </section>
 
@@ -210,15 +234,194 @@
                 <h2 class="section-title"><i class="fas fa-bolt"></i> Sản Phẩm Nổi Bật</h2>
                 <a href="product_detail.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
             </div>
-            <div class="product-grid" id="featured-products">
-                <!-- Sản phẩm sẽ được thêm bằng JavaScript -->
+            
+            <div class="slider-container">
+                <div class="slider-track" id="slider-track">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <div class="product-badge">Mới</div>
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 1">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">Laptop Asus VivoBook</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">15.990.000₫</span>
+                                <span class="old-price">17.990.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(45)</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <div class="product-badge sale">-20%</div>
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 2">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">iPhone 15 Pro Max</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">28.990.000₫</span>
+                                <span class="old-price">32.990.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(112)</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 3 -->
+                    <div class="product-card">
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 3">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">Tai nghe Sony WH-1000XM5</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">8.490.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(78)</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 4 -->
+                    <div class="product-card">
+                        <div class="product-badge hot">Hot</div>
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 4">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">Samsung Galaxy S25 Ultra</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">27.490.000₫</span>
+                                <span class="old-price">29.990.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(56)</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 5 -->
+                    <div class="product-card">
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 5">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">iPad Air 2025</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">16.990.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(34)</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Product Card 6 -->
+                    <div class="product-card">
+                        <div class="product-badge sale">-15%</div>
+                        <div class="product-thumbnail">
+                            <img src="/api/placeholder/300/300" alt="Sản phẩm 6">
+                            <div class="product-actions">
+                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
+                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
+                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="product_detail.html">Máy ảnh Sony Alpha A7 IV</a></h3>
+                            <div class="product-price">
+                                <span class="current-price">48.990.000₫</span>
+                                <span class="old-price">52.990.000₫</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(23)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="slider-control slider-prev" id="slider-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-control slider-next" id="slider-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
+            
+            <!-- Slider Dots -->
+            <div class="slider-dots" id="slider-dots">
+                <!-- Dots will be added by JavaScript -->
+            </div>
+
         </section>
         <!-- Promotion Section -->
         <section class="promotion-section">
             <div class="section-header">
                 <h2 class="section-title"><i class="fas fa-gift"></i> Khuyến Mãi</h2>
-                <a href="promotions.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
+                <a href="promotion.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="promotion-grid" id="promotion-container">
                 <!-- Promotion cards will be inserted here -->
@@ -250,11 +453,28 @@
 
     <!-- Footer will be loaded here -->
     <div id="footer-placeholder"></div>
-    
+    <div class="chatbot-container">
+        <button id="chatbotToggle">💬</button>
+        <div id="chatbotPopup" class="chatbot-popup hidden">
+            <div class="chatbot-header">
+                <span>AI Chatbot</span>
+                <button id="closePopup">✖</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">Chào bạn! Bạn cần gì?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Nhập câu hỏi...">
+                <button id="sendBtn">Gửi</button>
+            </div>
+        </div>
+    </div>
     <!-- Your Scripts -->
     <script src="scripts/loadbanner.js"></script>
     <script src="scripts/loadcontent.js"></script>
     <script src="scripts/cart.js"></script>
+    <script src="scripts/news.js"></script>
+    <script src="scripts/promotion.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>

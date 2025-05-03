@@ -14,6 +14,8 @@ $(window).on('load', function () {
 
 
 
+/* load news va load  */
+
 /*-------------------------------------------------------------------------------
 Aside Menu
 -------------------------------------------------------------------------------*/
@@ -68,33 +70,6 @@ $(document).ready(function () {
             });
     }
 
-    // Flash Sale Countdown
-    function updateFlashSaleTimer() {
-        const now = new Date();
-        const endTime = new Date();
-        endTime.setHours(23, 59, 59, 0);
-        let diff = endTime - now;
-        
-        if (diff < 0) {
-            endTime.setDate(endTime.getDate() + 1);
-            diff = endTime - now;
-        }
-        
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
-        $('#hours').text(hours.toString().padStart(2, '0'));
-        $('#minutes').text(minutes.toString().padStart(2, '0'));
-        $('#seconds').text(seconds.toString().padStart(2, '0'));
-        let Countdown = document.getElementById('countdown');
-        if (diff <= 0) {
-            Countdown.innerHTML = '<p class="error-message">Flash Sale đã kết thúc!</p>';
-            clearInterval(Countdown);
-        } else {
-            Countdown.innerHTML = `Kết thúc sau: <span id="hours">${hours}</span>:<span id="minutes">${minutes}</span>:<span id="seconds">${seconds}</span>`;
-        }
-    }
 
     // Render flash sale products
     function renderFlashSaleProducts(products) {
@@ -298,6 +273,154 @@ $(document).ready(function () {
         document.dispatchEvent(event);
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Categories loaded successfully');
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Slider functionality
+        const track = document.getElementById('slider-track');
+        const prevBtn = document.getElementById('slider-prev');
+        const nextBtn = document.getElementById('slider-next');
+        const dotsContainer = document.getElementById('slider-dots');
+        const slides = document.querySelectorAll('.product-card');
+        
+        // Variables
+        let currentIndex = 0;
+        let slidesToShow = 5; // Default for desktop
+        
+        // Calculate appropriate slides to show based on screen width
+        function calculateSlidesToShow() {
+            const windowWidth = window.innerWidth;
+            if (windowWidth <= 480) {
+                return 1; // Mobile
+            } else if (windowWidth <= 768) {
+                return 2; // Tablet
+            } else if (windowWidth <= 1024) {
+                return 3; // Small desktop
+            } else {
+                return 4; // Large desktop
+            }
+        }
+        
+        // Update slidesToShow on window resize
+        window.addEventListener('resize', function() {
+            slidesToShow = calculateSlidesToShow();
+            updateSlider();
+            updateDots();
+        });
+        
+        // Set initial slidesToShow
+        slidesToShow = calculateSlidesToShow();
+        
+        // Create dots
+        function createDots() {
+            dotsContainer.innerHTML = '';
+            const totalDots = Math.ceil(slides.length / slidesToShow);
+            
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('slider-dot');
+                if (i === 0) dot.classList.add('active');
+                
+                dot.addEventListener('click', function() {
+                    currentIndex = i * slidesToShow;
+                    updateSlider();
+                    updateDots();
+                });
+                
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        // Update dots active state
+        function updateDots() {
+            const dots = document.querySelectorAll('.slider-dot');
+            const activeDotIndex = Math.floor(currentIndex / slidesToShow);
+            
+            dots.forEach((dot, index) => {
+                if (index === activeDotIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Update slider position
+        function updateSlider() {
+            const slideWidth = slides[0].offsetWidth + 20; // Width + margin
+            const totalSlides = slides.length;
+            
+            // Prevent scrolling past the end
+            if (currentIndex > totalSlides - slidesToShow) {
+                currentIndex = totalSlides - slidesToShow;
+            }
+            
+            // Prevent scrolling before the beginning
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            }
+            
+            // Move track
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            
+            // Update arrows visibility
+            prevBtn.style.opacity = currentIndex <= 0 ? '0.3' : '0.8';
+            nextBtn.style.opacity = currentIndex >= totalSlides - slidesToShow ? '0.3' : '0.8';
+        }
+        
+        // Add event listeners to buttons
+        prevBtn.addEventListener('click', function() {
+            currentIndex -= slidesToShow;
+            updateSlider();
+            updateDots();
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            currentIndex += slidesToShow;
+            updateSlider();
+            updateDots();
+        });
+        
+        // Initialize slider
+        createDots();
+        updateSlider();
+        
+        // Optional: Add auto-scrolling functionality
+        let autoScrollInterval;
+        
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(function() {
+                if (currentIndex < slides.length - slidesToShow) {
+                    currentIndex += slidesToShow;
+                } else {
+                    currentIndex = 0;
+                }
+                updateSlider();
+                updateDots();
+            }, 5000); // Auto-scroll every 5 seconds
+        }
+        
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+        
+        // Start auto-scrolling
+        startAutoScroll();
+        
+        // Stop auto-scrolling when user interacts with the slider
+        track.addEventListener('mouseenter', stopAutoScroll);
+        prevBtn.addEventListener('mouseenter', stopAutoScroll);
+        nextBtn.addEventListener('mouseenter', stopAutoScroll);
+        dotsContainer.addEventListener('mouseenter', stopAutoScroll);
+        
+        // Resume auto-scrolling when user leaves the slider
+        track.addEventListener('mouseleave', startAutoScroll);
+        prevBtn.addEventListener('mouseleave', startAutoScroll);
+        nextBtn.addEventListener('mouseleave', startAutoScroll);
+        dotsContainer.addEventListener('mouseleave', startAutoScroll);
+    });
     // Initialize functions
     function init() {
         loadCartCount();
@@ -316,4 +439,76 @@ $(document).ready(function () {
     });
     // Initialize everything
     init();
+
+    // chatbot
+    document.addEventListener("DOMContentLoaded", function() {
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotPopup = document.getElementById('chatbotPopup');
+        const closePopup = document.getElementById('closePopup');
+    
+        chatbotToggle.addEventListener('click', function() {
+            chatbotPopup.classList.toggle('hidden');
+        });
+    
+        closePopup.addEventListener('click', function() {
+            chatbotPopup.classList.add('hidden');
+        });
+    });
+const apiKey = "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";
+
+async function sendMessage() {
+    const text = userInput.value.trim();
+    if (text === "") return;
+
+    addMessage("user", text);
+    userInput.value = "";
+
+    addMessage("bot", "Đang suy nghĩ...");
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: text }]
+            })
+        });
+
+        const data = await response.json();
+        const reply = data.choices?.[0]?.message?.content || "Không có phản hồi.";
+
+        // Xóa tin nhắn "Đang suy nghĩ..."
+        const botMessages = document.querySelectorAll(".bot");
+        botMessages[botMessages.length - 1].remove();
+
+        addMessage("bot", reply);
+    } catch (error) {
+        // Handle errors more gracefully
+        addMessage("bot", "Lỗi khi gọi API. Vui lòng thử lại.");
+        console.error("API error:", error);
+    }
+}
+
+function addMessage(sender, text) {
+    const message = document.createElement("div");
+    message.classList.add("message", sender);
+    message.textContent = text;
+    chatbotMessages.appendChild(message);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    return message;
+}
+
+// Event listener for the send button
+document.getElementById('sendBtn').addEventListener('click', sendMessage);
+
+// You can also listen for the Enter key for convenience
+document.getElementById('userInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
 });
