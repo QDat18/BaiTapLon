@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tai Nghe - Anh Em Rọt Store</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <script src="scripts/navbar.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+    <!-- Top Navbar -->
+  <div class="top-nav" role="navigation" aria-label="Main navigation">
+    <div class="logo">
+      <a href="/index.html"><img src="/assets/logo/logo.png" alt="Anh Em Rọt Store"></a>
+    </div>
+
+    <div class="search-bar">
+      <div class="label" role="button" aria-label="Chọn danh mục sản phẩm">Sản phẩm</div>
+      <input type="text" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm">
+      <button aria-label="Tìm kiếm"><i class="fa fa-search"></i></button>
+    </div>
+
+    <div class="user-actions">
+      <div class="action-icon" role="button" aria-label="Danh sách yêu thích">
+        <i class="fa fa-heart"></i>
+      </div>
+      <div class="cart-info">
+        <a href="./cart.html" class="basket-icon" aria-label="Giỏ hàng với 3 sản phẩm">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="count" id="cart-count">0</span>
+        </a>
+      </div>
+      <a href="./login.html" class="btn-login" id="loginButton" aria-label="Đăng nhập">Đăng nhập</a>
+      <a href="./register.html" class="btn-login" id="registerButton" aria-label="Đăng ký" style="display: none;">Đăng ký</a>
+      <a href="#" class="btn-login" id="logoutButton" aria-label="Đăng xuất" style="display: none;">Đăng xuất</a>
+      <span id="navbarUser" style="display: none; color: var(--white); font-weight: 600;"></span>
+    </div>
+  </div>
+
+  <!-- Main Navbar -->
+  <nav class="main-nav" role="navigation" aria-label="Secondary navigation">
+    <div class="nav-wrapper">
+      <div class="menu-left">
+        <button id="dropdownBtn" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-th"></i> DANH MỤC SẢN PHẨM <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu" role="menu">
+          <a href="/iphone.html" role="menuitem">iPhone</a>
+          <a href="/ipad.html" role="menuitem">iPad</a>
+          <a href="/macbook.html" role="menuitem">MacBook</a>
+          <a href="/watch.html" role="menuitem">Apple Watch</a>
+          <a href="/tainghe.html" role="menuitem">Tai Nghe</a>
+          <a href="/accessory.html" role="menuitem">Phụ kiện</a>
+        </div>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="menu-items">
+        <a href="/index.html">TRANG CHỦ</a>
+        <a href="/product.html">SẢN PHẨM</a>
+        <a href="/about.html">VỀ CHÚNG TÔI</a>
+        <a href="/contact.html">LIÊN HỆ</a>
+        <a href="/news.html">TIN TỨC</a>
+      </div>
+      <div class="nav-divider"></div>
+      <div class="menu-right">
+        <button class="toggle-btn" aria-controls="sidebar-menu" aria-expanded="false">
+          <span><b>KHÁM PHÁ</b></span>
+          <span class="arrow">◀</span>
+        </button>
+
+        <div class="sidebar-menu" id="sidebar-menu" role="dialog" aria-label="Menu khám phá">
+          <!-- Sản Phẩm Nổi Bật -->
+          <div class="gallery-section">
+            <h3 class="sidebar-title"><i class="fa fa-star"></i> KHÁM PHÁ</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <a href="#">
+                  <img src="https://via.placeholder.com/300x200?text=AirPods+Pro" alt="AirPods Pro">
+                  <div class="item-title">AirPods Pro</div>
+                </a>
+              </div>
+              <div class="gallery-item">
+                <a href="#">
+                  <img src="https://via.placeholder.com/300x200?text=AirPods+Max" alt="AirPods Max">
+                  <div class="item-title">AirPods Max</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài Viết Mới -->
+          <div class="gallery-section">
+            <h3 class="sidebar-title"><i class="fa fa-newspaper"></i> BÀI VIẾT MỚI</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <a href="#">
+                  <img src="https://via.placeholder.com/300x200?text=Apple+Tips" alt="Mẹo sử dụng tai nghe hiệu quả">
+                  <div class="item-title">Mẹo sử dụng tai nghe hiệu quả</div>
+                </a>
+              </div>
+              <div class="gallery-item">
+                <a href="#">
+                  <img src="https://via.placeholder.com/300x200?text=Tech+News" alt="Tin tức công nghệ mới nhất">
+                  <div class="item-title">Tin tức công nghệ mới nhất</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <button class="close-btn" aria-label="Đóng menu"><i class="fa fa-times"></i> ĐÓNG MENU</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="hero-title">Khám phá dòng tai nghe Apple chính hãng</h1>
+            <p class="hero-subtitle">Trải nghiệm âm thanh vượt trội với công nghệ tiên tiến, thiết kế hiện đại và khả năng kết nối thông minh.</p>
+            <div class="hero-cta">
+              <a href="#productGrid" class="btn btn-hero">Xem ngay <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <img src="assets/hero-tainghe.png" alt="Tai Nghe Collection" class="hero-image">
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="container">
+      <h2 class="filter-title">Lọc sản phẩm</h2>
+      
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <button class="filter-btn" data-filter="new">Mới ra mắt</button>
+        <button class="filter-btn" data-filter="AirPods">AirPods</button>
+        <button class="filter-btn" data-filter="AirPods Pro">AirPods Pro</button>
+        <button class="filter-btn" data-filter="AirPods Max">AirPods Max</button>
+        <button class="filter-btn" data-filter="EarPods">EarPods</button>
+        <button class="filter-btn" data-filter="sale">Giảm giá</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="product-grid" id="productGrid">
+    <div class="container">
+      <div class="row g-4" id="productList">
+        <!-- Products will be loaded here -->
+        <div class="col-12 text-center py-5" id="loadingIndicator">
+          <div class="spinner-border text-danger mb-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p>Đang tải sản phẩm...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations Section -->
+  <section class="recommendations-section">
+    <div class="container">
+      <h2 class="section-title">Phụ kiện đề xuất</h2>
+      
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="recommendationSlider">
+          <!-- Recommendations will be loaded here -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Cart Button -->
+  <div class="fab" id="cartButton">
+    <i class="fas fa-shopping-cart"></i>
+    <div class="fab-badge" id="cartBadge">0</div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTopBtn">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>Liên hệ</h5>
+          <p><i class="fas fa-envelope me-2"></i> support@anhemrotstore.com</p>
+          <p><i class="fas fa-phone me-2"></i> 0909 123 456</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Đường ABC, Quận XYZ, TP.HCM</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Chính sách</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo hành</a></li>
+            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách đổi trả</a></li>
+            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách vận chuyển</a></li>
+            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Theo dõi chúng tôi</h5>
+          <div class="social-links mb-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+          <p>Đăng ký nhận tin khuyến mãi</p>
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email của bạn">
+            <button class="btn btn-danger" type="button">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center mb-0">© 2025 Anh Em Rọt Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize cart count
+      updateCartCount();
+      
+      // Back to top button
+      const backToTopBtn = document.getElementById('backToTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopBtn.classList.add('visible');
+        } else {
+          backToTopBtn.classList.remove('visible');
+        }
+      });
+      
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Fetch product data
+      fetchProductData();
+      
+      // Floating cart button
+      document.getElementById('cartButton')?.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+      });
+      
+      // Filter buttons
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(b => b.classList.remove('active'));
+          
+          // Add active class to clicked button
+          btn.classList.add('active');
+          
+          // Get filter value
+          const filterValue = btn.getAttribute('data-filter');
+          
+          // Apply filter
+          filterProducts(filterValue);
+        });
+      });
+    });
+    
+    function updateCartCount() {
+      const cartBadge = document.getElementById('cartBadge');
+      const cartCount = document.getElementById('cart-count');
+      
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+      
+      if (cartBadge) cartBadge.textContent = itemCount;
+      if (cartCount) cartCount.textContent = itemCount;
+    }
+    
+    function fetchProductData() {
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      
+      fetch('data/product.json')
+        .then(res => {
+          if (!res.ok) throw new Error('Không thể tải dữ liệu sản phẩm');
+          return res.json();
+        })
+        .then(data => {
+          const taingheCategory = data.categories.find(cat => cat.name === 'Tai Nghe');
+          if (!taingheCategory) throw new Error('Không tìm thấy danh mục Tai Nghe');
+          
+          // Hide loading indicator
+          if (loadingIndicator) loadingIndicator.style.display = 'none';
+          
+          // Display products
+          displayProducts(taingheCategory.products);
+          
+          // Render recommended accessories
+          renderRecommendedAccessories(data);
+        })
+        .catch(err => {
+          console.error('Lỗi khi tải sản phẩm:', err);
+          
+          // Hide loading indicator and show error
+          if (loadingIndicator) {
+            loadingIndicator.innerHTML = `
+              <div class="text-danger mb-3">
+                <i class="fas fa-exclamation-circle fa-3x"></i>
+              </div>
+              <p class="text-danger">Không thể tải danh sách sản phẩm. Vui lòng thử lại sau.</p>
+              <button class="btn btn-outline-danger mt-3" onclick="window.location.reload()">
+                <i class="fas fa-sync-alt me-2"></i>Tải lại
+              </button>
+            `;
+          }
+        });
+    }
+    
+    function displayProducts(products) {
+      const productGrid = document.getElementById('productList');
+      if (!productGrid) return;
+      
+      productGrid.innerHTML = '';
+      
+      if (products.length === 0) {
+        productGrid.innerHTML = `
+          <div class="col-12 text-center py-5">
+            <p class="text-muted">Không có sản phẩm nào.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      products.forEach((product, index) => {
+        const isNew = new Date(product.releaseDate) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+        const minPrice = Math.min(...product.variants.map(v => v.price));
+        const hasDiscount = product.variants.some(v => v.originalPrice && v.originalPrice > v.price);
+        
+        // Determine product series for filtering
+        let productSeries = '';
+        const nameLower = product.name.toLowerCase();
+        if (nameLower.includes('pro')) productSeries = 'AirPods Pro';
+        else if (nameLower.includes('max')) productSeries = 'AirPods Max';
+        else if (nameLower.includes('airpods')) productSeries = 'AirPods';
+        else if (nameLower.includes('earpods')) productSeries = 'EarPods';
+        else productSeries = 'Khác';
+        
+        // Calculate discount percentage if available
+        let discountPercentage = 0;
+        let originalPrice = 0;
+        
+        if (hasDiscount) {
+          const variantWithDiscount = product.variants.find(v => v.originalPrice && v.originalPrice > v.price);
+          originalPrice = variantWithDiscount.originalPrice;
+          discountPercentage = Math.round((1 - variantWithDiscount.price / variantWithDiscount.originalPrice) * 100);
+        }
+        
+        const productCard = document.createElement('div');
+        productCard.className = 'col-md-6 col-lg-4 col-xl-3 mb-4 product-item';
+        productCard.dataset.series = productSeries;
+        productCard.dataset.new = isNew ? 'true' : 'false';
+        productCard.dataset.sale = hasDiscount ? 'true' : 'false';
+        
+        productCard.innerHTML = `
+          <div class="product-card">
+            <div class="product-image-container">
+              <img src="${product.imageUrl}" alt="${product.name}" class="product-image">
+              ${isNew ? '<div class="product-badge"><i class="fas fa-bolt me-1"></i> Mới ra mắt</div>' : ''}
+              ${hasDiscount && !isNew ? `<div class="product-badge"><i class="fas fa-tag me-1"></i> Giảm ${discountPercentage}%</div>` : ''}
+              <div class="wishlist-btn" onclick="addToWishlist('${product.id}')">
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+            <div class="product-body">
+              <h5 class="product-title">${product.name}</h5>
+              <div class="product-price">
+                ${minPrice.toLocaleString('vi-VN')}₫
+                ${hasDiscount ? `<span class="old-price">${originalPrice.toLocaleString('vi-VN')}₫</span>` : ''}
+                ${hasDiscount ? `<span class="discount-tag">-${discountPercentage}%</span>` : ''}
+              </div>
+              <div class="product-meta">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span>(4.5 - 128 đánh giá)</span>
+              </div>
+              <a href="tainghe_detail.html?product=${encodeURIComponent(product.name)}" class="btn btn-detail">
+                <i class="fas fa-eye"></i> Xem chi tiết
+              </a>
+            </div>
+          </div>
+        `;
+        productGrid.appendChild(productCard);
+      });
+    }
+    
+    function filterProducts(filterValue) {
+      const productItems = document.querySelectorAll('.product-item');
+      
+      productItems.forEach(item => {
+        if (filterValue === 'all') {
+          item.style.display = 'block';
+        } else if (filterValue === 'new') {
+          item.style.display = item.dataset.new === 'true' ? 'block' : 'none';
+        } else if (filterValue === 'sale') {
+          item.style.display = item.dataset.sale === 'true' ? 'block' : 'none';
+        } else {
+          item.style.display = item.dataset.series === filterValue ? 'block' : 'none';
+        }
+      });
+      
+      // Check if no products are visible after filtering
+      const visibleProducts = document.querySelectorAll('.product-item[style="display: block"]');
+      const productGrid = document.getElementById('productList');
+      
+      if (visibleProducts.length === 0 && productGrid) {
+        const noProductsMessage = document.createElement('div');
+        noProductsMessage.className = 'col-12 text-center py-5 no-products-message';
+        noProductsMessage.innerHTML = `
+          <p class="text-muted">Không có sản phẩm nào phù hợp với bộ lọc.</p>
+        `;
+        
+        // Remove existing no products message if it exists
+        const existingMessage = document.querySelector('.no-products-message');
+        if (existingMessage) existingMessage.remove();
+        
+        productGrid.appendChild(noProductsMessage);
+      } else {
+        // Remove no products message if products are visible
+        const existingMessage = document.querySelector('.no-products-message');
+        if (existingMessage) existingMessage.remove();
+      }
+    }
+    
+    function renderRecommendedAccessories(data) {
+      const slider = document.getElementById('recommendationSlider');
+      if (!slider) return;
+      
+      const accessoryCategory = data.categories.find(cat => cat.name === 'Phụ kiện');
+      if (!accessoryCategory) {
+        slider.innerHTML = `
+          <div class="swiper-slide">
+            <div class="card h-100">
+              <div class="card-body text-center py-5">
+                <p class="text-muted">Không có phụ kiện đề xuất.</p>
+              </div>
+            </div>
+          </div>
+        `;
+        return;
+      }
+      
+      accessoryCategory.products.slice(0, 5).forEach(product => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        
+        const minPrice = Math.min(...product.variants.map(v => v.price));
+        const hasDiscount = product.variants.some(v => v.originalPrice && v.originalPrice > v.price);
+        let discountPercentage = 0;
+        let originalPrice = 0;
+        
+        if (hasDiscount) {
+          const variantWithDiscount = product.variants.find(v => v.originalPrice && v.originalPrice > v.price);
+          originalPrice = variantWithDiscount.originalPrice;
+          discountPercentage = Math.round((1 - variantWithDiscount.price / variantWithDiscount.originalPrice) * 100);
+        }
+        
+        slide.innerHTML = `
+          <div class="card h-100">
+            <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+              <h6 class="card-title">${product.name}</h6>
+              <p class="card-text">
+                ${minPrice.toLocaleString('vi-VN')}₫
+                ${hasDiscount ? `<span class="old-price">${originalPrice.toLocaleString('vi-VN')}₫</span>` : ''}
+              </p>
+              <a href="accessory_detail.html?product=${encodeURIComponent(product.name)}" class="btn btn-sm btn-outline-secondary">Xem chi tiết</a>
+            </div>
+          </div>
+        `;
+        
+        slider.appendChild(slide);
+      });
+      
+      // Initialize Swiper
+      new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        },
+      });
+    }
+    
+    function addToWishlist(productId) {
+      // Get current wishlist from localStorage or initialize empty array
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      
+      // Check if product is already in wishlist
+      const isInWishlist = wishlist.includes(productId);
+      
+      if (isInWishlist) {
+        // Remove from wishlist
+        wishlist = wishlist.filter(id => id !== productId);
+        showToast('Đã xóa khỏi danh sách yêu thích', 'info');
+      } else {
+        // Add to wishlist
+        wishlist.push(productId);
+        showToast('Đã thêm vào danh sách yêu thích', 'success');
+      }
+      
+      // Save updated wishlist to localStorage
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      
+      // Update heart icon
+      const heartIcon = event.currentTarget.querySelector('i');
+      if (heartIcon) {
+        if (isInWishlist) {
+          heartIcon.classList.remove('fas');
+          heartIcon.classList.add('far');
+        } else {
+          heartIcon.classList.remove('far');
+          heartIcon.classList.add('fas');
+          heartIcon.style.color = '#FF0000';
+        }
+      }
+    }
+    
+    function showToast(message, type = 'success') {
+      const toastContainer = document.getElementById('toastContainer');
+      if (!toastContainer) return;
+      
+      const toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.innerHTML = `
+        <div class="toast-header">
+          <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'} me-2"></i>
+          <span>${type === 'success' ? 'Thành công' : 'Thông báo'}</span>
+          <div class="ms-auto toast-close" onclick="this.parentElement.parentElement.remove()">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="toast-body">
+          ${message}
+        </div>
+      `;
+      
+      toastContainer.appendChild(toast);
+      
+      // Auto remove after 3 seconds
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

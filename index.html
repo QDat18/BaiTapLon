@@ -3,478 +3,1290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cửa Hàng Anh Em Rọt - Trang Chủ</title>
-    
-    <!-- CSS Links -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"> 
-    <link rel="stylesheet" href="css/banner.css">
-    <link rel="stylesheet" href="css/flashsale.css">
+    <title>Anh Em Rọt Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="css/main_css.css">
-
     <style>
-
-        .loading-placeholder {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            font-size: 24px;
-            color: #999;
+        :root {
+            --primary: #D2691E; 
+            --primary-hover: #E07B4A;
+            --secondary: #ADD8E6;
+            --success: #32CD32;
+            --white: #fff;
+            --text: #5C4033;
+            --text-light: #D3D3D3;
+            --background: #ADD8E6;
+            --background-light: #E6F0FA;
+            --accent: #8B4513;
+            --border-color: #000080;
+            --shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .product-card .product-info {
+            padding: 15px;
+        }
+
+        .product-card .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 2.8rem;
+        }
+
+        .product-card .product-price {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 12px;
+        }
+
+        .product-card .current-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-card .old-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: var(--text-light);
+            margin-left: 8px;
+        }
+
+        .product-card .stock {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .product-card .stock.low-stock {
+            color: var(--primary);
+        }
+
+        .product-card .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-card .add-to-cart:hover {
+            background: var(--primary-hover);
+        }
+
+        .product-card .add-to-cart.in-cart {
+            background: var(--success);
+        }
+
+        .more-products-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .more-products {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--white);
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .more-products:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Trending Products */
+        .trending-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--background-light) 0%, var(--background) 100%);
+        }
+
+        .section-header.with-tabs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .trending-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+            position: relative;
+            top: -8px;
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        .trending-tabs {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .trending-tab {
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .trending-tab.active, .trending-tab:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .trending-tab-content {
+            display: none;
+        }
+
+        .trending-tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .trending-product {
+            position: relative;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .trending-product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .trending-rank {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        .trending-image {
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--background-light);
+        }
+
+        .trending-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .trending-product:hover .trending-image img {
+            transform: scale(1.05);
+        }
+
+        .trend-indicator {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .trend-indicator.up {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+
+        .trend-indicator.down {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        .trend-indicator.new {
+            background: rgba(0, 123, 255, 0.1);
+            color: #007bff;
+        }
+
+        .trending-info {
+            padding: 20px;
+        }
+
+        .trending-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .trending-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .trending-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .trending-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .trending-btn:hover {
+            background: var(--primary-hover);
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        /* Categories */
+        .categories-section {
+            margin: 60px 0;
+            background-color: var(--secondary);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .section-title i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            padding: 15px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        /* Products */
+        .products-section {
+            margin: 60px 0;
+            background-color: var(--secondary);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .view-all {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .view-all:hover {
+            color: var(--primary-hover);
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 30px;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            color: var(--text);
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .slider-control:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .slider-prev {
+            left: 0;
+        }
+
+        .slider-next {
+            right: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--border-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider-dot.active {
+            background: var(--primary);
+        }
+
+        /* Loading indicators */
+        .loading-products,
+        .loading-featured,
+        .loading-promotions,
+        .loading-news {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: var(--text-light);
+            width: 100%;
+        }
+
+        .loading-products i,
+        .loading-featured i,
+        .loading-promotions i,
+        .loading-news i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .no-products,
+        .no-results {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: var(--text-light);
+            width: 100%;
+            background: rgba(0,0,0,0.02);
+            border-radius: 12px;
+        }
+
+        .no-products i,
+        .no-results i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        /* Promotions & News */
+        .promotion-section,
+        .news-section {
+            margin: 60px 0;
+            background-color: var(--secondary);
+        }
+
+        .promotion-grid,
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Toast notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+        }
+
+        .custom-toast {
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .custom-toast.success {
+            background: var(--success);
+        }
+
+        .custom-toast.error {
+            background: var(--primary);
+        }
+
+        .custom-toast.info {
+            background: var(--primary);
+        }
+
+        /* Chat and Call Panel */
+        .chat-call-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .chat-toggle-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 50px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .chat-toggle-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .chat-toggle-btn:hover {
+            transform: translateY(-5px);
+            background: var(--primary-hover);
+        }
+
+        .chat-toggle-btn.shake {
+            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .chat-call-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+        }
+
+        .chat-call-list:not(.hidden) {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear;
+        }
+
+        .chat-call-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 180px;
+            height: 50px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+
+        .chat-call-btn i,
+        .chat-call-btn img.support-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .chat-call-btn:hover {
+            transform: translateY(-5px);
+            background: var(--primary-hover);
+            color: white;
+            text-decoration: none;
+        }
+
+        .support-btn img.support-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .scroll-top-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+        }
+
+        .scroll-top-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Scroll to Top */
+        #scrollToTop {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: var(--primary);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        #scrollToTop:hover {
+            background: var(--primary-hover);
+            transform: translateY(-5px);
+        }
+
+        /* Flash sale section */
+        .flash-sale {
+            padding: 40px 0;
+            background-color: var(--background-light);
+            margin-bottom: 30px;
+        }
+
+        .flash-sale-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .flash-sale-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .countdown-timer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(210, 105, 30, 0.1);
+            padding: 5px 15px;
+            border-radius: 8px;
+        }
+
+        .sale-time {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .flash-sale-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .flash-sale-tabs .tab {
+            padding: 8px 15px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .flash-sale-tabs .tab.active, 
+        .flash-sale-tabs .tab:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .flash-sale-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 200px;
+            width: 100%;
+            object-fit: contain;
+            padding: 20px;
+            background: var(--background-light);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Banner section */
+        .banner-section {
+            margin-top: 170px;
+            position: relative;
+        }
+
+        .carousel-inner img {
+            height: 400px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .carousel-timer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            width: 0%;
+            z-index: 10;
+            transition: width 0.1s linear;
+        }
+
+        .carousel-indicators {
+            margin-bottom: 10px;
+        }
+
+        .carousel-indicators li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators li.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .trending-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .trending-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section-header.with-tabs {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .trending-tabs {
+                margin-top: 15px;
+                overflow-x: auto;
+                padding-bottom: 5px;
+                width: 100%;
+            }
+            
+            .flash-sale-products {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+            
+            .banner-section {
+                margin-top: 150px;
+            }
+
+            .chat-call-panel {
+                right: 10px;
+            }
+
+            .chat-toggle-btn,
+            .chat-call-btn {
+                width: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trending-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            
+            .flash-sale-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .flash-sale-products {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+
+            .carousel-inner img {
+                height: 300px;
+            }
+
+            .slider-container {
+                padding: 0 20px;
+            }
+
+            .banner-section {
+                margin-top: 150px;
+            }
+
+            .chat-call-panel {
+                bottom: 15px;
+                right: 10px;
+            }
+
+            .chat-toggle-btn,
+            .chat-call-btn {
+                width: 140px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trending-tabs {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+            
+            .trending-tab {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+            
+            .flash-sale-products {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-inner img {
+                height: 200px;
+            }
+            
+            .promotion-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-section {
+                margin-top: 140px;
+            }
+
+            .chat-call-panel {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .chat-toggle-btn,
+            .chat-call-btn {
+                width: 120px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .scroll-top-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            #scrollToTop {
+                bottom: 70px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--border-color);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary-hover);
+        }
     </style>
 </head>
-
 <body>
-    <!-- hieu ung load trang -->
-    <!-- <div class="andro_preloader">
-        <div class="spinner">
-            <div class="dot1"></div>
-            <div class="dot2"></div>
+    <!-- Preloader -->
+    <div id="preloader" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Đang tải...</span>
         </div>
-    </div> -->
+        <p class="mt-2">Đang tải...</p>
+    </div>
 
-    <!-- Navbar will be loaded here -->
-    <div id="navbar-placeholder"></div>
-    <main>
-        <!--Banner-->
-        <section class="banner-section" style="margin-top: 140px;">
-            <div class="container">
-              <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Timer indicator -->
-                <div class="carousel-timer" id="carousel-timer"></div>
-                
-                <!-- Indicators will be generated dynamically -->
-                <ul class="carousel-indicators" id="carousel-indicators"></ul>
-                
-                <!-- The slideshow will be generated dynamically -->
-                <div class="carousel-inner" id="carousel-inner"></div>
-                
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#bannerCarousel" data-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#bannerCarousel" data-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-                </a>
-              </div>
-            </div>
-          </section>
-        <!--Flash sale-->
-
-        <section class="flash-sale">
-            <div class="flash-sale-header">
-                <img src="assets/banner/icon-fs.png" alt="Flash Sale" style="height: 40px;" />
-                <span class="flash-sale-online">ONLINE ONLY - GIẢM ĐẾN 40%</span>
-                <span class="flash-sale-countdown"><span id="countdown">00:00:00</span></span>
-                <span class="flash-sale-time">Sắp diễn ra 21:00 - 23:59</span>
-            </div>
-            <div class="flash-sale-products row" id="flashSaleProducts">
-                <!-- Sản phẩm sẽ được hiển thị ở đây -->
-            </div>
-            <div class="text-center mt-4">
-                <a href="javascript:void(0);" id="loadMore" class="more-products">Xem thêm sản phẩm &gt;</a>
-            </div>
-        </section>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Thiết lập countdown
-                function updateCountdown() {
-                    const now = new Date();
-                    const today = new Date();
-                    today.setHours(21, 0, 0, 0); // Thời gian bắt đầu là 21:00
-                    
-                    let timeLeft;
-                    if (now.getHours() >= 21 || now.getHours() < 0) {
-                        // Nếu đã qua 21:00, đếm ngược đến ngày mai
-                        today.setDate(today.getDate() + 1);
-                    }
-                    
-                    timeLeft = today - now;
-                    
-                    // Tính giờ, phút, giây
-                    const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                    
-                    // Format để luôn hiển thị 2 chữ số
-                    const formattedHours = String(hours).padStart(2, '0');
-                    const formattedMinutes = String(minutes).padStart(2, '0');
-                    const formattedSeconds = String(seconds).padStart(2, '0');
-                    
-                    document.getElementById('countdown').textContent = 
-                        `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
-                }
-                
-                // Cập nhật đồng hồ đếm ngược mỗi giây
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-                
-                // Tải và hiển thị sản phẩm
-                fetch('data/flashsale.json')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok: ' + response.status);
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        const productsContainer = document.getElementById('flashSaleProducts');
-                        const products = data.products; // Lấy danh sách sản phẩm từ JSON
-                        const loadMoreButton = document.getElementById('loadMore');
-            
-                        const itemsPerPage = 8; // Số lượng sản phẩm mỗi lần hiển thị
-                        let displayedProducts = 0; // Biến đếm số sản phẩm đã hiển thị
-            
-                        // Hàm để hiển thị sản phẩm
-                        function displayProducts(startIndex, endIndex) {
-                            // Lặp qua các sản phẩm và thêm vào container
-                            for (let i = startIndex; i < endIndex && i < products.length; i++) {
-                                const product = products[i];
-                                const productCard = document.createElement('div');
-                                productCard.classList.add('col-lg-3', 'col-md-4', 'col-sm-6', 'mb-4'); // Cải thiện responsive
-                                
-                                // Chuyển đổi phần trăm giảm giá nếu có
-                                const discountText = product.discount ? 
-                                    `<span class="discount-badge">${product.discount}</span>` : '';
-                                
-                                // Stock status
-                                const stockStatus = parseInt(product.stock) > 0 ? 
-                                    `<p class="stock-status in-stock">Còn ${product.stock} sản phẩm</p>` : 
-                                    '<p class="stock-status out-of-stock">Hết hàng</p>';
-            
-                                // Thêm HTML vào card sản phẩm với thiết kế cải tiến
-                                productCard.innerHTML = `
-                                    <div class="card product-card">
-                                        <div class="product-image-container">
-                                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                                            ${discountText}
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">${product.name}</h5>
-                                            <div class="price-container">
-                                                <span class="old-price">${product.old_price}</span>
-                                                <span class="current-price">${product.price}</span>
-                                            </div>
-                                            ${stockStatus}
-                                            <a href="product_detail.html?id=${product.id}" class="btn btn-primary view-detail">Xem Chi Tiết</a>
-                                        </div>
-                                    </div>
-                                `;
-                                // Thêm sản phẩm vào container
-                                productsContainer.appendChild(productCard);
-                            }
-                            
-                            // Kiểm tra và cập nhật trạng thái nút "Xem thêm"
-                            if (displayedProducts >= products.length) {
-                                loadMoreButton.style.display = 'none';
-                            } else {
-                                loadMoreButton.style.display = 'inline-block';
-                            }
-                        }
-            
-                        // Hiển thị ban đầu 8 sản phẩm (2 hàng)
-                        displayProducts(displayedProducts, itemsPerPage);
-                        displayedProducts = itemsPerPage;
-            
-                        // Xử lý sự kiện "Xem thêm sản phẩm"
-                        loadMoreButton.addEventListener('click', () => {
-                            const nextIndex = displayedProducts;
-                            displayedProducts += itemsPerPage; // Hiển thị thêm 8 sản phẩm nữa
-                            displayProducts(nextIndex, displayedProducts);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error fetching flash sale products:', error);
-                        document.getElementById('flashSaleProducts').innerHTML = 
-                            '<div class="col-12 text-center"><p class="error-message">Không thể tải sản phẩm. Vui lòng thử lại sau.</p></div>';
-                    });
-            });
-            </script>
-            
-         <!-- Product Categories -->
-        <section class="categories-section">
-            <h2 class="section-title"><i class="fas fa-list"></i> Danh Mục Sản Phẩm</h2>
-            <div class="category-grid" id="category-container">
-                <div class="category-card" id="category1">
-                    <a href="iphone.html"><img src="assets/banner/category1.jpg" alt="Category 1"></a>
-                    <h3>Iphone</h3>
-                </div>
-                <div class="category-card" id="category2">
-                    <a href="ipad.html"><img src="assets/banner/category2.jpg" alt="Category 2"></a>
-                    <h3>Ipad</h3>
-                </div>
-                <div class="category-card" id="category3">
-                    <a href="macbook.html"><img src="assets/banner/category3.jpg" alt="Category 3"></a>
-                    <h3>Macbook</h3>
-                </div>
-                <div class="category-card" id="category4">
-                    <a href="tainghe_loa.html"><img src="assets/banner/category4.jpg" alt="Category 4"></a>
-                    <h3>Tai nghe, Loa</h3>
-                </div>
-                <div class="category-card" id="category5">
-                    <a href="phukien.html"><img src="assets/banner/category3.jpg" alt="Category 5"></a>
-                    <h3>Phụ Kiện</h3>
-                </div>
-                <div class="category-card" id="category6">
-                    <a href="Watch"><img src="assets/banner/category4.jpg" alt="Category 6"></a>
-                    <h3>Watch</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Products -->
-        <section class="products-section">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-bolt"></i> Sản Phẩm Nổi Bật</h2>
-                <a href="product_detail.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
-            </div>
-            
-            <div class="slider-container">
-                <div class="slider-track" id="slider-track">
-                    <!-- Product Card 1 -->
-                    <div class="product-card">
-                        <div class="product-badge">Mới</div>
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 1">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">Laptop Asus VivoBook</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">15.990.000₫</span>
-                                <span class="old-price">17.990.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(45)</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Product Card 2 -->
-                    <div class="product-card">
-                        <div class="product-badge sale">-20%</div>
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 2">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">iPhone 15 Pro Max</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">28.990.000₫</span>
-                                <span class="old-price">32.990.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(112)</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Product Card 3 -->
-                    <div class="product-card">
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 3">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">Tai nghe Sony WH-1000XM5</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">8.490.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(78)</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Product Card 4 -->
-                    <div class="product-card">
-                        <div class="product-badge hot">Hot</div>
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 4">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">Samsung Galaxy S25 Ultra</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">27.490.000₫</span>
-                                <span class="old-price">29.990.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <span class="rating-count">(56)</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Product Card 5 -->
-                    <div class="product-card">
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 5">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">iPad Air 2025</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">16.990.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <span class="rating-count">(34)</span>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Product Card 6 -->
-                    <div class="product-card">
-                        <div class="product-badge sale">-15%</div>
-                        <div class="product-thumbnail">
-                            <img src="/api/placeholder/300/300" alt="Sản phẩm 6">
-                            <div class="product-actions">
-                                <button class="action-btn add-wishlist"><i class="far fa-heart"></i></button>
-                                <button class="action-btn quick-view"><i class="far fa-eye"></i></button>
-                                <button class="action-btn add-cart"><i class="fas fa-shopping-cart"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title"><a href="product_detail.html">Máy ảnh Sony Alpha A7 IV</a></h3>
-                            <div class="product-price">
-                                <span class="current-price">48.990.000₫</span>
-                                <span class="old-price">52.990.000₫</span>
-                            </div>
-                            <div class="product-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <span class="rating-count">(23)</span>
-                            </div>
-                        </div>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-3 menu-left">
+                    <button class="toggle-btn" aria-expanded="false" aria-controls="sidebarMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownBtn" aria-expanded="false">
+                            Sản phẩm
+                        </button>
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li><a class="dropdown-item" href="#">iPhone</a></li>
+                            <li><a class="dropdown-item" href="#">iPad</a></li>
+                            <li><a class="dropdown-item" href="#">MacBook</a></li>
+                            <li><a class="dropdown-item" href="#">Apple Watch</a></li>
+                            <li><a class="dropdown-item" href="#">Phụ kiện</a></li>
+                        </ul>
                     </div>
                 </div>
-                
-                <!-- Slider Controls -->
-                <div class="slider-control slider-prev" id="slider-prev">
-                    <i class="fas fa-chevron-left"></i>
+                <div class="col-md-6 col-9 menu-right text-end">
+                    <a href="#" class="action-icon basket-icon position-relative">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </a>
+                    <a href="#" class="action-icon"><i class="fas fa-user-circle"></i> Đăng nhập</a>
+                    <a href="#" class="action-icon"><i class="fas fa-sign-in-alt"></i> Đăng ký</a>
+                    <a href="#" class="action-icon"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </div>
-                <div class="slider-control slider-next" id="slider-next">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
             </div>
-            
-            <!-- Slider Dots -->
-            <div class="slider-dots" id="slider-dots">
-                <!-- Dots will be added by JavaScript -->
-            </div>
-
-        </section>
-        <!-- Promotion Section -->
-        <section class="promotion-section">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-gift"></i> Khuyến Mãi</h2>
-                <a href="promotion.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="promotion-grid" id="promotion-container">
-                <!-- Promotion cards will be inserted here -->
-            </div>
-        </section>
-
-        <!-- News Section -->
-        <section class="news-section">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-newspaper"></i> Tin Tức</h2>
-                <a href="news.html" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="news-grid" id="news-container">
-                <!-- News cards will be inserted here -->
-            </div>
-        </section> 
-    </main>
-    <div class="container mt-3">
-        <h2>Media Object</h2>
-        <p>Create a media object with the .media and .media-body classes:</p>
-        <div class="media border p-3">
-          <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
-          <div class="media-body">
-            <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>      
-          </div>
         </div>
-      </div>
+    </nav>
 
-    <!-- Footer will be loaded here -->
-    <div id="footer-placeholder"></div>
-    <div class="chatbot-container">
-        <button id="chatbotToggle">💬</button>
-        <div id="chatbotPopup" class="chatbot-popup hidden">
-            <div class="chatbot-header">
-                <span>AI Chatbot</span>
-                <button id="closePopup">✖</button>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="menu-items">
+                <a href="#" class="nav-brand"><img src="https://via.placeholder.com/150x50" alt="Logo"></a>
+                <div class="nav-divider"></div>
+                <a href="#" class="active">TRANG CHỦ</a>
+                <a href="#">SẢN PHẨM</a>
+                <a href="#">VỀ CHÚNG TÔI</a>
+                <a href="#">LIÊN HỆ</a>
+                <a href="#">TIN TỨC</a>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="KHÁM PHÁ">
+                    <button type="button" class="btn btn-primary"><i class="fas fa-search"></i> KHÁM PHÁ</button>
+                </div>
             </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot">Chào bạn! Bạn cần gì?</div>
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="userInput" placeholder="Nhập câu hỏi...">
-                <button id="sendBtn">Gửi</button>
-            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="close-btn"><i class="fas fa-times"></i> ĐÓNG MENU</div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link active">TRANG CHỦ</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">SẢN PHẨM</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">VỀ CHÚNG TÔI</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">LIÊN HỆ</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">TIN TỨC</a></li>
+        </ul>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="KHÁM PHÁ">
+            <button type="button" class="btn btn-primary"><i class="fas fa-search"></i> KHÁM PHÁ</button>
         </div>
     </div>
-    <!-- Your Scripts -->
+
+    <!-- Banner Section -->
+    <section class="banner-section">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/1200x400?text=iPhone+15+Pro" class="d-block w-100" alt="iPhone 15 Pro">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1200x400?text=MacBook+Pro+M3" class="d-block w-100" alt="MacBook Pro M3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <div class="carousel-timer"></div>
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending-section">
+        <div class="container">
+            <div class="section-header with-tabs">
+                <h2>Đang thịnh hành <span class="trending-badge pulse">HOT</span></h2>
+                <div class="trending-tabs">
+                    <button class="trending-tab active" data-tab="all">Tất cả</button>
+                    <button class="trending-tab" data-tab="most-viewed">Xem nhiều</button>
+                    <button class="trending-tab" data-tab="most-searched">Tìm kiếm nhiều</button>
+                    <button class="trending-tab" data-tab="best-seller">Bán chạy</button>
+                </div>
+            </div>
+            <div class="trending-tab-content active" id="trending-all">
+                <div class="trending-grid">
+                    <div class="trending-product">
+                        <div class="trending-rank">1</div>
+                        <div class="trending-image">
+                            <img src="https://via.placeholder.com/200x160?text=iPhone+16+Pro" alt="iPhone 16 Pro">
+                            <div class="trend-indicator up"><i class="fas fa-arrow-up"></i> 5.2k</div>
+                        </div>
+                        <div class="trending-info">
+                            <h3>iPhone 16 Pro</h3>
+                            <p class="trending-price">28.990.000₫</p>
+                            <div class="trending-stats">
+                                <span>5.2k lượt xem</span>
+                                <span>850+ tìm kiếm</span>
+                                <span>Đánh giá: 4.9</span>
+                            </div>
+                            <a href="#" class="trending-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="trending-product">
+                        <div class="trending-rank">2</div>
+                        <div class="trending-image">
+                            <img src="https://via.placeholder.com/200x160?text=AirPods+Pro+2" alt="AirPods Pro 2">
+                            <div class="trend-indicator down"><i class="fas fa-arrow-down"></i> 3.8k</div>
+                        </div>
+                        <div class="trending-info">
+                            <h3>AirPods Pro 2</h3>
+                            <p class="trending-price">6.490.000₫</p>
+                            <div class="trending-stats">
+                                <span>3.8k lượt xem</span>
+                                <span>720+ tìm kiếm</span>
+                                <span>Đánh giá: 4.8</span>
+                            </div>
+                            <a href="#" class="trending-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="trending-product">
+                        <div class="trending-rank">3</div>
+                        <div class="trending-image">
+                            <img src="https://via.placeholder.com/200x160?text=MacBook+Air+13" alt="MacBook Air 13">
+                            <div class="trend-indicator new"><i class="fas fa-star"></i> Mới</div>
+                        </div>
+                        <div class="trending-info">
+                            <h3>MacBook Air 13"</h3>
+                            <p class="trending-price">29.990.000₫</p>
+                            <div class="trending-stats">
+                                <span>2.9k lượt xem</span>
+                                <span>480+ tìm kiếm</span>
+                                <span>Đánh giá: 4.7</span>
+                            </div>
+                            <a href="#" class="trending-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="trending-product">
+                        <div class="trending-rank">4</div>
+                        <div class="trending-image">
+                            <img src="https://via.placeholder.com/200x160?text=Apple+Watch+Ultra+2" alt="Apple Watch Ultra 2">
+                            <div class="trend-indicator up"><i class="fas fa-arrow-up"></i> 2.3k</div>
+                        </div>
+                        <div class="trending-info">
+                            <h3>Apple Watch Ultra 2</h3>
+                            <p class="trending-price">19.990.000₫</p>
+                            <div class="trending-stats">
+                                <span>2.3k lượt xem</span>
+                                <span>350+ tìm kiếm</span>
+                                <span>Đánh giá: 4.9</span>
+                            </div>
+                            <a href="#" class="trending-btn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-star"></i> Sản Phẩm Nổi Bật</h2>
+                <a href="#" class="view-all">Xem tất cả</a>
+            </div>
+            <div class="slider-container">
+                <button class="slider-control slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="slider-track" id="featuredSlider">
+                    <div class="loading-featured">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Đang tải sản phẩm nổi bật...</p>
+                    </div>
+                </div>
+                <button class="slider-control slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots" id="featuredDots"></div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotion-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-gift"></i> Khuyến Mãi</h2>
+                <a href="#" class="view-all">Xem tất cả</a>
+            </div>
+            <div class="promotion-grid" id="promotion-container">
+                <div class="loading-promotions">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải khuyến mãi...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-newspaper"></i> Tin Tức</h2>
+                <a href="#" class="view-all">Xem tất cả</a>
+            </div>
+            <div class="news-grid" id="news-container">
+                <div class="loading-news">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải tin tức...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat and Call Panel -->
+    <div class="chat-call-panel">
+        <button class="chat-toggle-btn shake"><i class="fas fa-comment-alt"></i> Hỗ trợ</button>
+        <div class="chat-call-list hidden">
+            <a href="#" class="chat-call-btn"><i class="fab fa-facebook-messenger"></i> Messenger</a>
+            <a href="#" class="chat-call-btn"><i class="fab fa-whatsapp"></i> Chat trên Zalo</a>
+            <a href="#" class="chat-call-btn"><i class="fas fa-phone-alt"></i> Gọi miễn phí</a>
+            <a href="#" class="chat-call-btn support-btn">
+                <img src="https://via.placeholder.com/24" alt="Support" class="support-icon"> Hỗ trợ
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anh Em Rọt Store. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/navbar.js"></script>
     <script src="scripts/loadbanner.js"></script>
     <script src="scripts/loadcontent.js"></script>
-    <script src="scripts/cart.js"></script>
-    <script src="scripts/news.js"></script>
-    <script src="scripts/promotion.js"></script>
-    <script src="scripts/index.js"></script>
 </body>
 </html>

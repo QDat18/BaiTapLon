@@ -1,0 +1,58 @@
+[
+    {
+        "id": "fp1",
+        "name": "iPhone 14 Pro Max",
+        "price": 29990000,
+        "image": "assets/products/iphone14promax.jpg",
+        "category": "Iphone"
+    },
+    {
+        "id": "fp2",
+        "name": "MacBook Air M2",
+        "price": 32990000,
+        "image": "assets/products/macbookairm2.jpg",
+        "category": "Macbook"
+    },
+    {
+        "id": "fp3",
+        "name": "iPad Pro 11-inch",
+        "price": 23990000,
+        "image": "assets/products/ipadpro11.jpg",
+        "category": "Ipad"
+    },
+    {
+        "id": "fp4",
+        "name": "Apple Watch Series 8",
+        "price": 11990000,
+        "image": "assets/products/applewatch8.jpg",
+        "category": "Watch"
+    },
+    {
+        "id": "fp5",
+        "name": "AirPods Pro 2",
+        "price": 6990000,
+        "image": "assets/products/airpodspro2.jpg",
+        "category": "Tai nghe, Loa"
+    },
+    {
+        "id": "fp6",
+        "name": "iPhone 13",
+        "price": 18990000,
+        "image": "assets/products/iphone13.jpg",
+        "category": "Iphone"
+    },
+    {
+        "id": "fp7",
+        "name": "MacBook Pro 14-inch",
+        "price": 49990000,
+        "image": "assets/products/macbookpro14.jpg",
+        "category": "Macbook"
+    },
+    {
+        "id": "fp8",
+        "name": "Apple Watch Ultra",
+        "price": 21990000,
+        "image": "assets/products/applewatchultra.jpg",
+        "category": "Watch"
+    }
+]

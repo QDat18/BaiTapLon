@@ -11,178 +11,10 @@
     <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main_css.css">
+    <link rel="stylesheet" href="css/news.css">
     <!-- News Specific CSS -->
-    <style>
-        /* Hero section */
-        .news-hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('assets/news/news-hero.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 80px 0;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .news-hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* News cards */
-        .news-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            border: none;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 100%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .news-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .news-card img {
-            height: 220px;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        .news-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .news-title {
-            font-weight: 600;
-            min-height: 3em;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            color: #333;
-        }
-        
-        .news-card .card-body {
-            padding: 1.5rem;
-        }
-        
-        .news-card .card-text {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .news-date {
-            display: flex;
-            align-items: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-        
-        .news-date i {
-            margin-right: 5px;
-            color: #ff6b6b;
-        }
-        
-        /* Category pills */
-        .category-pill {
-            display: inline-block;
-            padding: 5px 15px;
-            background-color: #f8f9fa;
-            color: #666;
-            border-radius: 50px;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .category-pill:hover, .category-pill.active {
-            background-color: #ff6b6b;
-            color: white;
-        }
-        
-        /* Search bar */
-        .search-container {
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        .search-input {
-            padding-right: 50px;
-            border-radius: 50px;
-            border: 1px solid #ddd;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            padding: 12px 20px;
-        }
-        
-        .search-btn {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            border: none;
-            background: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .search-btn:hover {
-            background: #ff4f4f;
-            transform: scale(1.05);
-        }
-        
-        /* No results message */
-        .no-results {
-            text-align: center;
-            padding: 50px 0;
-            color: #888;
-        }
-        
-        .no-results i {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-        
-        /* Pagination */
-        .pagination .page-item.active .page-link {
-            background-color: #ff6b6b;
-            border-color: #ff6b6b;
-        }
-        
-        .pagination .page-link {
-            color: #666;
-        }
-        
-        .pagination .page-link:hover {
-            color: #ff6b6b;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .news-hero {
-                padding: 60px 0;
-            }
-            
-            .news-card img {
-                height: 180px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="news-hero">
@@ -251,8 +83,6 @@
         </div>
     </section>
 
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
     <!-- jQuery -->
@@ -262,8 +92,7 @@
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- Custom Scripts -->
-    <script src="scripts/loadcontent.js"></script>
-    <script src="scripts/news_detail.js"></script>
+    <script src="scripts/news.js"></script>
     
     <script>
         // Initialize AOS

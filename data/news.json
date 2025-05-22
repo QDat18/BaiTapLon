@@ -14,6 +14,79 @@
       "image": "assets/news/applewatchultra.jpg",
       "startDate": "17/04/2025",
       "details": "Apple phát hành watchOS mới cho dòng Ultra. Người dùng có thể theo dõi nhịp tim, GPS chính xác hơn, và nhiều cải tiến..."
+    },
+    {
+      "id": "news03",
+      "title": "Apple ra mắt iPad Pro mới với chip M3",
+      "description": "iPad Pro mới với chip M3 mang lại hiệu suất vượt trội cho người dùng sáng tạo.",
+      "image": "assets/news/ipadpro.jpg",
+      "startDate": "16/04/2025",
+      "details": "iPad Pro mới được trang bị chip M3, giúp tăng tốc độ xử lý và đồ họa. Thời gian sử dụng pin cũng được cải thiện đáng kể..."
+    },
+    {
+      "id": "news04",
+      "title": "Apple Music ra mắt tính năng mới",
+      "description": "Tính năng phát nhạc theo chủ đề giúp người dùng dễ dàng tìm kiếm và thưởng thức âm nhạc.",
+      "image": "assets/news/applemusic.jpg",
+      "startDate": "15/04/2025",
+      "details": "Apple Music giới thiệu tính năng phát nhạc theo chủ đề, cho phép người dùng tìm kiếm và thưởng thức âm nhạc theo tâm trạng..."
+    },
+    {
+      "id": "news05",
+      "title": "Apple TV+ công bố loạt phim mới",
+      "description": "Nhiều bộ phim và chương trình truyền hình mới sẽ ra mắt trên Apple TV+ trong tháng tới.",
+      "image": "assets/news/appletv.jpg",
+      "startDate": "14/04/2025",
+      "details": "Apple TV+ công bố danh sách các bộ phim và chương trình truyền hình mới sẽ ra mắt trong tháng tới, bao gồm nhiều thể loại hấp dẫn..."
+    },
+    {
+      "id": "news06",
+      "title": "Apple phát hành bản cập nhật iOS 17.5",
+      "description": "Bản cập nhật mới mang lại nhiều tính năng và cải tiến cho người dùng iPhone.",
+      "image": "assets/news/iosupdate.jpg",
+      "startDate": "13/04/2025",
+      "details": "Bản cập nhật iOS 17.5 đã chính thức được phát hành với nhiều tính năng mới và sửa lỗi. Người dùng nên cập nhật ngay để trải nghiệm..."
+    },
+    {
+      "id": "news07",
+      "title": "Apple ra mắt dịch vụ Apple Pay tại Việt Nam",
+      "description": "Người dùng có thể thanh toán dễ dàng và nhanh chóng qua Apple Pay.",
+      "image": "assets/news/applepay.jpg",
+      "startDate": "12/04/2025",
+      "details": "Apple Pay đã chính thức có mặt tại Việt Nam, cho phép người dùng thanh toán nhanh chóng và an toàn qua iPhone và Apple Watch..."
+    },
+    {
+      "id": "news08",
+      "title": "Apple công bố kế hoạch bảo vệ môi trường",
+      "description": "Apple cam kết giảm thiểu tác động đến môi trường và sử dụng năng lượng tái tạo.",
+      "image": "assets/news/environment.jpg",
+      "startDate": "11/04/2025",
+      "details": "Apple công bố kế hoạch bảo vệ môi trường với nhiều sáng kiến mới nhằm giảm thiểu tác động đến môi trường và sử dụng năng lượng tái tạo..."
+    },
+    {
+      "id": "news09",
+      "title": "Apple phát hành bản cập nhật macOS 14",
+      "description": "Bản cập nhật mới mang lại nhiều tính năng và cải tiến cho người dùng Mac.",
+      "image": "assets/news/macupdate.jpg",
+      "startDate": "10/04/2025",
+      "details": "Bản cập nhật macOS 14 đã chính thức được phát hành với nhiều tính năng mới và sửa lỗi. Người dùng nên cập nhật ngay để trải nghiệm..."
+    },
+    {
+      "id": "news10",
+      "title": "Apple công bố sự kiện WWDC 2025",
+      "description": "Sự kiện thường niên dành cho các nhà phát triển sẽ diễn ra vào tháng 6 tới.",
+      "image": "assets/news/wwdc.jpg",
+      "startDate": "09/04/2025",
+      "details": "Apple công bố sự kiện WWDC 2025 sẽ diễn ra vào tháng 6 tới, nơi giới thiệu các công nghệ và sản phẩm mới dành cho các nhà phát triển..."
+    },
+    {
+      "id": "news11",
+      "title": "Apple ra mắt dịch vụ Apple Arcade tại Việt Nam",
+      "description": "Người dùng có thể trải nghiệm hàng trăm trò chơi mới trên Apple Arcade.",
+      "image": "assets/news/applearcade.jpg",
+      "startDate": "08/04/2025",
+      "details": "Apple Arcade đã chính thức có mặt tại Việt Nam, cho phép người dùng trải nghiệm hàng trăm trò chơi mới và độc quyền trên iPhone và iPad..."
     }
+
   ]
   

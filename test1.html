@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Mobile</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="https://placehold.co/32x32" type="image/png">
+    <style>
+/* General Body & Header Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+}
+
+/* Desktop Navigation */
+.desktop-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.desktop-nav ul li {
+    position: relative;
+    margin-left: 30px;
+}
+
+.desktop-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 0;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav ul li a:hover,
+.desktop-nav ul li a[aria-current="page"] {
+    color: #007bff; /* Highlight current page or hovered link */
+}
+
+/* Mega Menu Dropdown (Products) */
+.desktop-nav .has-dropdown #products-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 50%; /* Center dropdown relative to "Products" link */
+    transform: translateX(-50%); /* Adjust for centering */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    min-width: 700px; /* Adjust as needed */
+    display: flex; /* Use flexbox for columns */
+    justify-content: space-around;
+    gap: 20px; /* Space between columns */
+}
+
+.desktop-nav .has-dropdown:hover #products-dropdown {
+    display: flex; /* Show on hover */
+}
+
+.category-column {
+    flex: 1; /* Distribute space equally */
+    min-width: 150px; /* Minimum width for each category column */
+}
+
+.category-item {
+    position: relative; /* Rất quan trọng! Cho phép định vị tuyệt đối các phần tử con */
+    margin-bottom: 15px; /* Space between categories */
+}
+
+.category-item > a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    padding: 5px 0;
+    display: block;
+    border-bottom: 1px solid #eee; /* Separator for categories */
+    margin-bottom: 10px;
+}
+
+.category-item > a:hover {
+    color: #007bff;
+}
+
+/* Subcategory Columns (Level 3) */
+.subcategory-column {
+    display: none; /* Hidden by default */
+    background-color: #f9f9f9;
+    border-left: 1px solid #eee; /* Separator for subcategories */
+    padding-left: 15px;
+    position: absolute; /* Định vị tuyệt đối so với .category-item cha */
+    left: 100%; /* Đặt ngay bên phải của .category-item */
+    top: 0; /* Căn chỉnh với cạnh trên của .category-item */
+    min-width: 200px; /* Width of subcategory column */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1001; /* Ensure it's above the main dropdown */
+    height: 100%; /* Đảm bảo chiều cao đầy đủ nếu cần */
+    box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng/cao */
+}
+
+
+.category-item:hover .subcategory-column {
+    display: block; /* Show subcategory on hover of its parent category item */
+}
+
+.subcategory-title {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px;
+    padding-top: 5px;
+}
+
+.subcategory-links a {
+    display: block;
+    padding: 5px 0;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.subcategory-links a:hover {
+    color: #007bff;
+}
+
+/* Header Right Icons */
+.search-box,
+.cart-icon,
+.user-icon,
+.hamburger-menu {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #555;
+    font-size: 1.2em;
+    position: relative;
+}
+
+.search-input-container {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 250px;
+}
+
+.search-input-container.active {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.close-search-btn {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-count {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%; /* Adjust as needed */
+    max-width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+.close-mobile-nav {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    padding: 15px;
+    width: 100%;
+    text-align: right;
+    color: #555;
+    cursor: pointer;
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    text-decoration: none;
+}
+
+.mobile-nav ul li a:hover {
+    background-color: #f0f0f0;
+}
+
+.mobile-nav .has-submenu > a {
+    position: relative;
+}
+
+.mobile-nav .has-submenu > a::after {
+    content: '\f0d7'; /* FontAwesome caret-down */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav .has-submenu.active > a::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.mobile-nav .submenu {
+    list-style: none;
+    padding: 0;
+    background-color: #f9f9f9;
+    display: none; /* Hidden by default */
+}
+
+.mobile-nav .submenu li a {
+    padding-left: 40px; /* Indent sub-menu items */
+    border-bottom: none;
+}
+
+/* Hide desktop elements on small screens */
+@media (max-width: 992px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+    .search-input-container {
+        position: fixed; /* Make search input full width on mobile */
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transform: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+/* Show desktop elements and hide mobile on large screens */
+@media (min-width: 993px) {
+    .desktop-nav {
+        display: block;
+    }
+    .hamburger-menu {
+        display: none;
+    }
+    .mobile-nav {
+        display: none !important; /* Ensure it's hidden */
+    }
+}
+</style>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-envelope"></i> [email protected]</span>
+                <span><i class="fas fa-phone"></i> (+84) 827592304</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="https://placehold.co/150x60" alt="Z-Mobile Logo">
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#" aria-current="page">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li class="has-dropdown">
+                            <a href="#">Products</a>
+                            <div id="products-dropdown">
+                                <div class="category-column">
+                                    <a href="#iphone-subcategory">iPhone Series</a>
+                                    <a href="#ipad-subcategory">iPad Models</a>
+                                    <a href="#mac-subcategory">Mac Devices</a>
+                                    <a href="#watch-subcategory">Apple Watch</a>
+                                    <a href="#accessories-subcategory">Accessories</a>
+                                </div>
+                                <div class="subcategory-container">
+                                    <div class="subcategory-column" id="iphone-subcategory">
+                                        <div class="subcategory-title">iPhone Series</div>
+                                        <div class="subcategory-links">
+                                            <a href="#">iPhone 15 Pro</a>
+                                            <a href="#">iPhone 15</a>
+                                            <a href="#">iPhone 14 Pro</a>
+                                            <a href="#">iPhone 14</a>
+                                            <a href="#">iPhone SE</a>
+                                            <a href="#">So sánh iPhone</a>
+                                        </div>
+                                    </div>
+                                    <div class="subcategory-column" id="ipad-subcategory">
+                                        <div class="subcategory-title">iPad Models</div>
+                                        <div class="subcategory-links">
+                                            <a href="#">iPad Pro</a>
+                                            <a href="#">iPad Air</a>
+                                            <a href="#">iPad</a>
+                                            <a href="#">iPad mini</a>
+                                            <a href="#">So sánh iPad</a>
+                                            <a href="#">Apple Pencil</a>
+                                        </div>
+                                    </div>
+                                    <div class="subcategory-column" id="mac-subcategory">
+                                        <div class="subcategory-title">Mac Devices</div>
+                                        <div class="subcategory-links">
+                                            <a href="#">MacBook Air</a>
+                                            <a href="#">MacBook Pro</a>
+                                            <a href="#">iMac</a>
+                                            <a href="#">Mac mini</a>
+                                            <a href="#">Mac Studio</a>
+                                            <a href="#">Mac Pro</a>
+                                            <a href="#">So sánh Mac</a>
+                                        </div>
+                                    </div>
+                                    <div class="subcategory-column" id="watch-subcategory">
+                                        <div class="subcategory-title">Apple Watch</div>
+                                        <div class="subcategory-links">
+                                            <a href="#">Apple Watch Ultra 2</a>
+                                            <a href="#">Apple Watch Series 9</a>
+                                            <a href="#">Apple Watch SE</a>
+                                            <a href="#">Apple Watch Nike</a>
+                                            <a href="#">So sánh Apple Watch</a>
+                                            <a href="#">Dây đeo Apple Watch</a>
+                                        </div>
+                                    </div>
+                                    <div class="subcategory-column" id="accessories-subcategory">
+                                        <div class="subcategory-title">Accessories</div>
+                                        <div class="subcategory-links">
+                                            <a href="#">AirPods</a>
+                                            <a href="#">AirPods Pro</a>
+                                            <a href="#">AirPods Max</a>
+                                            <a href="#">Apple TV</a>
+                                            <a href="#">Sạc & Cáp</a>
+                                            <a href="#">Ốp lưng & Bao da</a>
+                                            <a href="#">Bàn phím & Chuột</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                    <div class="search-input-container">
+                        <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm...">
+                        <button class="close-search-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="user-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li class="has-submenu">
+                <a href="#">Products</a>
+                <ul class="submenu">
+                    <li><a href="#">iPhone Series</a></li>
+                    <li class="has-submenu">
+                        <a href="#">Mac Devices</a>
+                        <ul class="submenu">
+                            <li><a href="#">MacBook Air</a></li>
+                            <li><a href="#">MacBook Pro</a></li>
+                            <li><a href="#">iMac</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">iPad Models</a></li>
+                    <li><a href="#">Apple Watch</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Mega Menu Functionality (Desktop)
+    const productsDropdown = document.getElementById('products-dropdown');
+    const productsLink = document.querySelector('.desktop-nav .has-dropdown > a');
+    // Không cần lắng nghe 'mouseenter' trên từng categoryLinks nữa
+    // const categoryLinks = document.querySelectorAll('#products-dropdown .category-item > a');
+    // const subcategoryColumns = document.querySelectorAll('#products-dropdown .subcategory-column'); // Vẫn cần để ẩn khi rời mega menu
+
+    if (productsLink && productsDropdown) {
+        // Hiển thị mega menu khi hover vào link "Products"
+        productsLink.addEventListener('mouseenter', () => {
+            productsDropdown.style.display = 'flex';
+        });
+
+        // Giữ mega menu hiển thị khi di chuột vào chính nó
+        productsDropdown.addEventListener('mouseenter', () => {
+            productsDropdown.style.display = 'flex';
+        });
+
+        // Ẩn mega menu khi chuột rời khỏi link "Products" HOẶC dropdown
+        productsLink.parentElement.addEventListener('mouseleave', (e) => {
+            // Kiểm tra nếu chuột di chuyển ra ngoài cả link và dropdown
+            if (!productsDropdown.contains(e.relatedTarget) && !productsLink.contains(e.relatedTarget)) {
+                productsDropdown.style.display = 'none';
+                // Đảm bảo tất cả các subcategory columns ẩn đi khi mega menu ẩn
+                document.querySelectorAll('#products-dropdown .subcategory-column').forEach(col => col.style.display = 'none');
+            }
+        });
+
+        // Ẩn mega menu khi chuột rời khỏi dropdown
+        productsDropdown.addEventListener('mouseleave', () => {
+            productsDropdown.style.display = 'none';
+            // Đảm bảo tất cả các subcategory columns ẩn đi khi mega menu ẩn
+            document.querySelectorAll('#products-dropdown .subcategory-column').forEach(col => col.style.display = 'none');
+        });
+
+        // Hide the mega menu if mouse leaves the "Products" link AND the dropdown itself
+        productsLink.parentElement.addEventListener('mouseleave', (e) => {
+            // Check if the mouse is moving outside both the link and the dropdown
+            if (!productsDropdown.contains(e.relatedTarget) && !productsLink.contains(e.relatedTarget)) {
+                productsDropdown.style.display = 'none';
+                subcategoryColumns.forEach(col => col.style.display = 'none');
+            }
+        });
+    }
+
+    // Search Box Functionality
+    const searchIcon = document.querySelector('.search-icon');
+    const searchInputContainer = document.querySelector('.search-input-container');
+    const closeSearchBtn = document.querySelector('.close-search-btn');
+
+    if (searchIcon && searchInputContainer && closeSearchBtn) {
+        searchIcon.addEventListener('click', () => {
+            searchInputContainer.classList.toggle('active');
+            if (searchInputContainer.classList.contains('active')) {
+                searchInputContainer.querySelector('.search-input').focus();
+            }
+        });
+
+        closeSearchBtn.addEventListener('click', () => {
+            searchInputContainer.classList.remove('active');
+            searchInputContainer.querySelector('.search-input').value = ''; // Clear input
+        });
+
+        // Close search if clicked outside
+        document.addEventListener('click', (e) => {
+            if (!searchIcon.contains(e.target) && !searchInputContainer.contains(e.target) && searchInputContainer.classList.contains('active')) {
+                searchInputContainer.classList.remove('active');
+                searchInputContainer.querySelector('.search-input').value = '';
+            }
+        });
+    }
+
+    // Mobile Navigation Functionality
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const closeMobileNav = document.querySelector('.close-mobile-nav');
+    const hasSubmenus = document.querySelectorAll('.mobile-nav .has-submenu');
+
+    if (hamburgerMenu && mobileNav && closeMobileNav) {
+        hamburgerMenu.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+        });
+
+        closeMobileNav.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+        });
+
+        // Toggle mobile submenus
+        hasSubmenus.forEach(item => {
+            item.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                item.classList.toggle('active');
+                const submenu = item.querySelector('.submenu');
+                if (submenu) {
+                    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+    }
+});
+
+
+    </script>
+
+    <!-- Rest of the page content remains unchanged -->
+</body>
+
+</html>

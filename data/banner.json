@@ -1,15 +1,15 @@
 {
   "banners": [
     {
-      "imageUrl": "/assets/banner/banner1.jpg",
+      "imageUrl": "assets/banner/banner1.jpg",
       "alt": "Los Angeles"
     },
     {
-      "imageUrl": "/assets/banner/banner1.jpg",
+      "imageUrl": "assets/banner/banner1.jpg",
       "alt": "Chicago"
     },
     {
-      "imageUrl": "/assets/banner/banner1.jpg",
+      "imageUrl": "assets/banner/banner1.jpg",
       "alt": "New York"
     }
   ]

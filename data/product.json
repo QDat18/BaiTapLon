@@ -27,7 +27,7 @@
               {
                 "capacity": "256GB",
                 "colors": ["Black Titanium", "White Titanium", "Desert Titanium" ,"Nature Titanium"],
-                "price": 37990000
+                "price": 31990000
               }
             ]
           },
@@ -760,7 +760,7 @@
       },
       {
         "id": 3,
-        "name": "Mac",
+        "name": "MacBook",
         "products": [
           {
             "id": "macbook-air-13",
@@ -1130,7 +1130,7 @@
       },
       {
         "id": 5,
-        "name": "Tai nghe",
+        "name": "Tai Nghe",
         "products": [
           {
             "id": "airpods-pro-2",

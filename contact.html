@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Liên Hệ | PhoneZone</title>
+    <title>Liên Hệ | Anh Em Rọt Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         :root {
-            --primary-color: #1a237e;
-            --secondary-color: #3949ab;
-            --accent-color: #f44336;
-            --light-color: #f1f1f1;
-            --dark-color: #0d1b2a;
+            --primary: #FF0000; /* Đỏ chủ đạo - Anh Em Rọt */
+            --primary-hover: #CC0000; /* Đỏ đậm */
+            --secondary: #000000; /* Đen */
+            --accent: #FF6600; /* Cam */
+            --background: #f8f9fa; /* Nền trắng xám nhạt */
+            --surface: #ffffff; /* Nền card trắng */
+            --text: #212529; /* Chữ chính tối */
+            --text-muted: #6c757d; /* Chữ phụ xám */
+            --text-light: #ffffff; /* Chữ trắng */
+            --border: #e5e7eb; /* Viền nhẹ */
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --glow: rgba(255, 0, 0, 0.3); /* Ánh sáng đỏ */
+            --gradient: linear-gradient(135deg, #FF0000, #FF6600); /* Gradient từ đỏ sang cam */
         }
 
         * {
@@ -22,114 +33,237 @@
 
         body {
             line-height: 1.6;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--background);
+            color: var(--text);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
+        /* Navbar */
+        .navbar {
+            background: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-light) !important;
+            font-size: 1.4rem;
         }
 
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
+        .navbar-nav .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
-        .nav-links li {
-            margin-left: 25px;
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
+        .navbar-nav .nav-link:hover {
+            color: var(--primary) !important;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient);
             color: white;
-            padding: 70px 0;
+            padding: 100px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInDown 1s;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeInUp 1s;
         }
 
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="white" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Contact Section */
         .contact-section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary-color);
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 2.5rem;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
-        .contact-info, .contact-form {
-            background: white;
+        .contact-card {
+            background: var(--surface);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-info {
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .contact-info h3 {
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-info h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 10px;
         }
 
         .info-item {
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .info-icon {
-            margin-right: 15px;
-            color: var(--secondary-color);
-            font-size: 20px;
+            margin-right: 20px;
+            color: var(--primary);
+            background: rgba(255, 0, 0, 0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .info-content h4 {
             margin-bottom: 5px;
-            color: var(--primary-color);
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .info-content p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            padding: 30px;
+            background: var(--surface);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-form h3::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 10px;
         }
 
         .form-group {
@@ -138,54 +272,187 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             font-weight: 500;
+            color: var(--secondary);
         }
 
         .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
-            border-color: var(--secondary-color);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem var(--glow);
             outline: none;
         }
 
         textarea.form-control {
-            min-height: 130px;
+            min-height: 150px;
             resize: vertical;
         }
 
         .submit-btn {
-            background-color: var(--secondary-color);
+            background: var(--gradient);
             color: white;
             border: none;
-            padding: 12px 28px;
-            border-radius: 4px;
+            padding: 15px 30px;
+            border-radius: 50px;
             cursor: pointer;
-            font-weight: 500;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--glow);
         }
 
         .submit-btn:hover {
-            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--glow);
         }
 
-        #formResponse {
+        .response-message {
             margin-top: 20px;
-            font-size: 16px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
         }
 
+        .response-message.success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+
+        .response-message.error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+
+        /* Store Locations */
+        .stores-section {
+            padding: 80px 0;
+            background-color: var(--background);
+        }
+
+        .store-card {
+            background: var(--surface);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .store-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .store-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .store-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .store-card:hover .store-image img {
+            transform: scale(1.05);
+        }
+
+        .store-details {
+            padding: 20px;
+        }
+
+        .store-name {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .store-name i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .store-address {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .store-address i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .store-hours {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .store-hours i {
+            color: var(--primary);
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+
+        .store-phone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .store-phone i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .store-directions {
+            margin-top: 20px;
+        }
+
+        .btn-directions {
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-directions:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Map Container */
         .map-container {
             margin-top: 60px;
-            height: 400px;
-            border-radius: 8px;
+            height: 450px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            position: relative;
         }
 
         .map-container iframe {
@@ -194,200 +461,958 @@
             border: none;
         }
 
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 40px 0;
-            margin-top: 60px;
+        .map-container .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 0, 0, 0.05);
+            pointer-events: none;
+            z-index: 1;
+            border: 5px solid var(--surface);
+            border-radius: 15px;
+        }
+
+        /* Support Options */
+        .support-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, rgba(255, 0, 0, 0.05), rgba(255, 0, 0, 0.01));
+        }
+
+        .support-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
             text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
         }
 
-        .footer-content {
+        .support-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .support-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
         }
 
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
-
-        .footer-section h3 {
+        .support-title {
+            color: var(--secondary);
+            font-weight: 600;
             margin-bottom: 15px;
-            color: var(--secondary-color);
         }
 
-        .footer-section ul {
-            list-style: none;
+        .support-description {
+            color: var(--text);
+            margin-bottom: 20px;
         }
 
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section a {
-            color: var(--light-color);
+        .btn-support {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--secondary-color);
+        .btn-support:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--glow);
+            color: white;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
 
+        .footer h5 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer hr {
+            margin: 2rem 0;
+            opacity: 0.1;
+        }
+
+        /* Back to Top Button */
+        .btn-back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px var(--glow);
+            z-index: 9999;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--glow);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .info-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+            
+            .btn-back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-apple-alt me-2"></i>Anh Em Rọt Store
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iphone.html">iPhone</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo">AnhEmRọt Store</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="animate__animated animate__fadeInDown">Liên Hệ Với Anh Em Rọt</h1>
+                <p class="animate__animated animate__fadeInUp">Bạn cần tư vấn, hỗ trợ kỹ thuật hoặc đặt hàng? Chúng tôi luôn sẵn sàng giúp đỡ!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Liên Hệ Ngay</h2>
             
-            <ul class="nav-links">
-                <li><a href="index.html">Trang Chủ</a></li>
-                <li><a href="products.html">Sản Phẩm</a></li>
-                <li><a href="support.html">Hỗ Trợ</a></li>
-                <li><a href="contact.html">Liên Hệ</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="container">
-        <h1>Liên Hệ Với AnhEmRọt</h1>
-        <p>Bạn cần tư vấn, hỗ trợ kỹ thuật hoặc đặt hàng? Chúng tôi luôn sẵn sàng giúp đỡ!</p>
-    </div>
-</section>
-
-<section class="contact-section">
-    <div class="container">
-        <h2 class="section-title">Liên Hệ Ngay</h2>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Thông Tin Liên Hệ</h3>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="info-content">
-                        <h4>Địa Chỉ Cửa Hàng</h4>
-                        <p>Số 12 Chùa Bộc, P.Quang Trung, Quận Đống Đa, TP. Hà Nội</p>
+            <div class="row g-4">
+                <div class="col-md-5">
+                    <div class="contact-card animate__animated animate__fadeInLeft">
+                        <div class="contact-info">
+                            <h3>Thông Tin Liên Hệ</h3>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Địa Chỉ Cửa Hàng</h4>
+                                    <p>Số 12 Chùa Bộc, P. Quang Trung, Quận Đống Đa, TP. Hà Nội</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Điện Thoại</h4>
+                                    <p>1900 6868 - 0909 123 456</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Email</h4>
+                                    <p>support@anhemrotstore.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Giờ Làm Việc</h4>
+                                    <p>Thứ 2 - Chủ Nhật: 8:00 - 21:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Hỗ Trợ Kỹ Thuật</h4>
+                                    <p>Hotline: 1900 9090</p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links mt-4">
+                                <h4 class="mb-3">Kết nối với chúng tôi</h4>
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div class="info-content">
-                        <h4>Điện Thoại</h4>
-                        <p>1900 6868</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="info-content">
-                        <h4>Email</h4>
-                        <p>khiemhg79@gmail.com</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-clock"></i></div>
-                    <div class="info-content">
-                        <h4>Giờ Làm Việc</h4>
-                        <p>Thứ 2 - Chủ Nhật: 8:00 - 21:00</p>
+                
+                <div class="col-md-7">
+                    <div class="contact-form animate__animated animate__fadeInRight">
+                        <h3>Gửi Tin Nhắn Cho Chúng Tôi</h3>
+                        
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Họ và tên <span class="text-danger">*</span></label>
+                                        <input type="text" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Địa chỉ Email <span class="text-danger">*</span></label>
+                                        <input type="email" id="email" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Số điện thoại <span class="text-danger">*</span></label>
+                                        <input type="tel" id="phone" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="subject">Chủ đề <span class="text-danger">*</span></label>
+                                        <select id="subject" class="form-control" required>
+                                            <option value="">-- Chọn chủ đề --</option>
+                                            <option value="general">Thông tin chung</option>
+                                            <option value="order">Đặt hàng & Thanh toán</option>
+                                            <option value="support">Hỗ trợ kỹ thuật</option>
+                                            <option value="warranty">Bảo hành & Đổi trả</option>
+                                            <option value="other">Khác</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Nội dung <span class="text-danger">*</span></label>
+                                <textarea id="message" class="form-control" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                    <input type="checkbox" required> Tôi đồng ý với <a href="#">Chính sách bảo mật</a> của Anh Em Rọt
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn mt-3">
+                                <i class="fas fa-paper-plane me-2"></i> Gửi Tin Nhắn
+                            </button>
+                        </form>
+                        
+                        <div id="formResponse" class="response-message mt-4"></div>
                     </div>
                 </div>
             </div>
-
-            <div class="contact-form">
-                <h3>Gửi Tin Nhắn Cho Chúng Tôi</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Họ và tên</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Địa chỉ Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Số điện thoại</label>
-                        <input type="tel" id="phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Chủ đề</label>
-                        <input type="text" id="subject" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Nội dung</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Gửi Tin Nhắn</button>
-                    <div id="formResponse"></div>
-                </form>
+            
+            <!-- Google Map -->
+            <div class="map-container mt-5 animate__animated animate__fadeInUp">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4452.058617001361!2d105.82612654039389!3d21.0087431807163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac800f450807%3A0x419a49bcd94b693a!2zSOG7jWMgVmnhu4duIE5nw6JuIEjDoG5n!5e1!3m2!1svi!2s!4v1746259696706!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="map-overlay"></div>
             </div>
         </div>
+    </section>
 
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4452.058617001361!2d105.82612654039389!3d21.0087431807163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac800f450807%3A0x419a49bcd94b693a!2zSOG7jWMgVmnhu4duIE5nw6JuIEjDoG5n!5e1!3m2!1svi!2s!4v1746259696706!5m2!1svi!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Store Locations Section -->
+    <section class="stores-section">
+        <div class="container">
+            <h2 class="section-title">Hệ Thống Cửa Hàng</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="store-card animate__animated animate__fadeInUp">
+                        <div class="store-image"><img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cửa hàng Hà Nội">
+                        </div>
+                        <div class="store-details">
+                            <h4 class="store-name"><i class="fas fa-store"></i> Anh Em Rọt Hà Nội</h4>
+                            <div class="store-address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>Số 12 Chùa Bộc, P. Quang Trung, Quận Đống Đa, TP. Hà Nội</div>
+                            </div>
+                            <div class="store-hours">
+                                <i class="fas fa-clock"></i>
+                                <div>Thứ 2 - Chủ Nhật: 8:00 - 21:00</div>
+                            </div>
+                            <div class="store-phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>1900 6868</div>
+                            </div>
+                            <div class="store-directions">
+                                <a href="https://goo.gl/maps/your-maps-link-here" target="_blank" class="btn-directions">
+                                    <i class="fas fa-directions"></i> Chỉ đường
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="store-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="store-image">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cửa hàng TP.HCM">
+                        </div>
+                        <div class="store-details">
+                            <h4 class="store-name"><i class="fas fa-store"></i> Anh Em Rọt TP.HCM</h4>
+                            <div class="store-address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>108 Nguyễn Gia Trí, P.25, Quận Bình Thạnh, TP. Hồ Chí Minh</div>
+                            </div>
+                            <div class="store-hours">
+                                <i class="fas fa-clock"></i>
+                                <div>Thứ 2 - Chủ Nhật: 8:00 - 21:00</div>
+                            </div>
+                            <div class="store-phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>1900 8888</div>
+                            </div>
+                            <div class="store-directions">
+                                <a href="https://goo.gl/maps/your-maps-link-here" target="_blank" class="btn-directions">
+                                    <i class="fas fa-directions"></i> Chỉ đường
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="store-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="store-image">
+                            <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cửa hàng Đà Nẵng">
+                        </div>
+                        <div class="store-details">
+                            <h4 class="store-name"><i class="fas fa-store"></i> Anh Em Rọt Đà Nẵng</h4>
+                            <div class="store-address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>78 Đường 2/9, P. Bình Hiên, Quận Hải Châu, TP. Đà Nẵng</div>
+                            </div>
+                            <div class="store-hours">
+                                <i class="fas fa-clock"></i>
+                                <div>Thứ 2 - Chủ Nhật: 8:00 - 21:00</div>
+                            </div>
+                            <div class="store-phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>1900 7979</div>
+                            </div>
+                            <div class="store-directions">
+                                <a href="https://goo.gl/maps/your-maps-link-here" target="_blank" class="btn-directions">
+                                    <i class="fas fa-directions"></i> Chỉ đường
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-danger btn-lg">
+                    <i class="fas fa-map-marked-alt me-2"></i> Xem tất cả cửa hàng
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Options -->
+    <section class="support-section">
+        <div class="container">
+            <h2 class="section-title">Các Kênh Hỗ Trợ</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="support-card animate__animated animate__fadeInUp">
+                        <div class="support-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="support-title">Hotline Tư Vấn</h3>
+                        <p class="support-description">Liên hệ ngay với đội ngũ tư vấn viên của chúng tôi để được hỗ trợ nhanh chóng về sản phẩm và dịch vụ.</p>
+                        <a href="tel:19006868" class="btn-support">
+                            <i class="fas fa-phone-alt"></i> 1900 6868
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="support-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="support-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="support-title">Live Chat</h3>
+                        <p class="support-description">Chat trực tiếp với nhân viên hỗ trợ của chúng tôi để nhận được câu trả lời ngay lập tức cho mọi thắc mắc.</p>
+                        <a href="#" class="btn-support" id="openChatBtn">
+                            <i class="fas fa-comments"></i> Bắt đầu chat
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="support-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="support-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="support-title">Hỗ Trợ Kỹ Thuật</h3>
+                        <p class="support-description">Đội ngũ kỹ thuật viên chuyên nghiệp sẵn sàng hỗ trợ bạn xử lý mọi vấn đề kỹ thuật với sản phẩm Apple.</p>
+                        <a href="tel:19009090" class="btn-support">
+                            <i class="fas fa-tools"></i> 1900 9090
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+            
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Làm thế nào để kiểm tra tình trạng đơn hàng?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Bạn có thể kiểm tra tình trạng đơn hàng bằng cách đăng nhập vào tài khoản của mình trên website, vào mục "Đơn hàng của tôi", hoặc sử dụng mã đơn hàng được gửi qua email/SMS sau khi đặt hàng thành công. Ngoài ra, bạn cũng có thể liên hệ với đường dây nóng 1900 6868 để được hỗ trợ kiểm tra đơn hàng.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Anh Em Rọt có chính sách đổi trả không?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Anh Em Rọt có chính sách đổi trả trong vòng 30 ngày đối với sản phẩm lỗi do nhà sản xuất. Đối với các sản phẩm không bị lỗi, chúng tôi hỗ trợ đổi sang sản phẩm khác có giá trị tương đương hoặc cao hơn (bạn sẽ thanh toán phần chênh lệch nếu có) trong vòng 7 ngày kể từ ngày mua hàng, với điều kiện sản phẩm còn nguyên vẹn, đầy đủ phụ kiện và hộp đựng.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Làm thế nào để kích hoạt bảo hành cho sản phẩm Apple?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tất cả sản phẩm Apple mua tại Anh Em Rọt đều được bảo hành chính hãng theo tiêu chuẩn của Apple. Bảo hành được kích hoạt tự động từ thời điểm mua hàng. Đối với iPhone, iPad và Apple Watch, bạn có thể kiểm tra tình trạng bảo hành bằng cách truy cập trang web kiểm tra bảo hành của Apple và nhập số serial của thiết bị. Nếu cần hỗ trợ, bạn có thể mang sản phẩm đến bất kỳ cửa hàng nào của Anh Em Rọt hoặc các trung tâm bảo hành ủy quyền của Apple.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Anh Em Rọt có hỗ trợ giao hàng tận nơi không?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Có, chúng tôi hỗ trợ giao hàng tận nơi trên toàn quốc. Miễn phí giao hàng cho đơn hàng từ 2 triệu đồng trở lên đối với khu vực nội thành các thành phố lớn. Thời gian giao hàng thường từ 1-3 ngày tùy theo khu vực. Khách hàng có thể thanh toán khi nhận hàng (COD) hoặc thanh toán trước qua chuyển khoản ngân hàng, ví điện tử hoặc thẻ tín dụng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <h3 class="mb-3">Đăng ký nhận tin khuyến mãi</h3>
+                            <p class="mb-4">Hãy đăng ký để nhận thông tin về các chương trình khuyến mãi, sản phẩm mới và tin tức công nghệ từ Anh Em Rọt.</p>
+                            
+                            <form id="newsletterForm" class="d-flex gap-2">
+                                <input type="email" class="form-control" placeholder="Email của bạn" required>
+                                <button type="submit" class="btn btn-danger px-4">Đăng ký</button>
+                            </form>
+                            
+                            <div class="form-check mt-3 text-start">
+                                <input class="form-check-input" type="checkbox" id="agreeNewsletter" required>
+                                <label class="form-check-label" for="agreeNewsletter">
+                                    Tôi đồng ý nhận email từ Anh Em Rọt và đã đọc <a href="#">Chính sách bảo mật</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Liên hệ</h5>
+                    <p><i class="fas fa-envelope me-2"></i> support@anhemrotstore.com</p>
+                    <p><i class="fas fa-phone me-2"></i> 1900 6868</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Số 12 Chùa Bộc, P. Quang Trung, Quận Đống Đa, TP. Hà Nội</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Chính sách</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo hành</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách đổi trả</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách vận chuyển</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Theo dõi chúng tôi</h5>
+                    <div class="social-links mb-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>Tải ứng dụng Anh Em Rọt</p>
+                    <div class="app-download">
+                        <a href="#" class="me-2"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" height="35"></a>
+                        <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="35"></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <p class="text-center mb-0">© 2025 Anh Em Rọt Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div id="liveChatWidget" class="position-fixed bottom-0 end-0 m-4" style="z-index: 9999; display: none;">
+        <div class="card shadow-lg" style="width: 320px;">
+            <div class="card-header bg-danger text-white py-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-comments me-2"></i> Hỗ trợ trực tuyến
+                    </div>
+                    <button type="button" id="closeChatBtn" class="btn-close btn-close-white"></button>
+                </div>
+            </div>
+            <div class="card-body bg-light" style="height: 300px; overflow-y: auto;">
+                <div class="chat-messages">
+                    <div class="message-system text-center mb-3">
+                        <small class="bg-white px-2 py-1 rounded-pill">Hôm nay, 10:30</small>
+                    </div>
+                    <div class="message-agent d-flex mb-3">
+                        <div class="avatar me-2">
+                            <img src="https://i.pravatar.cc/40?img=69" class="rounded-circle" width="40" height="40" alt="Support Agent">
+                        </div>
+                        <div class="message-content">
+                            <div class="name fw-bold small mb-1">Tư vấn viên</div>
+                            <div class="content bg-white p-2 rounded">
+                                Xin chào! Tôi có thể giúp gì cho bạn?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white">
+                <div class="input-group">
+                    <input type="text" id="chatInput" class="form-control" placeholder="Nhập tin nhắn...">
+                    <button class="btn btn-danger" id="sendChatBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
-</section>
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>PhoneZone</h3>
-                <ul>
-                    <li><a href="about.html">Về Chúng Tôi</a></li>
-                    <li><a href="policy.html">Chính Sách Bảo Hành</a></li>
-                    <li><a href="blog.html">Tin Công Nghệ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Hỗ Trợ</h3>
-                <ul>
-                    <li><a href="support.html">Hướng Dẫn Mua Hàng</a></li>
-                    <li><a href="#">Chính Sách Đổi Trả</a></li>
-                    <li><a href="faq.html">Câu Hỏi Thường Gặp</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Kết Nối</h3>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                </ul>
-            </div>
-        </div>
-        <p>&copy; 2025 PhoneZone. All rights reserved.</p>
+    <!-- Chat Bubble -->
+    <div id="chatBubble" class="position-fixed bottom-0 end-0 m-4" style="z-index: 9999;">
+        <button class="btn btn-danger btn-lg rounded-circle shadow-lg" style="width: 60px; height: 60px;">
+            <i class="fas fa-comments"></i>
+        </button>
     </div>
-</footer>
 
-<script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    document.getElementById('formResponse').innerHTML =
-        `<p style="color: green;">Cảm ơn ${name}! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi sớm nhất.</p>`;
-    alert(`Cảm ơn ${name} đã lựa chọn sử dụng dịch vụ của chúng tôi!!`);
-    this.reset();
-});
-</script>
+    <!-- Back to Top Button -->
+    <button id="btn-back-to-top" class="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const formResponse = document.getElementById('formResponse');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang gửi...';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission
+                    setTimeout(function() {
+                        const name = document.getElementById('name').value;
+                        
+                        // Show success message
+                        formResponse.innerHTML = `
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle me-2"></i> Cảm ơn <strong>${name}</strong>! Chúng tôi đã nhận được tin nhắn và sẽ phản hồi trong thời gian sớm nhất.
+                            </div>
+                        `;
+                        formResponse.style.display = 'block';
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                        
+                        // Scroll to response
+                        formResponse.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 2000);
+                });
+            }
+            
+            // Newsletter Form
+            const newsletterForm = document.getElementById('newsletterForm');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Show success message using Bootstrap Toast
+                    const toastHTML = `
+                        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header bg-success text-white">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    <strong class="me-auto">Đăng ký thành công</strong>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    Bạn đã đăng ký nhận tin khuyến mãi thành công!
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.insertAdjacentHTML('beforeend', toastHTML);
+                    newsletterForm.reset();
+                    
+                    // Auto remove toast after 3 seconds
+                    setTimeout(function() {
+                        const toast = document.querySelector('.toast');
+                        if (toast) {
+                            toast.classList.remove('show');
+                            setTimeout(() => toast.remove(), 300);
+                        }
+                    }, 3000);
+                });
+            }
+            
+            // Live Chat
+            const chatBubble = document.getElementById('chatBubble');
+            const liveChatWidget = document.getElementById('liveChatWidget');
+            const closeChatBtn = document.getElementById('closeChatBtn');
+            const chatInput = document.getElementById('chatInput');
+            const sendChatBtn = document.getElementById('sendChatBtn');
+            const openChatBtn = document.getElementById('openChatBtn');
+            
+            if (chatBubble && liveChatWidget) {
+                // Open chat on bubble click
+                chatBubble.addEventListener('click', function() {
+                    chatBubble.style.display = 'none';
+                    liveChatWidget.style.display = 'block';
+                });
+                
+                // Close chat
+                closeChatBtn.addEventListener('click', function() {
+                    liveChatWidget.style.display = 'none';
+                    chatBubble.style.display = 'block';
+                });
+                
+                // Open chat from support section
+                if (openChatBtn) {
+                    openChatBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        chatBubble.style.display = 'none';
+                        liveChatWidget.style.display = 'block';
+                        
+                        // Scroll to the live chat widget
+                        liveChatWidget.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    });
+                }
+                
+                // Send message
+                function sendChatMessage() {
+                    const messageText = chatInput.value.trim();
+                    if (!messageText) return;
+                    
+                    const chatMessages = document.querySelector('.chat-messages');
+                    
+                    // Add user message
+                    const userMessage = `
+                        <div class="message-user d-flex justify-content-end mb-3">
+                            <div class="message-content">
+                                <div class="content bg-primary text-white p-2 rounded">
+                                    ${messageText}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    chatMessages.insertAdjacentHTML('beforeend', userMessage);
+                    chatInput.value = '';
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Simulate agent response after a delay
+                    setTimeout(function() {
+                        const agentResponses = [
+                            "Cảm ơn bạn đã liên hệ với Anh Em Rọt. Tôi có thể giúp gì cho bạn?",
+                            "Chúng tôi sẽ kiểm tra thông tin và phản hồi lại cho bạn trong thời gian sớm nhất.",
+                            "Bạn có thể cho tôi biết thêm chi tiết về vấn đề bạn đang gặp phải không?",
+                            "Để hỗ trợ tốt hơn, bạn vui lòng cung cấp số điện thoại để nhân viên của chúng tôi liên hệ trực tiếp."
+                        ];
+                        
+                        const randomResponse = agentResponses[Math.floor(Math.random() * agentResponses.length)];
+                        
+                        const agentReply = `
+                            <div class="message-agent d-flex mb-3">
+                                <div class="avatar me-2">
+                                    <img src="https://i.pravatar.cc/40?img=69" class="rounded-circle" width="40" height="40" alt="Support Agent">
+                                </div>
+                                <div class="message-content">
+                                    <div class="name fw-bold small mb-1">Tư vấn viên</div>
+                                    <div class="content bg-white p-2 rounded">
+                                        ${randomResponse}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        chatMessages.insertAdjacentHTML('beforeend', agentReply);
+                        
+                        // Scroll to bottom
+                        chatMessages.scrollTop = chatMessages.scrollHeight;
+                    }, 1000);
+                }
+                
+                sendChatBtn.addEventListener('click', sendChatMessage);
+                
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendChatMessage();
+                    }
+                });
+            }
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById("btn-back-to-top");
+            
+            if (backToTopButton) {
+                window.onscroll = function() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        backToTopButton.style.display = "block";
+                    } else {
+                        backToTopButton.style.display = "none";
+                    }
+                };
+                
+                backToTopButton.addEventListener("click", function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            }
+            
+            // Animation on scroll (simplified)
+            const animateElements = document.querySelectorAll('.animate__animated');
+            
+            function checkIfInView() {
+                const windowHeight = window.innerHeight;
+                const windowTopPosition = window.scrollY;
+                const windowBottomPosition = windowTopPosition + windowHeight;
+                
+                animateElements.forEach(element => {
+                    const elementHeight = element.offsetHeight;
+                    const elementTopPosition = element.offsetTop;
+                    const elementBottomPosition = elementTopPosition + elementHeight;
+                    
+                    // Check if element is in viewport
+                    if ((elementBottomPosition >= windowTopPosition) && 
+                        (elementTopPosition <= windowBottomPosition)) {
+                        
+                        // Get animation class
+                        let animationClass = 'animate__fadeIn';
+                        
+                        if (element.classList.contains('animate__fadeInLeft')) {
+                            animationClass = 'animate__fadeInLeft';
+                        } else if (element.classList.contains('animate__fadeInRight')) {
+                            animationClass = 'animate__fadeInRight';
+                        } else if (element.classList.contains('animate__fadeInUp')) {
+                            animationClass = 'animate__fadeInUp';
+                        }
+                        
+                        element.classList.add(animationClass);
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkIfInView);
+            window.addEventListener('load', checkIfInView);
+        });
+    </script>
 </body>
 </html>

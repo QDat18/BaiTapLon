@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Company Name</title>
+    <title>Giới thiệu | Anh Em Rọt Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
+            --primary: #FF0000; /* Đỏ chủ đạo - Anh Em Rọt */
+            --primary-hover: #CC0000; /* Đỏ đậm */
+            --secondary: #000000; /* Đen */
+            --accent: #FF6600; /* Cam */
+            --background: #f8f9fa; /* Nền trắng xám nhạt */
+            --surface: #ffffff; /* Nền card trắng */
+            --text: #212529; /* Chữ chính tối */
+            --text-muted: #6c757d; /* Chữ phụ xám */
+            --text-light: #ffffff; /* Chữ trắng */
+            --border: #e5e7eb; /* Viền nhẹ */
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --glow: rgba(255, 0, 0, 0.3); /* Ánh sáng đỏ */
+            --gradient: linear-gradient(135deg, #FF0000, #FF6600); /* Gradient từ đỏ sang cam */
         }
         
         * {
@@ -22,319 +33,1132 @@
         
         body {
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text);
+            background-color: var(--background);
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Navbar */
+        .navbar {
+            background: var(--secondary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-light) !important;
+            font-size: 1.4rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--primary) !important;
         }
         
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-        
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: var(--gradient);
             color: white;
-            padding: 80px 0;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1.2s;
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeInUp 1.2s;
         }
         
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            top: 50px;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: white;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            bottom: 50px;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .shape-3 {
+            top: 30%;
+            right: 30%;
+            width: 80px;
+            height: 80px;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            background: white;
+            animation: float 12s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, -15px) rotate(10deg); }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* About Section */
         .about-content {
-            padding: 60px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            color: var(--primary-color);
+            position: relative;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
         
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 30px;
         }
         
         .about-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--surface);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+            z-index: -1;
         }
         
         .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .about-card h3 {
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
         }
         
+        .about-card h3 i {
+            margin-right: 15px;
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .about-card p {
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 0;
+            background-color: var(--background);
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--surface);
+            border: 4px solid var(--primary);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background-color: var(--surface);
+            position: relative;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-radius: 15px 15px 15px 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            border-radius: 15px 15px 0 15px;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -40px;
+            width: 80px;
+            height: 30px;
+            background: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: 20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: 20px;
+        }
+        
+        .timeline-title {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Team Section */
         .team-section {
-            background-color: var(--light-color);
-            padding: 60px 0;
+            background-color: var(--surface);
+            padding: 80px 0;
         }
         
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
         
         .team-member {
-            background: white;
-            border-radius: 8px;
+            background: var(--surface);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         .team-member img {
             width: 100%;
-            height: 250px;
+            height: 300px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover img {
+            transform: scale(1.05);
         }
         
         .member-info {
-            padding: 20px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .member-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 10px;
         }
         
         .member-info h3 {
-            color: var(--primary-color);
+            color: var(--secondary);
             margin-bottom: 5px;
+            font-weight: 600;
         }
         
         .member-info p {
-            color: var(--secondary-color);
+            color: var(--primary);
             font-style: italic;
+            margin-bottom: 15px;
         }
         
-        footer {
-            background-color: var(--dark-color);
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #f1f1f1;
+            color: var(--text);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
             color: white;
-            padding: 40px 0 20px;
+            transform: translateY(-3px);
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
             text-align: center;
         }
         
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
+        .stat-item {
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
         }
         
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: var(--secondary-color);
+        .stat-item:hover {
+            transform: translateY(-10px);
         }
         
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .footer-section a {
-            color: var(--light-color);
+        .stat-number i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .stat-title {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/pattern.png');
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .cta-title {
+            color: var(--secondary);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-text {
+            color: var(--text);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary-cta {
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             text-decoration: none;
-            transition: color 0.3s;
+            box-shadow: 0 5px 15px var(--glow);
         }
         
-        .footer-section a:hover {
-            color: var(--secondary-color);
+        .btn-primary-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--glow);
+            color: white;
         }
         
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
+        .btn-secondary-cta {
+            padding: 15px 35px;
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-secondary-cta:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--secondary);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer h5 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--primary);
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer hr {
+            margin: 2rem 0;
+            opacity: 0.1;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+                right: auto;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                border-radius: 15px 15px 15px 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: 20px;
+                right: auto;
+            }
         }
         
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 0;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 1.8rem;
             }
             
             .hero p {
-                font-size: 18px;
+                font-size: 1rem;
+            }
+            
+            .about-card {
+                padding: 25px 20px;
+            }
+            
+            .cta-container {
+                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <nav>
-                <div class="logo">CompanyName</div>
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-apple-alt me-2"></i>Anh Em Rọt Store
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iphone.html">iPhone</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
     
+    <!-- Hero Section -->
     <section class="hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
         <div class="container">
-            <h1>About Our Company</h1>
-            <p>We are a team of passionate professionals dedicated to delivering exceptional results for our clients through innovation and expertise.</p>
+            <h1 class="animate__animated animate__fadeInDown">Giới thiệu về Anh Em Rọt</h1>
+            <p class="animate__animated animate__fadeInUp">Chúng tôi là đơn vị chuyên phân phối sản phẩm Apple chính hãng, cam kết mang đến những sản phẩm chất lượng và dịch vụ tốt nhất cho khách hàng.</p>
         </div>
     </section>
     
+    <!-- About Section -->
     <section class="about-content">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
+            <h2 class="section-title">Câu chuyện của chúng tôi</h2>
             <div class="about-grid">
-                <div class="about-card">
-                    <h3>Our Mission</h3>
-                    <p>To empower businesses through innovative solutions that drive growth, efficiency, and sustainable success in an ever-changing digital landscape.</p>
+                <div class="about-card animate__animated animate__fadeInLeft">
+                    <h3><i class="fas fa-bullseye"></i>Sứ mệnh</h3>
+                    <p>Mang đến những sản phẩm công nghệ chính hãng với chất lượng tốt nhất, giá cả hợp lý cùng dịch vụ chăm sóc khách hàng tận tâm, mang lại trải nghiệm mua sắm hoàn hảo cho mọi khách hàng.</p>
                 </div>
-                <div class="about-card">
-                    <h3>Our Vision</h3>
-                    <p>To be the global leader in our industry, recognized for our commitment to excellence, integrity, and transformative client experiences.</p>
+                <div class="about-card animate__animated animate__fadeInUp">
+                    <h3><i class="fas fa-eye"></i>Tầm nhìn</h3>
+                    <p>Trở thành đơn vị phân phối sản phẩm Apple hàng đầu tại Việt Nam, được tin tưởng bởi sự chuyên nghiệp, uy tín và chất lượng dịch vụ vượt trội, góp phần nâng cao trải nghiệm công nghệ cho người Việt.</p>
                 </div>
-                <div class="about-card">
-                    <h3>Our Values</h3>
-                    <p>Integrity, Innovation, Collaboration, Excellence, and Customer-Centricity form the foundation of everything we do.</p>
+                <div class="about-card animate__animated animate__fadeInRight">
+                    <h3><i class="fas fa-heart"></i>Giá trị cốt lõi</h3>
+                    <p>Chúng tôi hoạt động dựa trên các giá trị: Chính hãng - Chất lượng, Tận tâm - Chu đáo, Sáng tạo - Đổi mới, Minh bạch - Trung thực, và luôn đặt khách hàng làm trung tâm trong mọi quyết định.</p>
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Hành trình phát triển</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Thành lập cửa hàng đầu tiên</h3>
+                        <p>Anh Em Rọt Store được thành lập với cửa hàng đầu tiên tại Hà Nội, chuyên cung cấp các sản phẩm Apple chính hãng.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3 class="timeline-title">Mở rộng chuỗi cửa hàng</h3>
+                        <p>Mở thêm 3 cửa hàng mới tại các thành phố lớn, đồng thời phát triển kênh bán hàng online để phục vụ khách hàng trên toàn quốc.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3 class="timeline-title">Trở thành đối tác ủy quyền</h3>
+                        <p>Chính thức trở thành đối tác ủy quyền chính thức của Apple tại Việt Nam, cung cấp đầy đủ các sản phẩm và dịch vụ bảo hành chính hãng.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3 class="timeline-title">Mở rộng dịch vụ</h3>
+                        <p>Phát triển thêm các dịch vụ sửa chữa chuyên nghiệp, tư vấn giải pháp công nghệ toàn diện cho khách hàng cá nhân và doanh nghiệp.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">Hiện tại</h3>
+                        <p>Anh Em Rọt Store hiện là một trong những hệ thống bán lẻ sản phẩm Apple lớn nhất Việt Nam với hơn 20 cửa hàng trên toàn quốc và đội ngũ nhân viên chuyên nghiệp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                    <div class="stat-number"><i class="fas fa-store"></i>20+</div>
+                    <div class="stat-title">Cửa hàng</div>
+                </div>
+                <div class="stat-item animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                    <div class="stat-number"><i class="fas fa-users"></i>50K+</div>
+                    <div class="stat-title">Khách hàng</div>
+                </div>
+                <div class="stat-item animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                    <div class="stat-number"><i class="fas fa-mobile-alt"></i>100K+</div>
+                    <div class="stat-title">Sản phẩm đã bán</div>
+                </div>
+                <div class="stat-item animate__animated animate__fadeInUp" data-wow-delay="0.7s">
+                    <div class="stat-number"><i class="fas fa-star"></i>4.8</div>
+                    <div class="stat-title">Đánh giá trung bình</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
     <section class="team-section">
         <div class="container">
-            <h2 class="section-title">Gặp gỡ đội ngũ Quản trị viên của chúng tôi</h2>
+            <h2 class="section-title">Gặp gỡ đội ngũ lãnh đạo của chúng tôi</h2>
             <div class="team-grid">
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/300x300" alt="John Doe">
+                <div class="team-member animate__animated animate__fadeInUp">
+                    <img src="/assets/banner/banner1.jpg" alt="Quang Dat">
                     <div class="member-info">
-                        <h3>John Doe</h3>
+                        <h3>Mr Quang Dat</h3>
                         <p>CEO & Founder</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/300x300" alt="Jane Smith">
+                <div class="team-member animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                    <img src="/assets/banner/banner1.jpg" alt="Quang Duy">
                     <div class="member-info">
-                        <h3>Jane Smith</h3>
+                        <h3>Mr Quang Duy</h3>
                         <p>Chief Operating Officer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/300x300" alt="Michael Johnson">
+                <div class="team-member animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                    <img src="./assets/banner/banner1.jpg" alt="Manh Thang">
                     <div class="member-info">
-                        <h3>Michael Johnson</h3>
+                        <h3>Mr Manh Thang</h3>
                         <p>Chief Technology Officer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="team-member">
-                    <img src="https://via.placeholder.com/300x300" alt="Sarah Williams">
+                <div class="team-member animate__animated animate__fadeInUp" data-wow-delay="0.6s">
+                    <img src="./assets/logo/logo.jpg" alt="Gia Khiem">
                     <div class="member-info">
-                        <h3>Sarah Williams</h3>
+                        <h3>Mrs Gia Khiem</h3>
                         <p>Marketing Director</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <footer>
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    </ul>
+            <div class="cta-container animate__animated animate__fadeInUp">
+                <h2 class="cta-title">Bạn đã sẵn sàng trải nghiệm sản phẩm cùng chúng tôi?</h2>
+                <p class="cta-text">Đến với cửa hàng của Anh Em Rọt để khám phá bộ sưu tập iPhone mới nhất cùng nhiều ưu đãi hấp dẫn.</p>
+                <div class="cta-buttons">
+                    <a href="iphone.html" class="btn-primary-cta">Khám phá iPhone</a>
+                    <a href="contact.html" class="btn-secondary-cta">Liên hệ ngay</a>
                 </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="/faq.html">FAQ</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                        <li><a href="/terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 CompanyName. All rights reserved.</p>
             </div>
         </div>
+    </section>
+    
+    <!-- Testimonial Slider -->
+    <section class="testimonial-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Khách hàng nói gì về chúng tôi</h2>
+            
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card p-4 m-4 bg-white rounded shadow-sm text-center">
+                            <img src="https://i.pravatar.cc/100?img=1" alt="Customer" class="rounded-circle mb-3" width="80">
+                            <p class="lead mb-3">"Đây là lần đầu tiên tôi mua sản phẩm Apple và Anh Em Rọt đã tư vấn rất tận tình. Dịch vụ hậu mãi tuyệt vời, nhân viên hỗ trợ rất nhiệt tình. Chắc chắn sẽ quay lại mua sắm."</p>
+                            <h5 class="font-weight-bold">Nguyễn Văn A</h5>
+                            <small class="text-muted">Khách hàng tại Hà Nội</small>
+                            <div class="mt-2 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card p-4 m-4 bg-white rounded shadow-sm text-center">
+                            <img src="https://i.pravatar.cc/100?img=2" alt="Customer" class="rounded-circle mb-3" width="80">
+                            <p class="lead mb-3">"Mua iPhone tại Anh Em Rọt giá cả rất hợp lý, sản phẩm chính hãng 100%, được hỗ trợ kích hoạt sản phẩm và hướng dẫn sử dụng cặn kẽ. Tôi rất hài lòng!"</p>
+                            <h5 class="font-weight-bold">Trần Thị B</h5>
+                            <small class="text-muted">Khách hàng tại TP. HCM</small>
+                            <div class="mt-2 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="testimonial-card p-4 m-4 bg-white rounded shadow-sm text-center">
+                            <img src="https://i.pravatar.cc/100?img=3" alt="Customer" class="rounded-circle mb-3" width="80">
+                            <p class="lead mb-3">"Đến Anh Em Rọt sửa iPhone đã 3 lần, từ kỹ thuật viên đến nhân viên tư vấn đều rất chuyên nghiệp. Sửa chữa nhanh, đúng giá, không báo giá cao. Rất đáng tin cậy!"</p>
+                            <h5 class="font-weight-bold">Lê Văn C</h5>
+                            <small class="text-muted">Khách hàng tại Đà Nẵng</small>
+                            <div class="mt-2 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <div class="carousel-indicators position-relative mt-4">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-dark" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-dark" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-dark" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Partners Section -->
+    <section class="partners-section py-5">
+        <div class="container">
+            <h2 class="section-title">Đối tác của chúng tôi</h2>
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" height="60" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="MoMo" height="60" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/02/Logo-VNPAY-QR-1.png" alt="VNPay" height="60" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/FPT_logo.png" alt="FPT" height="60" class="img-fluid">
+                </div>
+                <div class="col-6 col-md-2 mb-4">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-Viettel.png" alt="Viettel" height="60" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Câu hỏi thường gặp</h2>
+            
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Sản phẩm tại Anh Em Rọt có phải là hàng chính hãng không?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tất cả sản phẩm Apple bán tại Anh Em Rọt đều là hàng chính hãng 100%, được nhập khẩu trực tiếp từ Apple hoặc đối tác ủy quyền chính thức. Chúng tôi cam kết phân phối sản phẩm chính hãng và cung cấp đầy đủ chế độ bảo hành theo tiêu chuẩn của Apple.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Chính sách bảo hành tại Anh Em Rọt như thế nào?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Tất cả sản phẩm Apple được bán tại Anh Em Rọt được bảo hành chính hãng 12 tháng theo tiêu chuẩn của Apple. Ngoài ra, chúng tôi cung cấp thêm gói bảo hành mở rộng tùy chọn, bảo hành 1 đổi 1 trong 30 ngày đầu tiên nếu sản phẩm có lỗi từ nhà sản xuất và dịch vụ tư vấn kỹ thuật miễn phí trọn đời.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Anh Em Rọt có hỗ trợ mua trả góp không?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Có, chúng tôi có hỗ trợ mua trả góp với lãi suất 0% cho tất cả các sản phẩm Apple từ 3 triệu đồng trở lên. Khách hàng có thể chọn trả góp qua thẻ tín dụng các ngân hàng hoặc qua công ty tài chính với thời gian từ 3-12 tháng. Thủ tục đơn giản, phê duyệt nhanh chóng.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            Có dịch vụ giao hàng và thanh toán như thế nào?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Anh Em Rọt hỗ trợ giao hàng toàn quốc. Miễn phí giao hàng cho đơn hàng từ 2 triệu đồng trở lên trong nội thành Hà Nội và TP.HCM. Chúng tôi hỗ trợ nhiều phương thức thanh toán: tiền mặt, chuyển khoản ngân hàng, các ví điện tử (MoMo, ZaloPay, VNPay), thẻ ATM/VISA/MASTER và trả góp qua thẻ tín dụng.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Liên hệ</h5>
+                    <p><i class="fas fa-envelope me-2"></i> support@anhemrotstore.com</p>
+                    <p><i class="fas fa-phone me-2"></i> 0909 123 456</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Đường ABC, Quận XYZ, TP.HCM</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Chính sách</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo hành</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách đổi trả</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách vận chuyển</a></li>
+                        <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Theo dõi chúng tôi</h5>
+                    <div class="social-links mb-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p>Đăng ký nhận tin khuyến mãi</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email của bạn">
+                        <button class="btn btn-danger" type="button">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <p class="text-center mb-0">© 2025 Anh Em Rọt Store. All rights reserved.</p>
+        </div>
     </footer>
+    
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById("btn-back-to-top");
+        
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+        
+        backToTopButton.addEventListener("click", function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+        
+        // Animation on scroll (simplified version)
+        const animateElements = document.querySelectorAll('.animate__animated');
+        
+        function checkIfInView() {
+            const windowHeight = window.innerHeight;
+            const windowTopPosition = window.scrollY;
+            const windowBottomPosition = windowTopPosition + windowHeight;
+            
+            animateElements.forEach(element => {
+                const elementHeight = element.offsetHeight;
+                const elementTopPosition = element.offsetTop;
+                const elementBottomPosition = elementTopPosition + elementHeight;
+                
+                // Check if element is in viewport
+                if ((elementBottomPosition >= windowTopPosition) && 
+                    (elementTopPosition <= windowBottomPosition)) {
+                    element.classList.add('animate__fadeIn');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkIfInView);
+        window.addEventListener('load', checkIfInView);
+    </script>
 </body>
 </html>

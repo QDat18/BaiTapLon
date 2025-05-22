@@ -1,0 +1,84 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Flash Sale Hàng Ngày",
+      "description": "Giảm đến 50% cho các sản phẩm Apple",
+      "startDate": "2025-05-10T21:00:00Z",
+      "endDate": "2025-05-10T23:59:59Z",
+      "type": "flash-sale",
+      "url": "#flash-sale",
+      "imageUrl": "assets/promotions/flash-sale.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Tuần lễ iPhone",
+      "description": "Ưu đãi lớn cho tất cả các dòng iPhone, giảm đến 3 triệu đồng",
+      "startDate": "2025-05-12T00:00:00Z",
+      "endDate": "2025-05-18T23:59:59Z",
+      "type": "promotion",
+      "url": "promotion.html?id=iphone-week",
+      "imageUrl": "assets/promotions/iphone-promo.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Back To School 2025",
+      "description": "Ưu đãi đặc biệt cho học sinh, sinh viên khi mua MacBook và iPad",
+      "startDate": "2025-06-01T00:00:00Z",
+      "endDate": "2025-06-30T23:59:59Z",
+      "type": "special",
+      "url": "promotion.html?id=back-to-school",
+      "imageUrl": "assets/promotions/back-to-school.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Xả kho AirPods",
+      "description": "Giảm giá đặc biệt cho AirPods các dòng để đón các sản phẩm mới",
+      "startDate": "2025-05-15T00:00:00Z",
+      "endDate": "2025-05-20T23:59:59Z",
+      "type": "clearance",
+      "url": "promotion.html?id=airpods-clearance",
+      "imageUrl": "assets/promotions/airpods-promo.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Ra mắt iPad Pro M4",
+      "description": "Đặt trước iPad Pro M4 nhận ngay bộ quà tặng trị giá 5 triệu đồng",
+      "startDate": "2025-05-20T00:00:00Z",
+      "endDate": "2025-05-30T23:59:59Z",
+      "type": "new-arrival",
+      "url": "promotion.html?id=ipad-pro-m4",
+      "imageUrl": "assets/promotions/ipad-pro-m4.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Nhân đôi bảo hành",
+      "description": "Mua iPhone 16 series nhận gói bảo hành VIP 24 tháng",
+      "startDate": "2025-06-01T00:00:00Z",
+      "endDate": "2025-06-15T23:59:59Z",
+      "type": "special",
+      "url": "promotion.html?id=double-warranty",
+      "imageUrl": "assets/promotions/warranty-promo.jpg"
+    },
+    {
+      "id": 7,
+      "title": "MacBook Air M3 Sale",
+      "description": "Giảm ngay 5 triệu đồng khi mua MacBook Air M3 mới nhất",
+      "startDate": "2025-05-25T00:00:00Z",
+      "endDate": "2025-06-05T23:59:59Z",
+      "type": "promotion",
+      "url": "promotion.html?id=macbook-air-m3",
+      "imageUrl": "assets/promotions/macbook-air-promo.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Chương trình Trade-in",
+      "description": "Đổi thiết bị cũ lấy thiết bị mới với ưu đãi lên đến 10 triệu đồng",
+      "startDate": "2025-06-10T00:00:00Z",
+      "endDate": "2025-07-10T23:59:59Z",
+      "type": "special",
+      "url": "promotion.html?id=trade-in-program",
+      "imageUrl": "assets/promotions/trade-in.jpg"
+    }
+  ]
+}

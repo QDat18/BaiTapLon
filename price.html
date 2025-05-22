@@ -1,160 +1,2481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Your Company</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        header {
-            background-color: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .pricing-plans {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .plan {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 30px;
-            width: 300px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .plan:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .plan h3 {
-            color: #2c3e50;
-            font-size: 24px;
-        }
-        .price {
-            font-size: 36px;
-            font-weight: bold;
-            margin: 20px 0;
-            color: #3498db;
-        }
-        .price span {
-            font-size: 16px;
-            color: #7f8c8d;
-        }
-        .plan ul {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-        .plan li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        .popular {
-            border: 2px solid #3498db;
-            position: relative;
-        }
-        .popular-tag {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background-color: #3498db;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background-color: #f8f9fa;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sản phẩm nổi bật - Anh Em Rọt Store</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="scripts/loadcontent.js"></script>
+  <style>
+    :root {
+      --primary: #FF0000; /* Đỏ chủ đạo - Anh Em Rọt */
+      --primary-hover: #CC0000; /* Đỏ đậm */
+      --secondary: #000000; /* Đen */
+      --accent: #FF6600; /* Cam */
+      --danger: #FF0000; /* Đỏ */
+      --background: #f8f9fa; /* Nền trắng xám nhạt */
+      --surface: #ffffff; /* Nền card trắng */
+      --text: #212529; /* Chữ chính tối */
+      --text-muted: #6c757d; /* Chữ phụ xám */
+      --border: #e5e7eb; /* Viền nhẹ */
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --light: #ffffff; /* Màu trắng cho chữ trên nền tối */
+      --dark: #212529; /* Màu tối cho navbar */
+      --glass-bg: rgba(0, 0, 0, 0.8); /* Nền kính mờ tối */
+      --glass-border: rgba(255, 0, 0, 0.3); /* Viền đỏ mờ */
+      --gray: #9ca3af; /* Xám nhạt */
+      --glow: rgba(255, 0, 0, 0.6); /* Ánh sáng đỏ */
+      --gradient: linear-gradient(135deg, #FF0000, #FF6600); /* Gradient từ đỏ sang cam */
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.05), transparent);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Page Loader */
+    .page-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease;
+    }
+
+    .page-loader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      animation: pulse 1.5s infinite;
+      text-shadow: 0 0 20px var(--glow);
+      opacity: 0;
+    }
+
+    .loader-logo:nth-child(2) {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      animation-delay: 0.2s;
+    }
+
+    .loader-logo:nth-child(3) {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      animation-delay: 0.4s;
+    }
+
+    .loader-logo-image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px var(--glow);
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards 0.6s;
+    }
+
+    .loader-progress {
+      width: 300px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards 0.8s;
+    }
+
+    .loader-progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      animation: progress 1.2s ease-in-out forwards;
+      box-shadow: 0 0 15px var(--glow);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @keyframes progress {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Navbar */
+    .navbar {
+      background: var(--dark);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(33, 37, 41, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 15px var(--glow);
+      border: 2px solid var(--primary);
+    }
+
+    .navbar-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .search-bar {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 25px;
+      padding: 0.5rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar:hover, .search-bar:focus-within {
+      box-shadow: 0 0 15px var(--glow);
+      border-color: var(--primary);
+    }
+
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: var(--light);
+      outline: none;
+      width: 300px;
+      font-size: 1rem;
+    }
+
+    .search-bar input::placeholder {
+      color: var(--gray);
+    }
+
+    .search-bar button {
+      background: transparent;
+      border: none;
+      color: var(--light);
+      transition: color 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      color: var(--primary);
+    }
+
+    .nav-icons a {
+      color: var(--light);
+      margin-left: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-icons a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      box-shadow: 0 0 10px var(--glow);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-icons a:hover .cart-badge {
+      transform: scale(1.1);
+    }
+
+    .nav-links {
+      background: var(--dark);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .nav-links.scrolled {
+      padding: 0.4rem 0;
+      background: rgba(33, 37, 41, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-links a {
+      color: var(--light);
+      margin: 0 1.2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    /* Promotional Banner */
+    .promo-banner {
+      position: relative;
+      background: url('https://via.placeholder.com/1920x600?text=Luxury+Background') center/cover;
+      background-attachment: fixed;
+      color: var(--light);
+      padding: 8rem 3rem;
+      text-align: left;
+      margin: 3rem auto;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      max-width: 1400px;
+    }
+
+    .promo-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.4));
+      z-index: 0;
+    }
+
+    .promo-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .promo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px var(--glow);
+      animation: fadeInUp 1s ease;
+    }
+
+    .promo-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      animation: fadeInUp 1s ease 0.2s;
+      animation-fill-mode: both;
+    }
+
+    .promo-btn {
+      background: var(--primary);
+      color: var(--light);
+      padding: 1rem 3rem;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px var(--glow);
+      border: none;
+      letter-spacing: 1px;
+      animation: fadeInUp 1s ease 0.4s;
+      animation-fill-mode: both;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .promo-btn:hover {
+      background: var(--primary-hover);
+      color: var(--light);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 25px var(--glow);
+    }
+
+    .promo-btn i {
+      margin-left: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .promo-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    .promo-image {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+      transition: all 0.5s ease;
+      z-index: 2;
+    }
+
+    .promo-image:hover {
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 0, 0, 0.5);
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      background: rgba(255, 0, 0, 0.2);
+      border-radius: 50%;
+      filter: blur(10px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .float-1 {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .float-2 {
+      width: 150px;
+      height: 150px;
+      bottom: 20%;
+      right: 10%;
+      animation: float 12s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    .float-3 {
+      width: 80px;
+      height: 80px;
+      top: 70%;
+      left: 30%;
+      animation: float 10s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(15px, -15px); }
+      50% { transform: translate(0, -30px); }
+      75% { transform: translate(-15px, -15px); }
+    }
+
+    /* Category Header */
+    .category-header {
+      padding: 4rem 0;
+      text-align: center;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--gradient);
+    }
+
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .category-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .category-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 1.5rem auto 0;
+      font-weight: 300;
+    }
+
+    /* Filter Buttons */
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 2rem 0;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .filter-btn i {
+      margin-right: 5px;
+    }
+
+    /* Product Card */
+    .product-container {
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to top, rgba(255, 0, 0, 0.05), transparent);
+      z-index: 0;
+      transition: height 0.3s ease;
+    }
+
+    .product-card:hover::after {
+      height: 100%;
+    }
+
+    .product-image-wrap {
+      position: relative;
+      overflow: hidden;
+      padding-top: 75%; /* 4:3 Aspect Ratio */
+      background: var(--background);
+    }
+
+    .product-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 2rem;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: var(--light);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      box-shadow: 0 3px 10px rgba(255, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .product-badge.sale {
+      background: var(--accent);
+    }
+
+    .product-actions {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 2;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover .product-actions {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .action-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--light);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .product-body {
+      padding: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .product-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+      transition: color 0.3s ease;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-card:hover .product-title {
+      color: var(--primary);
+    }
+
+    .product-price {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .old-price {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .discount-tag {
+      background: var(--accent);
+      color: var(--light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .stars i {
+      color: #ffb800;
+      font-size: 0.9rem;
+    }
+
+    .stars i.half {
+      position: relative;
+    }
+
+    .stars i.half::after {
+      content: '\f089'; /* Font Awesome's solid star half */
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #ffb800;
+    }
+
+    .product-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-features {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item i {
+      color: var(--primary);
+      font-size: 0.75rem;
+    }
+
+    .btn-detail, .btn-add-cart {
+      width: 100%;
+      padding: 12px;
+      border-radius: 30px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+    }
+
+    .btn-detail {
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-add-cart {
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    .btn-detail:hover, .btn-add-cart:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-detail:hover {
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    .btn-add-cart:hover {
+      background: var(--primary-hover);
+      color: var(--light);
+    }
+
+    .btn-detail i, .btn-add-cart i {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-detail:hover i, .btn-add-cart:hover i {
+      transform: translateX(3px);
+    }
+
+    /* Quick View Modal */
+    .quick-view-modal .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quick-view-modal .modal-header {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+
+    .quick-view-modal .modal-header .close {
+      background: var(--light);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+
+    .quick-view-modal .modal-header .close:hover {
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    .quick-view-modal .modal-body {
+      padding: 2rem;
+    }
+
+    .quick-view-gallery {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .quick-view-main-image {
+      width: 100%;
+      height: 300px;
+      object-fit: contain;
+      background: var(--background);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+
+    .quick-view-thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .quick-view-thumbnail {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: var(--background);
+      border-radius: 8px;
+      padding: 0.5rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .quick-view-thumbnail:hover, .quick-view-thumbnail.active {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .quick-view-details h5 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .quick-view-details .product-price {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .quick-view-details .product-description {
+      margin-bottom: 1.5rem;
+      -webkit-line-clamp: 3;
+    }
+
+    .quick-view-details .product-meta {
+      margin-bottom: 1.5rem;
+    }
+
+    .variant-options {
+      margin-bottom: 1.5rem;
+    }
+
+    .variant-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      color: var(--text);
+    }
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .color-option.active::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+    }
+
+    .color-option:hover {
+      transform: scale(1.2);
+    }
+
+    .storage-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .storage-option {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .storage-option:hover, .storage-option.active {
+      background: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(255, 0, 0, 0.2);
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .quantity-btn {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quantity-btn:hover {
+      background: var(--primary);
+      color: var(--light);
+      border-color: var(--primary);
+    }
+
+    .quantity-input {
+      width: 50px;
+      height: 35px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      margin: 0 10px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .quick-view-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .quick-view-actions .btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .quick-view-actions .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .quick-view-actions .btn-add-cart {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+    }
+
+    .quick-view-actions .btn-add-cart:hover {
+      background: var(--primary-hover);
+    }
+
+    .quick-view-actions .btn-wishlist {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .quick-view-actions .btn-wishlist:hover {
+      background: var(--background);
+    }
+
+    /* Promotional Popup */
+    .promo-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 0;
+      max-width: 500px;
+      width: 90%;
+      z-index: 10000;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+      display: none;
+      overflow: hidden;
+    }
+
+    .promo-popup.show {
+      display: block;
+      animation: zoomIn 0.5s ease forwards;
+    }
+
+    .promo-popup-header {
+      background: var(--gradient);
+      padding: 1.5rem;
+      color: var(--light);
+      position: relative;
+    }
+
+    .promo-popup-header h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .promo-popup-header p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 0;
+    }
+
+    .promo-popup-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .promo-popup-close:hover {
+      background: var(--light);
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .promo-popup-content {
+      padding: 2rem;
+    }
+
+    .promo-popup-product {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-popup-image {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      background: var(--background);
+      border-radius: 10px;
+      padding: 0.5rem;
+    }
+
+    .promo-popup-info h6 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .promo-popup-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .promo-popup-price .new-price {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .promo-popup-price .old-price {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .promo-popup-discount {
+      background: var(--accent);
+      color: var(--light);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .promo-popup-timer {
+      display: flex;
+      gap: 10px;
+      margin: 1.5rem 0;
+      justify-content: center;
+    }
+
+    .timer-block {
+      width: 60px;
+      text-align: center;
+    }
+
+    .timer-value {
+      background: var(--dark);
+      color: var(--light);
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .timer-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .promo-popup-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .promo-popup-actions .btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .promo-popup-actions .btn-detail {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+    }
+
+    .promo-popup-actions .btn-detail:hover {
+      background: var(--primary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .promo-popup-actions .btn-close {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .promo-popup-actions .btn-close:hover {
+      background: var(--background);
+      transform: translateY(-3px);
+    }
+
+    /* Newsletter Popup */
+    .newsletter-popup {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 0;
+      max-width: 400px;
+      width: 90%;
+      z-index: 10000;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+      display: none;
+      overflow: hidden;
+    }
+
+    .newsletter-popup.show {
+      display: block;
+      animation: slideUp 0.5s ease forwards;
+    }
+
+    .newsletter-popup-header {
+      background: var(--gradient);
+      padding: 1.5rem;
+      color: var(--light);
+      position: relative;
+    }
+
+    .newsletter-popup-header h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .newsletter-popup-header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0;
+    }
+
+    .newsletter-popup-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-popup-close:hover {
+      background: var(--light);
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .newsletter-popup-content {
+      padding: 2rem;
+    }
+
+    .newsletter-form {
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form .form-control {
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 12px 20px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+    }
+
+    .newsletter-form .btn {
+      width: 100%;
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .newsletter-form .btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .newsletter-skip {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .newsletter-skip a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-skip a:hover {
+      color: var(--primary);
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1050;
+    }
+
+    .toast-notification {
+      background: var(--dark);
+      color: var(--light);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 320px;
+      max-width: 90vw;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .toast-notification.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toast-content {
+      flex: 1;
+    }
+
+    .toast-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .toast-message {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .toast-close {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .toast-close:hover {
+      background: rgba(255, 255, 255, 0.4);
+      transform: rotate(90deg);
+    }
+
+    /* Swiper */
+    .swiper {
+      padding-bottom: 3rem;
+    }
+
+    .swiper-slide {
+      height: auto;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: var(--primary);
+      background: var(--surface);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+      font-size: 1.2rem;
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--text-muted);
+      opacity: 0.5;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--primary);
+      opacity: 1;
+      width: 25px;
+      border-radius: 5px;
+    }
+
+    /* Animations */
+    @keyframes zoomIn {
+      from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .promo-title {
+        font-size: 3rem;
+      }
+
+      .promo-image {
+        width: 300px;
+      }
+
+      .quick-view-modal .modal-body {
+        flex-direction: column;
+      }
+
+      .quick-view-gallery {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .search-bar input {
+        width: 200px;
+      }
+
+      .nav-links a {
+        margin: 0 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .promo-title {
+        font-size: 2.5rem;
+      }
+
+      .promo-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .promo-image {
+        width: 250px;
+        right: 0;
+      }
+
+      .category-title {
+        font-size: 2.2rem;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .product-card {
+        margin-bottom: 1.5rem;
+      }
+
+      .quick-view-thumbnails {
+        justify-content: center;
+      }
+
+      .quick-view-thumbnail {
+        width: 60px;
+        height: 60px;
+      }
+
+      .color-options, .storage-options {
+        justify-content: center;
+      }
+
+      .promo-popup, .newsletter-popup {
+        width: 95%;
+      }
+
+      .timer-block {
+        width: 50px;
+      }
+
+      .timer-value {
+        font-size: 1.2rem;
+      }
+
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar {
+        padding: 0.8rem 0;
+      }
+
+      .navbar-logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .search-bar {
+        padding: 0.4rem 1rem;
+      }
+
+      .search-bar input {
+        width: 150px;
+        font-size: 0.9rem;
+      }
+
+      .nav-icons a {
+        margin-left: 1rem;
+      }
+
+      .cart-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7rem;
+      }
+
+      .nav-links {
+        padding: 0.5rem 0;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        margin: 0 0.6rem;
+        font-size: 0.75rem;
+      }
+
+      .promo-banner {
+        padding: 4rem 1.5rem;
+        margin: 2rem auto;
+      }
+
+      .promo-title {
+        font-size: 2rem;
+      }
+
+      .promo-subtitle {
+        font-size: 1rem;
+      }
+
+      .promo-btn {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+      }
+
+      .promo-image {
+        width: 180px;
+        opacity: 0.7;
+      }
+
+      .category-header {
+        padding: 3rem 0;
+      }
+
+      .category-title {
+        font-size: 1.8rem;
+      }
+
+      .category-subtitle {
+        font-size: 1rem;
+      }
+
+      .filter-container {
+        gap: 5px;
+        margin: 1.5rem 0;
+      }
+
+      .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+      }
+
+      .filter-btn i {
+        display: none;
+      }
+
+      .product-title {
+        font-size: 1.1rem;
+      }
+
+      .product-price {
+        font-size: 1.1rem;
+      }
+
+      .old-price {
+        font-size: 0.9rem;
+      }
+
+      .product-meta {
+        font-size: 0.8rem;
+      }
+
+      .product-description {
+        font-size: 0.8rem;
+      }
+
+      .feature-item {
+        font-size: 0.75rem;
+      }
+
+      .btn-detail, .btn-add-cart {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .quick-view-details h5 {
+        font-size: 1.5rem;
+      }
+
+      .quick-view-details .product-price {
+        font-size: 1.3rem;
+      }
+
+      .promo-popup-header h5 {
+        font-size: 1.5rem;
+      }
+
+      .timer-block {
+        width: 40px;
+      }
+
+      .timer-value {
+        font-size: 1rem;
+        padding: 8px;
+      }
+
+      .timer-label {
+        font-size: 0.7rem;
+      }
+
+      .toast-notification {
+        width: 280px;
+      }
+
+      .toast-icon {
+        width: 35px;
+        height: 35px;
+      }
+
+      .toast-title {
+        font-size: 0.9rem;
+      }
+
+      .toast-message {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Our Pricing Plans</h1>
-        <p>Choose the perfect plan for your needs</p>
-    </header>
-
-    <div class="container">
-        <div class="pricing-plans">
-            <!-- Basic Plan -->
-            <div class="plan">
-                <h3>Basic</h3>
-                <div class="price">$9.99 <span>/month</span></div>
-                <ul>
-                    <li>10 Projects</li>
-                    <li>5GB Storage</li>
-                    <li>Basic Support</li>
-                    <li>Email Assistance</li>
-                    <li>Community Access</li>
-                </ul>
-                <a href="#" class="btn">Get Started</a>
-            </div>
-
-            <!-- Popular Plan -->
-            <div class="plan popular">
-                <div class="popular-tag">Most Popular</div>
-                <h3>Professional</h3>
-                <div class="price">$29.99 <span>/month</span></div>
-                <ul>
-                    <li>Unlimited Projects</li>
-                    <li>50GB Storage</li>
-                    <li>Priority Support</li>
-                    <li>Phone & Email Assistance</li>
-                    <li>Advanced Analytics</li>
-                </ul>
-                <a href="#" class="btn">Get Started</a>
-            </div>
-
-            <!-- Enterprise Plan -->
-            <div class="plan">
-                <h3>Enterprise</h3>
-                <div class="price">$99.99 <span>/month</span></div>
-                <ul>
-                    <li>Unlimited Projects</li>
-                    <li>500GB Storage</li>
-                    <li>24/7 Support</li>
-                    <li>Dedicated Account Manager</li>
-                    <li>Custom Solutions</li>
-                </ul>
-                <a href="#" class="btn">Get Started</a>
-            </div>
-        </div>
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Anh Em Rọt Store</div>
+    <div class="loader-logo">Đang tải...</div>
+    <div class="loader-logo">Chúng tôi sẽ đưa bạn đến với những sản phẩm tốt nhất!</div>
+    <div style="display: flex; justify-content: center;">
+      <img src="/assets/logo/logo.jpg" alt="Anh Em Rọt Logo" class="loader-logo-image">
     </div>
+    <div class="loader-progress">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
 
-    <footer>
-        <p>Have questions? <a href="mailto:support@yourcompany.com">Contact our sales team</a></p>
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-    </footer>
+  <!-- Navbar -->
+  <nav class="navbar" id="mainNav">
+    <div class="container">
+      <a href="index.html" class="navbar-logo">
+        <img src="https://via.placeholder.com/100?text=Logo" alt="Anh Em Rọt Logo">
+      </a>
+      <div class="search-bar">
+        <input type="text" placeholder="Tìm kiếm sản phẩm...">
+        <button><i class="fas fa-search"></i></button>
+      </div>
+      <div class="nav-icons">
+        <a href="wishlist.html" data-toggle="tooltip" title="Yêu thích"><i class="fas fa-heart"></i></a>
+        <a href="account.html" data-toggle="tooltip" title="Tài khoản"><i class="fas fa-user"></i></a>
+        <a href="cart.html" class="position-relative" data-toggle="tooltip" title="Giỏ hàng">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge">0</span>
+        </a>
+        <a href="login.html" class="btn btn-outline-danger btn-sm">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navigation Links -->
+  <div class="nav-links" id="navLinks">
+    <div class="container text-center">
+      <a href="index.html">Trang chủ</a>
+      <a href="iphone.html">iPhone</a>
+      <a href="macbook.html">MacBook</a>
+      <a href="watch.html">Apple Watch</a>
+      <a href="ipad.html">iPad</a>
+      <a href="products.html" class="active">Tất cả sản phẩm</a>
+      <a href="news.html">Tin tức</a>
+      <a href="about.html">Về chúng tôi</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+  </div>
+
+  <!-- Promotional Banner -->
+  <div class="promo-banner">
+    <div class="floating-element float-1"></div>
+    <div class="floating-element float-2"></div>
+    <div class="floating-element float-3"></div>
+    
+    <div class="promo-content">
+      <h1 class="promo-title">iPhone 16 Pro Max</h1>
+      <p class="promo-subtitle">Thiết kế Titanium đỉnh cao, chip A18 Pro mạnh mẽ và camera đột phá. Sẵn sàng chinh phục mọi giới hạn!</p>
+      <a href="detail.html?product=iPhone%2016%20Pro%20Max" class="promo-btn">
+        Mua Ngay <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <img src="https://via.placeholder.com/500?text=iPhone+16" alt="iPhone 16" class="promo-image">
+  </div>
+
+  <!-- Category Header & Filter -->
+  <div class="container">
+    <div class="category-header">
+      <h1 class="category-title">Sản Phẩm Nổi Bật</h1>
+      <p class="category-subtitle">Khám phá bộ sưu tập các sản phẩm cao cấp từ Anh Em Rọt Store. Chất lượng hàng đầu, giá cả cạnh tranh!</p>
+    
+      <div class="filter-container">
+        <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Tất cả</button>
+        <button class="filter-btn" data-filter="iphone"><i class="fas fa-mobile-alt"></i> iPhone</button>
+        <button class="filter-btn" data-filter="macbook"><i class="fas fa-laptop"></i> MacBook</button>
+        <button class="filter-btn" data-filter="ipad"><i class="fas fa-tablet-alt"></i> iPad</button>
+        <button class="filter-btn" data-filter="watch"><i class="fas fa-watch"></i> Apple Watch</button>
+        <button class="filter-btn" data-filter="accessories"><i class="fas fa-headphones"></i> Phụ kiện</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product List -->
+  <div class="container product-container">
+    <div class="row" id="productList">
+      <!-- Product Card 1 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="iphone">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=iPhone+16+Pro+Max" alt="iPhone 16 Pro Max" class="product-image">
+            <div class="product-badge">
+              <i class="fas fa-bolt"></i> Mới ra mắt
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('iphone16promax')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('iphone16promax')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">iPhone 16 Pro Max</h5>
+            <div class="product-price">
+              33.990.000₫
+              <span class="old-price">35.990.000₫</span>
+              <span class="discount-tag">-6%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span>(4.5 - 128 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Màn hình Super Retina XDR 6.7", chip A18 Pro, camera Pro 48MP, RAM 8GB, bộ nhớ 256GB
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Giao hàng miễn phí toàn quốc
+              </div>
+            </div>
+            <a href="detail.html?product=iphone16promax" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('iphone16promax')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 2 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="macbook">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=MacBook+Pro+M3" alt="MacBook Pro M3" class="product-image">
+            <div class="product-badge sale">
+              <i class="fas fa-fire"></i> Giảm giá
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('macbookprom3')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('macbookprom3')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">MacBook Pro M3 (2023)</h5>
+            <div class="product-price">
+              44.990.000₫
+              <span class="old-price">49.990.000₫</span>
+              <span class="discount-tag">-10%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span>(5.0 - 95 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Chip M3 Pro, RAM 16GB, SSD 512GB, màn hình Liquid Retina XDR 14.2 inch
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 24 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Tặng phiếu mua hàng 2.000.000đ
+              </div>
+            </div>
+            <a href="detail.html?product=macbookprom3" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('macbookprom3')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 3 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="ipad">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=iPad+Air+2024" alt="iPad Air 2024" class="product-image">
+            <div class="product-badge">
+              <i class="fas fa-bolt"></i> Mới ra mắt
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('ipadair2024')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('ipadair2024')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">iPad Air (2024)</h5>
+            <div class="product-price">
+              18.990.000₫
+              <span class="old-price">20.990.000₫</span>
+              <span class="discount-tag">-9%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span>(4.0 - 63 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Chip M2, màn hình Liquid Retina 11 inch, RAM 8GB, bộ nhớ 128GB, Wi-Fi
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Giảm 500.000đ khi mua Apple Pencil
+              </div>
+            </div>
+            <a href="detail.html?product=ipadair2024" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('ipadair2024')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Card 4 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="watch">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=Apple+Watch+Ultra+2" alt="Apple Watch Ultra 2" class="product-image">
+            <div class="product-badge">
+              <i class="fas fa-bolt"></i> Bán chạy
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('watchultra2')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('watchultra2')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Apple Watch Ultra 2</h5>
+            <div class="product-price">
+              22.990.000₫
+              <span class="old-price">23.990.000₫</span>
+              <span class="discount-tag">-4%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span>(4.7 - 84 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Màn hình Retina Always-On 49mm, chip S9, pin 36 giờ, titanium siêu bền
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Tặng dây đeo thể thao chính hãng
+              </div>
+            </div>
+            <a href="detail.html?product=watchultra2" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('watchultra2')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Card 5 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="accessories">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=AirPods+Pro+2" alt="AirPods Pro 2" class="product-image">
+            <div class="product-badge sale">
+              <i class="fas fa-fire"></i> Giảm sốc
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('airpodspro2')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('airpodspro2')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">AirPods Pro 2 (USB-C)</h5>
+            <div class="product-price">
+              5.990.000₫
+              <span class="old-price">6.990.000₫</span>
+              <span class="discount-tag">-14%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span>(5.0 - 156 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Chống ồn chủ động 2X, âm thanh không gian, sạc USB-C
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Khắc tên miễn phí lên hộp sạc
+              </div>
+            </div>
+            <a href="detail.html?product=airpodspro2" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('airpodspro2')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Card 6 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="iphone">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=iPhone+15+Pro" alt="iPhone 15 Pro" class="product-image">
+            <div class="product-badge sale">
+              <i class="fas fa-fire"></i> Giảm giá
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('iphone15pro')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('iphone15pro')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">iPhone 15 Pro</h5>
+            <div class="product-price">
+              26.990.000₫
+              <span class="old-price">29.990.000₫</span>
+              <span class="discount-tag">-10%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span>(4.6 - 212 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Chip A17 Pro, RAM 8GB, 256GB, camera 48MP, màn hình 6.1"
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Trả góp 0% lãi suất
+              </div>
+            </div>
+            <a href="detail.html?product=iphone15pro" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('iphone15pro')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Card 7 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="macbook">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=MacBook+Air+M3" alt="MacBook Air M3" class="product-image">
+            <div class="product-badge">
+              <i class="fas fa-bolt"></i> Ưu đãi
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('macbookairm3')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('macbookairm3')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">MacBook Air M3 (2024)</h5>
+            <div class="product-price">
+              32.990.000₫
+              <span class="old-price">34.990.000₫</span>
+              <span class="discount-tag">-6%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span>(5.0 - 78 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Chip M3, RAM 16GB, SSD 512GB, màn hình Liquid Retina 15.3 inch
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 24 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Tặng túi chống sốc cao cấp
+              </div>
+            </div>
+            <a href="detail.html?product=macbookairm3" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('macbookairm3')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Card 8 -->
+      <div class="col-md-6 col-lg-4 col-xl-3 mb-4 product-item" data-category="watch">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="https://via.placeholder.com/300?text=Apple+Watch+Series+9" alt="Apple Watch Series 9" class="product-image">
+            <div class="product-badge sale">
+              <i class="fas fa-fire"></i> Giảm giá
+            </div>
+            <div class="product-actions">
+              <div class="action-btn" onclick="toggleWishlist(this)" data-toggle="tooltip" title="Thêm vào yêu thích">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="action-btn" onclick="showQuickView('watchseries9')" data-toggle="tooltip" title="Xem nhanh">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="action-btn" onclick="addToCompare('watchseries9')" data-toggle="tooltip" title="So sánh">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="product-body">
+            <h5 class="product-title">Apple Watch Series 9</h5>
+            <div class="product-price">
+              9.990.000₫
+              <span class="old-price">11.990.000₫</span>
+              <span class="discount-tag">-17%</span>
+            </div>
+            <div class="product-meta">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span>(4.0 - 105 đánh giá)</span>
+            </div>
+            <div class="product-description">
+              Màn hình Retina Always-On 45mm, chip S9, cảm biến nhiệt độ
+            </div>
+            <div class="product-features">
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Bảo hành chính hãng 12 tháng
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-check-circle"></i> Giảm thêm 500.000đ khi thanh toán qua VNPay
+              </div>
+            </div>
+            <a href="detail.html?product=watchseries9" class="btn btn-detail">
+              <i class="fas fa-eye"></i> Xem chi tiết
+            </a>
+            <button class="btn btn-add-cart" onclick="addToCart('watchseries9')">
+              <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4 mb-5">
+      <nav>
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade quick-view-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="quickViewModalLabel">Xem nhanh sản phẩm</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="quick-view-gallery">
+                <img src="https://via.placeholder.com/500?text=Product" alt="Product" class="quick-view-main-image" id="quickViewMainImage">
+                <div class="quick-view-thumbnails">
+                  <img src="https://via.placeholder.com/100?text=Image+1" alt="Thumbnail 1" class="quick-view-thumbnail active" onclick="changeQuickViewImage(this, 'https://via.placeholder.com/500?text=Image+1')">
+                  <img src="https://via.placeholder.com/100?text=Image+2" alt="Thumbnail 2" class="quick-view-thumbnail" onclick="changeQuickViewImage(this, 'https://via.placeholder.com/500?text=Image+2')">
+                  <img src="https://via.placeholder.com/100?text=Image+3" alt="Thumbnail 3" class="quick-view-thumbnail" onclick="changeQuickViewImage(this, 'https://via.placeholder.com/500?text=Image+3')">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="quick-view-details">
+                <h5 id="quickViewTitle">Tên sản phẩm</h5>
+                <div class="product-price" id="quickViewPrice">
+                  29.990.000₫
+                  <span class="old-price">32.990.000₫</span>
+                  <span class="discount-tag">-9%</span>
+                </div>
+                <div class="product-meta">
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                  <span>(4.5 - 128 đánh giá)</span>
+                </div>
+                <p class="product-description" id="quickViewDescription">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Praesent euismod, nisl eget tempor consequat, nisl nunc interdum nulla.
+                </p>
+                <div class="variant-options">
+                  <div class="variant-title">Màu sắc:</div>
+                  <div class="color-options">
+                    <div class="color-option active" style="background-color: #2a2a2a;" onclick="selectColor(this, 'Đen')"></div>
+                    <div class="color-option" style="background-color: #f1f2f7;" onclick="selectColor(this, 'Trắng')"></div>
+                    <div class="color-option" style="background-color: #225985;" onclick="selectColor(this, 'Xanh')"></div>
+                    <div class="color-option" style="background-color: #a50011;" onclick="selectColor(this, 'Đỏ')"></div>
+                  </div>
+                  
+                  <div class="variant-title mt-3">Bộ nhớ:</div>
+                  <div class="storage-options">
+                    <div class="storage-option" onclick="selectStorage(this, '128GB')">128GB</div>
+                    <div class="storage-option active" onclick="selectStorage(this, '256GB')">256GB</div>
+                    <div class="storage-option" onclick="selectStorage(this, '512GB')">512GB</div>
+                    <div class="storage-option" onclick="selectStorage(this, '1TB')">1TB</div>
+                  </div>
+                  
+                  <div class="variant-title mt-3">Số lượng:</div>
+                  <div class="quantity-selector">
+                    <div class="quantity-btn" onclick="decreaseQuantity()">-</div>
+                    <input type="text" class="quantity-input" id="productQuantity" value="1" readonly>
+                    <div class="quantity-btn" onclick="increaseQuantity()">+</div>
+                  </div>
+                </div>
+                
+                <div class="quick-view-actions">
+                  <button class="btn btn-add-cart" onclick="addToCartFromQuickView()">
+                    <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+                  </button>
+                  <button class="btn btn-wishlist" onclick="addToWishlistFromQuickView()">
+                    <i class="far fa-heart"></i> Yêu thích
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Promotional Popup -->
+  <div class="promo-popup" id="promoPopup">
+    <div class="promo-popup-header">
+      <h5>Ưu Đãi Đặc Biệt</h5>
+      <p>Chỉ hôm nay! Giảm giá sâu iPhone 15 Pro</p>
+      <div class="promo-popup-close" onclick="closePromoPopup()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+    <div class="promotion-popup-body">
+      <img src="https://via.placeholder.com/300?text=iPhone+15+Pro" alt="iPhone 15 Pro" class="promo-popup-image">
+      <div class="promo-popup-content">
+        <h5>Giá chỉ còn: 26.990.000₫</h5>
+        <p>Giảm ngay 3.000.000₫ khi đặt hàng hôm nay!</p>
+        <a href="detail.html?product=iphone15pro" class="btn btn-promo">Mua Ngay</a>
+      </div>
+    </div>
+    <div class="promo-popup-footer">
+      <p>Thời gian còn lại: <span id="promoTimer">00:00:00</span></p>
+      <div class="promo-popup-progress" id="promoProgress"></div>
+    </div>
+  </div>
+  <div class="promo-popup-overlay" id="promoPopupOverlay"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </body>
 </html>
