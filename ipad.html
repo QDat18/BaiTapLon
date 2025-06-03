@@ -1,605 +1,381 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iPad - Anh Em Rọt Store</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/product.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <script src="scripts/navbar.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipad - Apple Store</title>
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/v4-shims.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/product.css">
 </head>
+
 <body>
-  <!-- Navbar -->
-    <!-- Top Navbar -->
-  <div class="top-nav" role="navigation" aria-label="Main navigation">
-    <div class="logo">
-      <a href="/index.html"><img src="/assets/logo/logo.png" alt="Anh Em Rọt Store"></a>
-    </div>
-
-    <div class="search-bar">
-      <div class="label" role="button" aria-label="Chọn danh mục sản phẩm">Sản phẩm</div>
-      <input type="text" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm">
-      <button aria-label="Tìm kiếm"><i class="fa fa-search"></i></button>
-    </div>
-
-    <div class="user-actions">
-      <div class="action-icon" role="button" aria-label="Danh sách yêu thích">
-        <i class="fa fa-heart"></i>
-      </div>
-      <div class="cart-info">
-        <a href="./cart.html" class="basket-icon" aria-label="Giỏ hàng với 3 sản phẩm">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <span class="count" id="cart-count">0</span>
-        </a>
-      </div>
-      <a href="./login.html" class="btn-login" id="loginButton" aria-label="Đăng nhập">Đăng nhập</a>
-      <a href="./register.html" class="btn-login" id="registerButton" aria-label="Đăng ký" style="display: none;">Đăng ký</a>
-      <a href="#" class="btn-login" id="logoutButton" aria-label="Đăng xuất" style="display: none;">Đăng xuất</a>
-      <span id="navbarUser" style="display: none; color: var(--white); font-weight: 600;"></span>
-    </div>
-  </div>
-
-  <!-- Main Navbar -->
-  <nav class="main-nav" role="navigation" aria-label="Secondary navigation">
-    <div class="nav-wrapper">
-      <div class="menu-left">
-        <button id="dropdownBtn" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-th"></i> DANH MỤC SẢN PHẨM <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-menu" id="dropdownMenu" role="menu">
-          <a href="/iphone.html" role="menuitem">iPhone</a>
-          <a href="/ipad.html" role="menuitem">iPad</a>
-          <a href="/macbook.html" role="menuitem">MacBook</a>
-          <a href="/watch.html" role="menuitem">Apple Watch</a>
-          <a href="/accessory.html" role="menuitem">Phụ kiện</a>
-        </div>
-      </div>
-      <div class="nav-divider"></div>
-      <div class="menu-items">
-        <a href="/index.html">TRANG CHỦ</a>
-        <a href="/product.html">SẢN PHẨM</a>
-        <a href="/about.html">VỀ CHÚNG TÔI</a>
-        <a href="/contact.html">LIÊN HỆ</a>
-        <a href="/news.html">TIN TỨC</a>
-      </div>
-      <div class="nav-divider"></div>
-      <div class="menu-right">
-        <button class="toggle-btn" aria-controls="sidebar-menu" aria-expanded="false">
-          <span><b>KHÁM PHÁ</b></span>
-          <span class="arrow">◀</span>
-        </button>
-
-        <div class="sidebar-menu" id="sidebar-menu" role="dialog" aria-label="Menu khám phá">
-          <!-- Sản Phẩm Nổi Bật -->
-          <div class="gallery-section">
-            <h3 class="sidebar-title"><i class="fa fa-star"></i> KHÁM PHÁ</h3>
-            <div class="gallery-grid">
-              <div class="gallery-item">
-                <a href="#">
-                  <img src="https://via.placeholder.com/300x200?text=iPad+Pro" alt="iPad Pro">
-                  <div class="item-title">iPad Pro</div>
-                </a>
-              </div>
-              <div class="gallery-item">
-                <a href="#">
-                  <img src="https://via.placeholder.com/300x200?text=iPad+Air" alt="iPad Air">
-                  <div class="item-title">iPad Air</div>
-                </a>
-              </div>
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-envelope"></i> anhemrotstore12chuaboc@hvnh.edu.vn</span>
+                <span><i class="fas fa-phone"></i> (+84) 827592304</span>
             </div>
-          </div>
-
-          <!-- Bài Viết Mới -->
-          <div class="gallery-section">
-            <h3 class="sidebar-title"><i class="fa fa-newspaper"></i> BÀI VIẾT MỚI</h3>
-            <div class="gallery-grid">
-              <div class="gallery-item">
-                <a href="#">
-                  <img src="https://via.placeholder.com/300x200?text=Apple+Tips" alt="Mẹo sử dụng iPad hiệu quả">
-                  <div class="item-title">Mẹo sử dụng iPad hiệu quả</div>
-                </a>
-              </div>
-              <div class="gallery-item">
-                <a href="#">
-                  <img src="https://via.placeholder.com/300x200?text=Tech+News" alt="Tin tức công nghệ mới nhất">
-                  <div class="item-title">Tin tức công nghệ mới nhất</div>
-                </a>
-              </div>
+            <div class="top-bar-center">
+                <span id="typewriter"></span>
+                <span id="weather" class="weather-info">⛅ Đang tải thời tiết...</span>
+                <audio id="type-sound" src="assets/sounds/typing.wav" autoplay loop preload="auto"></audio>
             </div>
-          </div>
-
-          <button class="close-btn" aria-label="Đóng menu"><i class="fa fa-times"></i> ĐÓNG MENU</button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="floating-shape shape-1"></div>
-    <div class="floating-shape shape-2"></div>
-    <div class="floating-shape shape-3"></div>
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="hero-content">
-            <h1 class="hero-title">Khám phá dòng iPad mới nhất</h1>
-            <p class="hero-subtitle">Trải nghiệm công nghệ đỉnh cao với thiết kế sang trọng, hiệu năng mạnh mẽ và đa năng cho mọi nhu cầu.</p>
-            <div class="hero-cta">
-              <a href="#productGrid" class="btn btn-hero">Xem ngay <i class="fas fa-arrow-right ms-2"></i></a>
+            <div class="top-bar-right">
+                <a href="https://www.instagram.com/_yud.gnauq/"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://web.facebook.com/quys.hokage"><i class="fab fa-facebook"></i> Facebook</a>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    
-    <img src="assets/hero-ipad.png" alt="iPad Collection" class="hero-image">
-  </section>
 
-  <!-- Filter Section -->
-  <section class="filter-section">
-    <div class="container">
-      <h2 class="filter-title">Lọc sản phẩm</h2>
-      
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">Tất cả</button>
-        <button class="filter-btn" data-filter="new">Mới ra mắt</button>
-        <button class="filter-btn" data-filter="ipadpro">iPad Pro</button>
-        <button class="filter-btn" data-filter="ipadair">iPad Air</button>
-        <button class="filter-btn" data-filter="ipadmini">iPad Mini</button>
-        <button class="filter-btn" data-filter="ipad">iPad</button>
-        <button class="filter-btn" data-filter="sale">Giảm giá</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product Grid -->
-  <section class="product-grid" id="productGrid">
-    <div class="container">
-      <div class="row g-4" id="productList">
-        <!-- Products will be loaded here -->
-        <div class="col-12 text-center py-5" id="loadingIndicator">
-          <div class="spinner-border text-danger mb-3" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p>Đang tải sản phẩm...</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recommendations Section -->
-  <section class="recommendations-section">
-    <div class="container">
-      <h2 class="section-title">Phụ kiện đề xuất</h2>
-      
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper" id="recommendationSlider">
-          <!-- Recommendations will be loaded here -->
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Floating Cart Button -->
-  <div class="fab" id="cartButton">
-    <i class="fas fa-shopping-cart"></i>
-    <div class="fab-badge" id="cartBadge">0</div>
-  </div>
-
-  <!-- Back to Top Button -->
-  <div class="back-to-top" id="backToTopBtn">
-    <i class="fas fa-arrow-up"></i>
-  </div>
-
-  <!-- Toast Container -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <h5>Liên hệ</h5>
-          <p><i class="fas fa-envelope me-2"></i> support@anhemrotstore.com</p>
-          <p><i class="fas fa-phone me-2"></i> 0909 123 456</p>
-          <p><i class="fas fa-map-marker-alt me-2"></i> 123 Đường ABC, Quận XYZ, TP.HCM</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h5>Chính sách</h5>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo hành</a></li>
-            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách đổi trả</a></li>
-            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách vận chuyển</a></li>
-            <li class="mb-2"><a href="#"><i class="fas fa-angle-right me-2"></i>Chính sách bảo mật</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4 mb-4">
-          <h5>Theo dõi chúng tôi</h5>
-          <div class="social-links mb-3">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-          <p>Đăng ký nhận tin khuyến mãi</p>
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email của bạn">
-            <button class="btn btn-danger" type="button">Đăng ký</button>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <p class="text-center mb-0">© 2025 Anh Em Rọt Store. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Initialize cart count
-      updateCartCount();
-      
-      // Back to top button
-      const backToTopBtn = document.getElementById('backToTopBtn');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          backToTopBtn.classList.add('visible');
-        } else {
-          backToTopBtn.classList.remove('visible');
-        }
-      });
-      
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      });
-      
-      // Fetch product data
-      fetchProductData();
-      
-      // Floating cart button
-      document.getElementById('cartButton')?.addEventListener('click', () => {
-        window.location.href = 'cart.html';
-      });
-      
-      // Filter buttons
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Remove active class from all buttons
-          filterButtons.forEach(b => b.classList.remove('active'));
-          
-          // Add active class to clicked button
-          btn.classList.add('active');
-          
-          // Get filter value
-          const filterValue = btn.getAttribute('data-filter');
-          
-          // Apply filter
-          filterProducts(filterValue);
-        });
-      });
-    });
-    
-    function updateCartCount() {
-      const cartBadge = document.getElementById('cartBadge');
-      if (!cartBadge) return;
-      
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-      const itemCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
-      
-      cartBadge.textContent = itemCount;
-    }
-    
-    function fetchProductData() {
-      const loadingIndicator = document.getElementById('loadingIndicator');
-      
-      fetch('data/product.json')
-        .then(res => {
-          if (!res.ok) throw new Error('Không thể tải dữ liệu sản phẩm');
-          return res.json();
-        })
-        .then(data => {
-          const iPadCategory = data.categories.find(cat => cat.name === 'iPad');
-          if (!iPadCategory) throw new Error('Không tìm thấy danh mục iPad');
-          
-          // Hide loading indicator
-          if (loadingIndicator) loadingIndicator.style.display = 'none';
-          
-          // Display products
-          displayProducts(iPadCategory.products);
-          
-          // Render recommended accessories
-          renderRecommendedAccessories(data);
-        })
-        .catch(err => {
-          console.error('Lỗi khi tải sản phẩm:', err);
-          
-          // Hide loading indicator and show error
-          if (loadingIndicator) {
-            loadingIndicator.innerHTML = `
-              <div class="text-danger mb-3">
-                <i class="fas fa-exclamation-circle fa-3x"></i>
-              </div>
-              <p class="text-danger">Không thể tải danh sách sản phẩm. Vui lòng thử lại sau.</p>
-              <button class="btn btn-outline-danger mt-3" onclick="window.location.reload()">
-                <i class="fas fa-sync-alt me-2"></i>Tải lại
-              </button>
-            `;
-          }
-        });
-    }
-    
-    function displayProducts(products) {
-      const productGrid = document.getElementById('productList');
-      if (!productGrid) return;
-      
-      productGrid.innerHTML = '';
-      
-      if (products.length === 0) {
-        productGrid.innerHTML = `
-          <div class="col-12 text-center py-5">
-            <p class="text-muted">Không có sản phẩm nào.</p>
-          </div>
-        `;
-        return;
-      }
-      
-      products.forEach((product, index) => {
-        const isNew = new Date(product.releaseDate) > new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-        const minPrice = Math.min(...product.variants.map(v => v.price));
-        const maxPrice = Math.max(...product.variants.map(v => v.price));
-        const hasDiscount = product.variants.some(v => v.originalPrice && v.originalPrice > v.price);
-        
-        // Determine product series for filtering
-        let productSeries = '';
-        if (product.name.includes('Pro')) productSeries = 'ipadpro';
-        else if (product.name.includes('Air')) productSeries = 'ipadair';
-        else if (product.name.includes('Mini')) productSeries = 'ipadmini';
-        else productSeries = 'ipad';
-        
-        // Calculate discount percentage if available
-        let discountPercentage = 0;
-        let originalPrice = 0;
-        
-        if (hasDiscount) {
-          const variantWithDiscount = product.variants.find(v => v.originalPrice && v.originalPrice > v.price);
-          originalPrice = variantWithDiscount.originalPrice;
-          discountPercentage = Math.round((1 - variantWithDiscount.price / variantWithDiscount.originalPrice) * 100);
-        }
-        
-        const productCard = document.createElement('div');
-        productCard.className = 'col-md-6 col-lg-4 col-xl-3 mb-4 product-item';
-        productCard.dataset.series = productSeries;
-        productCard.dataset.new = isNew ? 'true' : 'false';
-        productCard.dataset.sale = hasDiscount ? 'true' : 'false';
-        
-        productCard.innerHTML = `
-          <div class="product-card">
-            <div class="product-image-container">
-              <img src="${product.imageUrl}" alt="${product.name}" class="product-image">
-              ${isNew ? '<div class="product-badge"><i class="fas fa-bolt me-1"></i> Mới ra mắt</div>' : ''}
-              ${hasDiscount && !isNew ? `<div class="product-badge"><i class="fas fa-tag me-1"></i> Giảm ${discountPercentage}%</div>` : ''}
-              <div class="wishlist-btn" onclick="addToWishlist('${product.id}')">
-                <i class="far fa-heart"></i>
-              </div>
-            </div>
-            <div class="product-body">
-              <h5 class="product-title">${product.name}</h5>
-              <div class="product-price">
-                ${minPrice.toLocaleString('vi-VN')}₫
-                ${hasDiscount ? `<span class="old-price">${originalPrice.toLocaleString('vi-VN')}₫</span>` : ''}
-                ${hasDiscount ? `<span class="discount-tag">-${discountPercentage}%</span>` : ''}
-              </div>
-              <div class="product-meta">
-                <div class="stars">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo/logo.png" alt="Anh Em Rọt Store Logo"
+                            style="transition: transform 0.3s ease; display: block;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                    </a>
                 </div>
-                <span>(4.5 - 128 đánh giá)</span>
-              </div>
-              <a href="ipad_detail.html?product=${encodeURIComponent(product.name)}" class="btn btn-detail">
-                <i class="fas fa-eye"></i> Xem chi tiết
-              </a>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="has-dropdown">
+                            <a href="#" aria-current="page">Sản Phẩm</a>
+                            <div id="products-dropdown">
+                                <div class="products-inner-content">
+                                    <div class="mega-menu-column main-categories-column">
+                                        <div class="category-item">
+                                            <a href="iphone.html" data-target-category="iphone-series">
+                                                <i class="fab fa-apple" style="margin-right: 8px;"></i>iPhone Series</a>
+                                            <div class="subcategory-content" id="iphone-series-content">
+                                                <div class="subcategory-title">iPhone Series</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">iPhone 16</a>
+                                                    <a href="#">iPhone 15</a>
+                                                    <a href="#">iPhone 14</a>
+                                                    <a href="#">iPhone 13</a>
+                                                    <a href="#">iPhone 12 Pro</a>
+                                                    <a href="#">iPhone SE</a>
+                                                    <a href="#">So sánh iPhone</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="ipad.html" data-target-category="ipad-models">
+                                                <i class="fas fa-tablet-alt" style="margin-right: 8px;"></i>iPad Models
+                                            </a>
+                                            <div class="subcategory-content" id="ipad-models-content">
+                                                <div class="subcategory-title">iPad Models</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">iPad Pro"</a>
+                                                    <a href="#">iPad Air</a>
+                                                    <a href="#">iPad</a>
+                                                    <a href="#">iPad mini</a>
+                                                    <a href="#">Apple Pencil</a>
+                                                    <a href="#">Magic Keyboard</a>
+                                                    <a href="#">So sánh iPad</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="macbook.html" data-target-category="mac-devices">
+                                                <i class="fas fa-laptop" style="margin-right: 8px;"></i>Mac Devices
+                                            </a>
+                                            <div class="subcategory-content" id="mac-devices-content">
+                                                <div class="subcategory-title">Mac Devices</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">MacBook Air</a>
+                                                    <a href="#">MacBook Pro</a>
+                                                    <a href="#">iMac</a>
+                                                    <a href="#">Mac mini</a>
+                                                    <a href="#">Mac Studio</a>
+                                                    <a href="#">Mac Pro</a>
+                                                    <a href="#">So sánh Mac</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="watch.html" data-target-category="apple-watch">
+                                                <i class="fas fa-clock" style="margin-right: 8px;"></i>Apple Watch
+                                            </a>
+                                            <div class="subcategory-content" id="apple-watch-content">
+                                                <div class="subcategory-title">Apple Watch</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">Apple Watch Ultra</a>
+                                                    <a href="#">Apple Watch SE</a>
+                                                    <a href="#">Apple Watch Nike</a>
+                                                    <a href="#">Dây đeo Sport</a>
+                                                    <a href="#">Dây đeo Leather</a>
+                                                    <a href="#">Dây đeo Milanese</a>
+                                                    <a href="#">So sánh Apple Watch</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="accessory.html" data-target-category="accessories">
+                                                <i class="fas fa-headphones" style="margin-right: 8px;"></i>Accessories
+                                            </a>
+                                            <div class="subcategory-content" id="accessories-content">
+                                                <div class="subcategory-title">Accessories</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="tainghe.html">AirPods</a>
+                                                    <a href="#">Apple TV 4K</a>
+                                                    <a href="#">MagSafe Charger</a>
+                                                    <a href="#">Ốp lưng iPhone</a>
+                                                    <a href="#">Magic Keyboard</a>
+                                                    <a href="#">Magic Mouse</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu-column subcategory-display-column">
+                                        <div class="subcategory-content-placeholder">
+                                            <p>🖱️ Di chuột qua danh mục để xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu-column promo-column">
+                                        <img src="assets/logo/logo.png" alt="Hot Products">
+                                        <p>🔥 Khám phá các sản phẩm hot nhất</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="promotion.html">Khuyến Mại</a></li>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="news.html">Tin Tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
             </div>
-          </div>
-        `;
-        productGrid.appendChild(productCard);
-      });
-    }
-    
-    function filterProducts(filterValue) {
-      const productItems = document.querySelectorAll('.product-item');
-      
-      productItems.forEach(item => {
-        if (filterValue === 'all') {
-          item.style.display = 'block';
-        } else if (filterValue === 'new') {
-          item.style.display = item.dataset.new === 'true' ? 'block' : 'none';
-        } else if (filterValue === 'sale') {
-          item.style.display = item.dataset.sale === 'true' ? 'block' : 'none';
-        } else {
-          item.style.display = item.dataset.series === filterValue ? 'block' : 'none';
-        }
-      });
-      
-      // Check if no products are visible after filtering
-      const visibleProducts = document.querySelectorAll('.product-item[style="display: block"]');
-      const productGrid = document.getElementById('productList');
-      
-      if (visibleProducts.length === 0 && productGrid) {
-        const noProductsMessage = document.createElement('div');
-        noProductsMessage.className = 'col-12 text-center py-5 no-products-message';
-        noProductsMessage.innerHTML = `
-          <p class="text-muted">Không có sản phẩm nào phù hợp với bộ lọc.</p>
-        `;
-        
-        // Remove existing no products message if it exists
-        const existingMessage = document.querySelector('.no-products-message');
-        if (existingMessage) existingMessage.remove();
-        
-        productGrid.appendChild(noProductsMessage);
-      } else {
-        // Remove no products message if products are visible
-        const existingMessage = document.querySelector('.no-products-message');
-        if (existingMessage) existingMessage.remove();
-      }
-    }
-    
-    function renderRecommendedAccessories(data) {
-      const slider = document.getElementById('recommendationSlider');
-      if (!slider) return;
-      
-      const accessoryCategory = data.categories.find(cat => cat.name === 'Phụ kiện' || cat.name === 'Tai Nghe');
-      if (!accessoryCategory) {
-        slider.innerHTML = `
-          <div class="swiper-slide">
-            <div class="card h-100">
-              <div class="card-body text-center py-5">
-                <p class="text-muted">Không có phụ kiện đề xuất.</p>
-              </div>
+
+            <div class="header-right">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon" aria-label="Mở tìm kiếm"></i>
+                    <div class="search-input-container">
+                        <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..."
+                            aria-label="Tìm kiếm sản phẩm">
+                        <button class="close-search-btn" aria-label="Đóng tìm kiếm">×</button>
+                    </div>
+                    <div class="search-results-container" role="listbox" style="display: none;"></div>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div id="user-section">
+                    <!-- Dynamically updated by JavaScript -->
+                </div>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-          </div>
-        `;
-        return;
-      }
-      
-      accessoryCategory.products.slice(0, 5).forEach(product => {
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide';
-        
-        const minPrice = Math.min(...product.variants.map(v => v.price));
-        const hasDiscount = product.variants.some(v => v.originalPrice && v.originalPrice > v.price);
-        let discountPercentage = 0;
-        let originalPrice = 0;
-        
-        if (hasDiscount) {
-          const variantWithDiscount = product.variants.find(v => v.originalPrice && v.originalPrice > v.price);
-          originalPrice = variantWithDiscount.originalPrice;
-          discountPercentage = Math.round((1 - variantWithDiscount.price / variantWithDiscount.originalPrice) * 100);
-        }
-        
-        slide.innerHTML = `
-          <div class="card h-100">
-            <img src="${product.imageUrl}" class="card-img-top" alt="${product.name}">
-            <div class="card-body">
-              <h6 class="card-title">${product.name}</h6>
-              <p class="card-text">
-                ${minPrice.toLocaleString('vi-VN')}₫
-                ${hasDiscount ? `<span class="old-price">${originalPrice.toLocaleString('vi-VN')}₫</span>` : ''}
-              </p>
-              <a href="accessory_detail.html?product=${encodeURIComponent(product.name)}" class="btn btn-sm btn-outline-secondary">Xem chi tiết</a>
-            </div>
-          </div>
-        `;
-        
-        slider.appendChild(slide);
-      });
-      
-      // Initialize Swiper
-      new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          1024: {
-            slidesPerView: 4,
-          },
-        },
-      });
-    }
-    
-    function addToWishlist(productId) {
-      // Get current wishlist from localStorage or initialize empty array
-      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-      
-      // Check if product is already in wishlist
-      const isInWishlist = wishlist.includes(productId);
-      
-      if (isInWishlist) {
-        // Remove from wishlist
-        wishlist = wishlist.filter(id => id !== productId);
-        showToast('Đã xóa khỏi danh sách yêu thích', 'info');
-      } else {
-        // Add to wishlist
-        wishlist.push(productId);
-        showToast('Đã thêm vào danh sách yêu thích', 'success');
-      }
-      
-      // Save updated wishlist to localStorage
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-      
-      // Update heart icon
-      const heartIcon = event.currentTarget.querySelector('i');
-      if (heartIcon) {
-        if (isInWishlist) {
-          heartIcon.classList.remove('fas');
-          heartIcon.classList.add('far');
-        } else {
-          heartIcon.classList.remove('far');
-          heartIcon.classList.add('fas');
-          heartIcon.style.color = '#FF0000';
-        }
-      }
-    }
-    
-    function showToast(message, type = 'success') {
-      const toastContainer = document.getElementById('toastContainer');
-      if (!toastContainer) return;
-      
-      const toast = document.createElement('div');
-      toast.className = 'toast-notification';
-      toast.innerHTML = `
-        <div class="toast-header">
-          <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'} me-2"></i>
-          <span>${type === 'success' ? 'Thành công' : 'Thông báo'}</span>
-          <div class="ms-auto toast-close" onclick="this.parentElement.parentElement.remove()">
-            <i class="fas fa-times"></i>
-          </div>
         </div>
-        <div class="toast-body">
-          ${message}
+    </header>
+
+    <!-- Cart Modal Overlay -->
+    <div class="cart-modal-overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-modal-header">
+            <h3>Giỏ hàng của bạn</h3>
+            <button class="close-cart-modal"><i class="fas fa-times"></i></button>
         </div>
-      `;
-      
-      toastContainer.appendChild(toast);
-      
-      // Auto remove after 3 seconds
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(100%)';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-  </script>
+        <div class="cart-modal-body">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Giỏ hàng trống</p>
+            </div>
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-modal-footer">
+            <button class="view-cart-btn">Xem giỏ hàng</button>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html">🏠 Trang chủ</a></li>
+            <li class="has-submenu">
+                <a href="#">📱 Products</a>
+                <ul class="submenu">
+                    <li><a href="iphone.html">📱 iPhone Series</a></li>
+                    <li class="has-submenu">
+                        <a href="macbook.html">💻 Mac Devices</a>
+                        <ul class="submenu">
+                            <li><a href="#">MacBook Air</a></li>
+                            <li><a href="#">MacBook Pro</a></li>
+                            <li><a href="#">iMac</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ipad.html">🎯 iPad Models</a></li>
+                    <li><a href="watch.html">⌚ Apple Watch</a></li>
+                    <li><a href="accessory.html">🎧 Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">ℹ️ Về chúng tôi</a></li>
+            <li><a href="promotion.html">🛠️ Khuyến mại</a></li>
+            <li><a href="news.html">📝 Tin tức</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h1>Ipad</h1>
+            <p>Khám phá dòng sản phẩm Ipad mới nhất</p>
+        </div>
+
+        <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalProductName"></h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalProductImage" class="modal-image" src="" alt="">
+                <div class="modal-specs" id="modalSpecs"></div>
+                <div class="promotions" id="modalPromotions">
+                    <h3>Khuyến mãi</h3>
+                    <ul class="promotion-list" id="promotionList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="scripts/loadfooter.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script>
+        let products = [];
+
+        async function loadProducts() {
+            try {
+                const response = await fetch('data/product.json');
+                const data = await response.json();
+                const IpadCategory = data.categories.find(c => c.id === 'ipad');
+                products = IpadCategory ? IpadCategory.products : [];
+                displayProducts();
+            } catch (error) {
+                console.error('Lỗi khi tải sản phẩm:', error);
+            }
+        }
+
+        function displayProducts() {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const card = createProductCard(product, index);
+                grid.appendChild(card);
+            });
+        }
+
+        function createProductCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            const firstConfig = Object.keys(product.configurations)[0];
+            const firstColor = Object.keys(product.configurations[firstConfig])[0];
+            const { price, originalPrice, discount } = product.configurations[firstConfig][firstColor];
+
+            card.innerHTML = `
+                <img class="product-image" src="${product.defaultImage}" alt="${product.name}">
+                <div class="product-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <div class="price-info">
+                        <span class="original-price">${formatPrice(originalPrice)}</span>
+                        <div>
+                            <span class="product-price">${formatPrice(price)}</span>
+                            <span class="discount-badge">-${discount}%</span>
+                        </div>
+                    </div>
+                    <div class="product-options">
+                        <div class="option-group">
+                            <div class="option-label">Dung lượng:</div>
+                            <div class="storage-options">
+                                ${Object.keys(product.configurations).map(storage => `<button class="option-btn">${storage}</button>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-quick-view" onclick="showQuickView(${index})">Xem nhanh</button>
+                        <button class="btn btn-details" onclick="window.location.href='product-detail.html?id=${product.name}'">Xem chi tiết</button>
+                    </div>
+                </div>`;
+
+            return card;
+        }
+
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency', currency: 'VND'
+            }).format(price);
+        }
+
+        function showQuickView(index) {
+            const product = products[index];
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalProductImage').src = product.defaultImage;
+
+            const specsContainer = document.getElementById('modalSpecs');
+            specsContainer.innerHTML = '';
+            if (product.specs) {
+                for (const [group, items] of Object.entries(product.specs)) {
+                    const specGroup = document.createElement('div');
+                    specGroup.className = 'spec-group';
+                    let html = `<h3 class="spec-title">${group}</h3>`;
+                    for (const [key, val] of Object.entries(items)) {
+                        html += `<div class="spec-item"><span class="spec-label">${key}</span><span class="spec-value">${val}</span></div>`;
+                    }
+                    specGroup.innerHTML = html;
+                    specsContainer.appendChild(specGroup);
+                }
+            }
+
+            const promotionList = document.getElementById('promotionList');
+            promotionList.innerHTML = '';
+            if (product.promotions) {
+                product.promotions.forEach(p => {
+                    const li = document.createElement('li');
+                    li.textContent = p;
+                    promotionList.appendChild(li);
+                });
+            }
+
+            document.getElementById('quickViewModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('quickViewModal').style.display = 'none';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('quickViewModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        loadProducts();
+    </script>
 </body>
+
 </html>

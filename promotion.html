@@ -1,255 +1,327 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khuyến Mãi | Anh Em Rọt</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main_css.css">
-    <!-- Font Awesome -->
+    <title>Ưu Đãi & Khuyến Mãi | Anh Em Rọt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Apple-like styling */
-        :root {
-            --apple-gray: #f5f5f7;
-            --apple-black: #1d1d1f;
-            --apple-blue: #0071e3;
-            --apple-light-blue: #2997ff;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            color: var(--apple-black);
-            background-color: #fff;
-            padding-top: 60px;
-        }
-        
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-        }
-        
-        .navbar-brand, .nav-link {
-            color: #f5f5f7;
-        }
-        
-        .nav-link:hover {
-            color: #fff;
-        }
-        
-        h1, h2, h3 {
-            font-weight: 600;
-        }
-        
-        .hero-section {
-            background-color: var(--apple-gray);
-            padding: 80px 0;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .hero-section h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .hero-section p {
-            font-size: 24px;
-            max-width: 700px;
-            margin: 0 auto;
-            color: #86868b;
-        }
-        
-        .promotion-card {
-            border: none;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-            height: 100%;
-        }
-        
-        .promotion-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        .promotion-card .card-img-top {
-            height: 240px;
-            object-fit: cover;
-            background-color: var(--apple-gray);
-        }
-        
-        .promotion-card .card-body {
-            padding: 24px;
-        }
-        
-        .promotion-card .card-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .promotion-card .card-text {
-            color: #515154;
-            margin-bottom: 16px;
-        }
-        
-        .promotion-date {
-            color: #86868b;
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-        
-        .btn-apple {
-            background-color: var(--apple-blue);
-            color: white;
-            border-radius: 980px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 400;
-            border: none;
-            text-decoration: none;
-        }
-        
-        .btn-apple:hover {
-            background-color: var(--apple-light-blue);
-            color: white;
-        }
-        
-        .modal-content {
-            border-radius: 14px;
-            border: none;
-            overflow: hidden;
-        }
-        
-        .modal-header {
-            border-bottom: none;
-            padding: 24px 24px 0;
-        }
-        
-        .modal-body {
-            padding: 16px 24px 24px;
-        }
-        
-        .modal-title {
-            font-weight: 600;
-            font-size: 24px;
-        }
-        
-        .modal-desc {
-            color: #515154;
-            margin-bottom: 20px;
-        }
-/*         
-        footer {
-            background-color: var(--apple-gray);
-            padding: 40px 0;
-            margin-top: 80px;
-        } */
-        
-        /* .footer-links h5 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #515154;
-            text-decoration: none;
-            font-size: 13px;
-        }
-        
-        .footer-links a:hover {
-            color: var(--apple-blue);
-            text-decoration: none;
-        }
-        
-        .copyright {
-            font-size: 12px;
-            color: #86868b;
-            border-top: 1px solid #d2d2d7;
-            padding-top: 20px;
-            margin-top: 30px;
-        } */
-        
-        /* Chỉnh sửa cho phù hợp với bảng chi tiết */
-        table {
-            width: 100%; 
-            border-collapse: collapse; 
-            margin-top: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        table th, table td {
-            padding: 12px 16px; 
-            text-align: left; 
-            border: none;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        table th {
-            background-color: #f5f5f7; 
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        table td {
-            font-size: 14px;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 60px 0;
-            }
-            
-            .hero-section h1 {
-                font-size: 36px;
-            }
-            
-            .hero-section p {
-                font-size: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/promotion.css">
+    <link rel="stylesheet" href="css/promo-timeline.css">
+
 </head>
+
 <body>
-    <!-- Placeholder cho navbar -->
-    <div id="navbar-placeholder"></div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1>Khuyến Mãi Đặc Biệt</h1>
-            <p>Khám phá những ưu đãi tuyệt vời nhất dành cho sản phẩm Apple tại Anh Em Rọt</p>
-        </div>
-    </section>
-
-    <!-- Promotions Section -->
-    <div class="container">
-        <div id="promotion-list" class="row">
-            <!-- Danh sách khuyến mãi sẽ được load ở đây -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><i class="fas fa-envelope"></i> anhemrotstore12chuaboc@hvnh.edu.vn</span>
+                <span><i class="fas fa-phone"></i> (+84) 827592304</span>
+            </div>
+            <div class="top-bar-center">
+                <span id="typewriter"></span>
+                <span id="weather" class="weather-info">⛅ Đang tải thời tiết...</span>
+                <audio id="type-sound" src="assets/sounds/typing.wav" autoplay loop preload="auto"></audio>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.instagram.com/_yud.gnauq/"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://web.facebook.com/quys.hokage"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
         </div>
     </div>
 
-    <!-- Promotion Modal -->
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/logo/logo.png" alt="Anh Em Rọt Store Logo"
+                            style="transition: transform 0.3s ease; display: block;"
+                            onmouseover="this.style.transform='scale(1.05)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                    </a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="has-dropdown">
+                            <a href="#">Sản Phẩm</a>
+                            <div id="products-dropdown">
+                                <div class="products-inner-content">
+                                    <div class="mega-menu-column main-categories-column">
+                                        <div class="category-item">
+                                            <a href="iphone.html" data-target-category="iphone-series">
+                                                <i class="fab fa-apple" style="margin-right: 8px;"></i>iPhone Series</a>
+                                            <div class="subcategory-content" id="iphone-series-content">
+                                                <div class="subcategory-title">iPhone Series</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">iPhone 16</a>
+                                                    <a href="#">iPhone 15</a>
+                                                    <a href="#">iPhone 14</a>
+                                                    <a href="#">iPhone 13</a>
+                                                    <a href="#">iPhone 12 Pro</a>
+                                                    <a href="#">iPhone SE</a>
+                                                    <a href="#">So sánh iPhone</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="ipad.html" data-target-category="ipad-models">
+                                                <i class="fas fa-tablet-alt" style="margin-right: 8px;"></i>iPad Models
+                                            </a>
+                                            <div class="subcategory-content" id="ipad-models-content">
+                                                <div class="subcategory-title">iPad Models</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">iPad Pro"</a>
+                                                    <a href="#">iPad Air</a>
+                                                    <a href="#">iPad</a>
+                                                    <a href="#">iPad mini</a>
+                                                    <a href="#">Apple Pencil</a>
+                                                    <a href="#">Magic Keyboard</a>
+                                                    <a href="#">So sánh iPad</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="macbook.html" data-target-category="mac-devices">
+                                                <i class="fas fa-laptop" style="margin-right: 8px;"></i>Mac Devices
+                                            </a>
+                                            <div class="subcategory-content" id="mac-devices-content">
+                                                <div class="subcategory-title">Mac Devices</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">MacBook Air</a>
+                                                    <a href="#">MacBook Pro</a>
+                                                    <a href="#">iMac</a>
+                                                    <a href="#">Mac mini</a>
+                                                    <a href="#">Mac Studio</a>
+                                                    <a href="#">Mac Pro</a>
+                                                    <a href="#">So sánh Mac</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="watch.html" data-target-category="apple-watch">
+                                                <i class="fas fa-clock" style="margin-right: 8px;"></i>Apple Watch
+                                            </a>
+                                            <div class="subcategory-content" id="apple-watch-content">
+                                                <div class="subcategory-title">Apple Watch</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="#">Apple Watch Ultra</a>
+                                                    <a href="#">Apple Watch SE</a>
+                                                    <a href="#">Apple Watch Nike</a>
+                                                    <a href="#">Dây đeo Sport</a>
+                                                    <a href="#">Dây đeo Leather</a>
+                                                    <a href="#">Dây đeo Milanese</a>
+                                                    <a href="#">So sánh Apple Watch</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="category-item">
+                                            <a href="accessory.html" data-target-category="accessories">
+                                                <i class="fas fa-headphones" style="margin-right: 8px;"></i>Accessories
+                                            </a>
+                                            <div class="subcategory-content" id="accessories-content">
+                                                <div class="subcategory-title">Accessories</div>
+                                                <div class="subcategory-grid-links">
+                                                    <a href="tainghe.html">AirPods</a>
+                                                    <a href="#">Apple TV 4K</a>
+                                                    <a href="#">MagSafe Charger</a>
+                                                    <a href="#">Ốp lưng iPhone</a>
+                                                    <a href="#">Magic Keyboard</a>
+                                                    <a href="#">Magic Mouse</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu-column subcategory-display-column">
+                                        <div class="subcategory-content-placeholder">
+                                            <p>🖱️ Di chuột qua danh mục để xem chi tiết</p>
+                                        </div>
+                                    </div>
+                                    <div class="mega-menu-column promo-column">
+                                        <img src="assets/logo/logo.png" alt="Hot Products">
+                                        <p>🔥 Khám phá các sản phẩm hot nhất</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="promotion.html" aria-current="page">Khuyến Mại</a></li>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="news.html">Tin Tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon" aria-label="Mở tìm kiếm"></i>
+                    <div class="search-input-container">
+                        <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..."
+                            aria-label="Tìm kiếm sản phẩm">
+                        <button class="close-search-btn" aria-label="Đóng tìm kiếm">×</button>
+                    </div>
+                    <div class="search-results-container" role="listbox" style="display: none;"></div>
+                </div>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div id="user-section">
+                    <!-- Dynamically updated by JavaScript -->
+                </div>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Modal Overlay -->
+    <div class="cart-modal-overlay"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-modal-header">
+            <h3>Giỏ hàng của bạn</h3>
+            <button class="close-cart-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-modal-body">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Giỏ hàng trống</p>
+            </div>
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-modal-footer">
+            <button class="view-cart-btn">Xem giỏ hàng</button>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
+    </div>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay"></div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html">🏠 Trang chủ</a></li>
+            <li class="has-submenu">
+                <a href="#">📱 Products</a>
+                <ul class="submenu">
+                    <li><a href="iphone.html">📱 iPhone Series</a></li>
+                    <li class="has-submenu">
+                        <a href="macbook.html">💻 Mac Devices</a>
+                        <ul class="submenu">
+                            <li><a href="#">MacBook Air</a></li>
+                            <li><a href="#">MacBook Pro</a></li>
+                            <li><a href="#">iMac</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="ipad.html">🎯 iPad Models</a></li>
+                    <li><a href="watch.html">⌚ Apple Watch</a></li>
+                    <li><a href="accessory.html">🎧 Accessories</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">ℹ️ Về chúng tôi</a></li>
+            <li><a href="promotion.html" aria-current="page">🛠️ Khuyến mại</a></li>
+            <li><a href="news.html">📝 Tin tức</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-overlay"></div>
+
+    <main>
+        <section class="py-5"
+            style="background-image: url('assets/banner/samApple.jpg'); background-size: cover 100%; background-position: center; background-repeat: no-repeat; position: relative; text-align: center;color: white;">
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 80px 20px; display: inline-block; border-radius: 12px;box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);">
+                <h1 class="section-title" style="font-size: 2.5rem;font-weight: 700;text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+                    Ưu Đãi & Khuyến Mãi
+                </h1>
+                <p style="font-size: 1.1rem;color: #f0f0f0;margin-top: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); ">
+                    Cập nhật những ưu đãi mới nhất về sản phẩm và dịch vụ của Anh Em Rọt
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div id="promotion-container" class="swiper promotion-swiper">
+                    <div class="swiper-wrapper"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="promo-timeline-filters">
+                            <button class="filter-item active" data-filter="all">Tất cả</button>
+                            <button class="filter-item" data-filter="flash-sale">Flash Sale</button>
+                            <button class="filter-item" data-filter="promotion">Khuyến mãi</button>
+                            <button class="filter-item" data-filter="special">Đặc biệt</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" id="search-promotions" class="form-control"
+                                placeholder="Tìm kiếm ưu đãi...">
+                            <button class="btn btn-apple" id="btn-search"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div id="promotion-list" class="promotion-box-container"></div>
+                <div id="no-results" class="col-12 text-center text-muted d-none">
+                    <p>Không tìm thấy ưu đãi</p>
+                    <p>Vui lòng thử lại với từ khóa hoặc bộ lọc khác.</p>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mt-4" id="pagination-container"></ul>
+                </nav>
+            </div>
+        </section>
+
+        <section class="promo-timeline-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center">Lịch Trình Khuyến Mãi</h2>
+                <div class="promo-timeline-container"></div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Đăng ký nhận ưu đãi</h2>
+                <p class="text-center text-muted mb-4">Nhận thông tin mới nhất về sản phẩm và ưu đãi từ Anh Em Rọt.</p>
+                <form class="row g-3 justify-content-center">
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" placeholder="Nhập email của bạn">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-apple w-100">Đăng ký</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
     <div class="modal fade" id="promotionModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalTitle"></h5>
@@ -258,22 +330,57 @@
                 <div class="modal-body">
                     <p class="modal-desc" id="modalDesc"></p>
                     <div id="modalDetails"></div>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-apple">Mua Ngay</a>
-                        <button type="button" class="btn btn-link" data-bs-dismiss="modal">Đóng</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <a href="#" class="btn btn-apple" id="modalActionBtn">Mua Ngay</a>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Placeholder cho footer -->
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts/loadcontent.js"></script>
-    <script src="scripts/promotion_detail.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="scripts/navbar.js"></script>
+    <script src="scripts/promotion.js"></script>
+    <script src="scripts/promo-timeline.js"></script>
+    <script src="scripts/loadfooter.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger-menu').addEventListener('click', function () {
+            document.querySelector('.mobile-nav').classList.add('active');
+            document.querySelector('.mobile-overlay').classList.add('active');
+        });
+
+        document.querySelector('.close-mobile-nav').addEventListener('click', function () {
+            document.querySelector('.mobile-nav').classList.remove('active');
+            document.querySelector('.mobile-overlay').classList.remove('active');
+        });
+
+        document.querySelector('.mobile-overlay').addEventListener('click', function () {
+            document.querySelector('.mobile-nav').classList.remove('active');
+            this.classList.remove('active');
+        });
+
+        // User dropdown
+        document.querySelector('.user-icon').addEventListener('click', function () {
+            document.querySelector('.dropdown-content').classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function (e) {
+            if (!e.target.matches('.user-icon') && !e.target.matches('.user-icon i')) {
+                var dropdowns = document.querySelectorAll('.dropdown-content');
+                dropdowns.forEach(function (dropdown) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>

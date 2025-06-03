@@ -1,237 +1,385 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register | Anh Em Rọt Store</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      background: linear-gradient(120deg, #000000 0%, #1a1a1a 100%);
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: 0;
-    }
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
-    }
-    .register-container {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 450px;
-      padding: 2.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    h2 {
-      color: #fff;
-      font-size: 2.2rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 2.5rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      animation: slideIn 0.8s ease-out;
-    }
-    @keyframes slideIn {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .input-group {
-      margin-bottom: 1.8rem;
-      position: relative;
-    }
-    .input-group input {
-      width: 100%;
-      padding: 14px 15px 14px 45px;
-      border: none;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 1rem;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    .input-group input:focus {
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 0 3px rgba(0, 145, 255, 0.3);
-      transform: scale(1.02);
-    }
-    .input-group input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-    .input-group i {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.3s ease;
-    }
-    .input-group input:focus + i {
-      color: #00c4ff;
-    }
-    .btn {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 25px;
-      background: linear-gradient(90deg, #007aff 0%, #0acffe 100%);
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.5s ease-out;
-      box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);
-      overflow: hidden;
-    }
-    .btn::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transition: width 0.6s ease, height 0.6s ease;
-      transform: translate(-50%, -50%);
-      z-index: 0;
-    }
-    .btn:hover::after {
-      width: 300px;
-      height: 300px;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 122, 255, 0.6);
-    }
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: 0 2px 10px rgba(0, 122, 255, 0.3);
-    }
-    .extra {
-      text-align: center;
-      margin-top: 2rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.95rem;
-    }
-    .extra a {
-      color: #00c4ff;
-      text-decoration: none;
-      font-weight: 500;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-    .extra a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 0;
-      background: #00c4ff;
-      transition: width 0.3s ease;
-    }
-    .extra a:hover::after {
-      width: 100%;
-    }
-    .extra a:hover {
-      color: #00aaff;
-    }
-    @media (max-width: 576px) {
-      .register-container {
-        padding: 1.5rem;
-        margin: 1rem;
-      }
-      h2 {
-        font-size: 1.6rem;
-      }
-      .btn {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
-  <script src="/scripts/register.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký | Anh Em Rọt Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
-  <div id="particles-js"></div>
-  <div class="container">
-    <div class="register-container">
-      <h2>Register</h2>
-      <form id="register-form">
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" id="username" placeholder="Username" required />
-        </div>
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="email" placeholder="Email" required />
-        </div>
-        <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" id="password" placeholder="Password" required />
-        </div>
-        <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" id="confirm-password" placeholder="Confirm Password" required />
-        </div>
-        <button type="submit" class="btn">Register</button>
-        <p class="extra">
-          Already have an account? <a href="login.html">Login</a>
-        </p>
-      </form>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="top-bar-left">
+        <span><i class="fas fa-envelope"></i> anhemrotstore12chuaboc@hvnh.edu.vn</span>
+        <span><i class="fas fa-phone"></i> (+84) 827592304</span>
+      </div>
+      <div class="top-bar-center">
+        <span id="typewriter"></span>
+        <span id="weather" class="weather-info">⛅ Đang tải thời tiết...</span>
+        <audio id="type-sound" src="assets/sounds/typing.wav" autoplay></audio>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://www.instagram.com/_yud.gnauq/"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://web.facebook.com/quys.hokage"><i class="fab fa-facebook"></i> Facebook</a>
+      </div>
     </div>
   </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="header-left">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/logo/logo.png" alt="Anh Em Rọt Store Logo"
+              style="transition: transform 0.3s ease; display: block;" onmouseover="this.style.transform='scale(1.05)'"
+              onmouseout="this.style.transform='scale(1)'">
+          </a>
+        </div>
+        <nav class="desktop-nav">
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li class="has-dropdown">
+              <a href="product.html">Sản Phẩm</a>
+              <div id="products-dropdown">
+                <div class="products-inner-content">
+                  <div class="mega-menu-column main-categories-column">
+                    <div class="category-item">
+                      <a href="iphone.html" data-target-category="iphone-series">
+                        <i class="fab fa-apple" style="margin-right: 8px;"></i>iPhone Series</a>
+                      <div class="subcategory-content" id="iphone-series-content">
+                        <div class="subcategory-title">iPhone Series</div>
+                        <div class="subcategory-grid-links">
+                          <a href="#">iPhone 16</a>
+                          <a href="#">iPhone 15</a>
+                          <a href="#">iPhone 14</a>
+                          <a href="#">iPhone 13</a>
+                          <a href="#">iPhone 12 Pro</a>
+                          <a href="#">iPhone SE</a>
+                          <a href="#">So sánh iPhone</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <a href="ipad.html" data-target-category="ipad-models">
+                        <i class="fas fa-tablet-alt" style="margin-right: 8px;"></i>iPad Models
+                      </a>
+                      <div class="subcategory-content" id="ipad-models-content">
+                        <div class="subcategory-title">iPad Models</div>
+                        <div class="subcategory-grid-links">
+                          <a href="#">iPad Pro"</a>
+                          <a href="#">iPad Air</a>
+                          <a href="#">iPad</a>
+                          <a href="#">iPad mini</a>
+                          <a href="#">Apple Pencil</a>
+                          <a href="#">Magic Keyboard</a>
+                          <a href="#">So sánh iPad</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <a href="macbook.html" data-target-category="mac-devices">
+                        <i class="fas fa-laptop" style="margin-right: 8px;"></i>Mac Devices
+                      </a>
+                      <div class="subcategory-content" id="mac-devices-content">
+                        <div class="subcategory-title">Mac Devices</div>
+                        <div class="subcategory-grid-links">
+                          <a href="#">MacBook Air</a>
+                          <a href="#">MacBook Pro</a>
+                          <a href="#">iMac</a>
+                          <a href="#">Mac mini</a>
+                          <a href="#">Mac Studio</a>
+                          <a href="#">Mac Pro</a>
+                          <a href="#">So sánh Mac</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <a href="watch.html" data-target-category="apple-watch">
+                        <i class="fas fa-clock" style="margin-right: 8px;"></i>Apple Watch
+                      </a>
+                      <div class="subcategory-content" id="apple-watch-content">
+                        <div class="subcategory-title">Apple Watch</div>
+                        <div class="subcategory-grid-links">
+                          <a href="#">Apple Watch Ultra</a>
+                          <a href="#">Apple Watch SE</a>
+                          <a href="#">Apple Watch Nike</a>
+                          <a href="#">Dây đeo Sport</a>
+                          <a href="#">Dây đeo Leather</a>
+                          <a href="#">Dây đeo Milanese</a>
+                          <a href="#">So sánh Apple Watch</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <a href="accessory.html" data-target-category="accessories">
+                        <i class="fas fa-headphones" style="margin-right: 8px;"></i>Accessories
+                      </a>
+                      <div class="subcategory-content" id="accessories-content">
+                        <div class="subcategory-title">Accessories</div>
+                        <div class="subcategory-grid-links">
+                          <a href="tainghe.html">AirPods</a>
+                          <a href="#">Apple TV 4K</a>
+                          <a href="#">MagSafe Charger</a>
+                          <a href="#">Ốp lưng iPhone</a>
+                          <a href="#">Magic Keyboard</a>
+                          <a href="#">Magic Mouse</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mega-menu-column subcategory-display-column">
+                    <div class="subcategory-content-placeholder">
+                      <p>🖱️ Di chuột qua danh mục để xem chi tiết</p>
+                    </div>
+                  </div>
+                  <div class="mega-menu-column promo-column">
+                    <img src="assets/logo/logo.png" alt="Hot Products">
+                    <p>🔥 Khám phá các sản phẩm hot nhất</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="promotion.html">Khuyến Mại</a></li>
+            <li><a href="about.html">Về chúng tôi</a></li>
+            <li><a href="news.html">Tin Tức</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <i class="fas fa-search search-icon" aria-label="Mở tìm kiếm"></i>
+          <div class="search-input-container">
+            <input type="text" class="search-input" placeholder="Tìm kiếm sản phẩm..." aria-label="Tìm kiếm sản phẩm">
+            <button class="close-search-btn" aria-label="Đóng tìm kiếm">×</button>
+          </div>
+          <div class="search-results-container" role="listbox" style="display: none;"></div>
+        </div>
+        <div class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+        <div id="user-section">
+          <!-- Dynamically updated by JavaScript -->
+        </div>
+        <div class="hamburger-menu">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Modal Overlay -->
+  <div class="cart-modal-overlay"></div>
+
+  <!-- Cart Modal -->
+  <div class="cart-modal">
+    <div class="cart-modal-header">
+      <h3>Giỏ hàng của bạn</h3>
+      <button class="close-cart-modal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-modal-body">
+      <div class="cart-empty">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Giỏ hàng trống</p>
+      </div>
+      <!-- Cart items will be dynamically added here -->
+    </div>
+    <div class="cart-modal-footer">
+      <button class="view-cart-btn">Xem giỏ hàng</button>
+      <button class="checkout-btn">Thanh toán</button>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay"></div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <button class="close-mobile-nav"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="index.html">🏠 Trang chủ</a></li>
+      <li class="has-submenu">
+        <a href="#">📱 Products</a>
+        <ul class="submenu">
+          <li><a href="iphone.html">📱 iPhone Series</a></li>
+          <li class="has-submenu">
+            <a href="macbook.html">💻 Mac Devices</a>
+            <ul class="submenu">
+              <li><a href="#">MacBook Air</a></li>
+              <li><a href="#">MacBook Pro</a></li>
+              <li><a href="#">iMac</a></li>
+            </ul>
+          </li>
+          <li><a href="ipad.html">🎯 iPad Models</a></li>
+          <li><a href="watch.html">⌚ Apple Watch</a></li>
+          <li><a href="accessory.html">🎧 Accessories</a></li>
+        </ul>
+      </li>
+      <li><a href="about.html">ℹ️ Về chúng tôi</a></li>
+      <li><a href="promotion.html">🛠️ Khuyến mại</a></li>
+      <li><a href="news.html">📝 Tin tức</a></li>
+      <li><a href="contact.html">📞 Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1 class="auth-title">Đăng ký</h1>
+        <p class="auth-subtitle">Tạo tài khoản để bắt đầu mua sắm</p>
+      </div>
+      <form class="auth-form">
+        <div class="form-group">
+          <label for="fullName" class="form-label">Họ và tên</label>
+          <input type="text" id="fullName" class="form-input" placeholder="Nhập họ và tên" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-input" placeholder="Nhập email của bạn" required>
+        </div>
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input type="password" id="password" class="form-input" placeholder="Nhập mật khẩu" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
+          <input type="password" id="confirmPassword" class="form-input" placeholder="Xác nhận mật khẩu" required>
+        </div>
+        <button type="submit" class="auth-button" id="regisBtn">
+          <i class="fas fa-spinner spinner"></i>
+          <span>Đăng ký</span>
+        </button>
+      </form>
+      <div class="auth-footer">
+        <span>Đã có tài khoản? </span>
+        <a href="login.html" class="form-link">Đăng nhập ngay</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <!-- Scripts -->
+  <script src="scripts/navbar.js"></script>
+  <script src="scripts/loadfooter.js"></script>
   <script>
-    $(document).ready(function() {
-      particlesJS('particles-js', {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: '#00c4ff' },
-          shape: { type: 'circle' },
-          opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
-          size: { value: 3, random: true, anim: { enable: true, speed: 2 } },
-          line_linked: { enable: true, distance: 150, color: '#00c4ff', opacity: 0.4, width: 1 },
-          move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
-        },
-        interactivity: {
-          events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
-          modes: { repulse: { distance: 100, duration: 0.4 } }
+    // Function to show notifications
+    function showNotification(message, type = 'success') {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : '#f44336'};
+        color: white;
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 10000;
+        font-weight: 500;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      `;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.style.transform = 'translateX(0)';
+      }, 100);
+
+      setTimeout(() => {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+          document.body.removeChild(notification);
+        }, 300);
+      }, 3000);
+    }
+
+    // Registration functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const regisBtn = document.getElementById('regisBtn');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirmPassword');
+
+      regisBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const fullName = fullNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        // Basic validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!fullName || !email || !password || !confirmPassword) {
+          showNotification('Vui lòng điền đầy đủ thông tin.', 'error');
+          return;
+        }
+        if (!emailRegex.test(email)) {
+          showNotification('Email không hợp lệ.', 'error');
+          return;
+        }
+        if (password !== confirmPassword) {
+          showNotification('Mật khẩu không khớp.', 'error');
+          return;
+        }
+        if (password.length < 6) {
+          showNotification('Mật khẩu phải có ít nhất 6 ký tự.', 'error');
+          return;
+        }
+
+        // Show loading state
+        regisBtn.disabled = true;
+        regisBtn.classList.add('loading');
+
+        try {
+          await new Promise(resolve => setTimeout(resolve, 1500));
+
+          // Kiểm tra email đã tồn tại chưa
+          const users = JSON.parse(localStorage.getItem('users')) || [];
+          const emailExists = users.some(user => user.email === email);
+
+          if (emailExists) {
+            throw new Error('Email đã được đăng ký. Vui lòng sử dụng email khác.');
+          }
+
+          // Thêm user mới
+          const newUser = {
+            fullName,
+            email,
+            password // Trong thực tế nên mã hóa password trước khi lưu
+          };
+
+          users.push(newUser);
+          localStorage.setItem('users', JSON.stringify(users));
+
+          // Tự động đăng nhập sau khi đăng ký
+          localStorage.setItem('isLoggedIn', 'true');
+          localStorage.setItem('currentUser', JSON.stringify({
+            fullName,
+            email
+          }));
+
+          showNotification('Đăng ký thành công! Bạn đã được đăng nhập', 'success');
+
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1500);
+        } catch (error) {
+          showNotification(error.message, 'error');
+          regisBtn.disabled = false;
+          regisBtn.classList.remove('loading');
         }
       });
     });
   </script>
 </body>
-</html> 
+</html>

@@ -155,6 +155,18 @@
             padding: 8px 16px;
             gap: 8px;
             background-color: var(--light-gray);
+            max-height: 150px; /* Chiều cao tối đa khi hiển thị */
+            overflow: hidden; /* Ẩn nội dung tràn */
+            /* Thời gian chuyển đổi để ẩn/hiện mượt mà hơn */
+            transition: max-height 0.8s ease-out, padding 0.8s ease-out, opacity 0.8s ease-out; 
+        }
+
+        .quick-replies.hidden {
+            max-height: 0;
+            padding: 0 16px; /* Giữ padding ngang nhưng bỏ padding dọc để ẩn hoàn toàn */
+            opacity: 0;
+            /* Đảm bảo các item không thể tương tác khi ẩn */
+            pointer-events: none; 
         }
         
         .quick-reply {
@@ -238,20 +250,34 @@
             // Mở/đóng chat
             chatbotToggle.addEventListener('click', function() {
                 chatbotPopup.classList.toggle('active');
+                if (chatbotPopup.classList.contains('active')) {
+                    // Khi mở chat, hiển thị lại quick replies
+                    quickReplies.classList.remove('hidden');
+                } else {
+                    // Khi đóng chat, ẩn quick replies (nếu cần)
+                    quickReplies.classList.add('hidden');
+                }
             });
             
             closeChat.addEventListener('click', function() {
                 chatbotPopup.classList.remove('active');
+                quickReplies.classList.add('hidden'); // Ẩn khi đóng
             });
             
             // Câu hỏi nhanh
             const quickQuestions = [
                 "Địa chỉ cửa hàng?",
                 "Giờ làm việc thế nào?",
-                "Có iPhone 15 Pro không?",
-                "Bảo hành bao lâu?",
-                "Có trả góp 0% không?",
-                "Khuyến mãi gì đặc biệt?"
+                "Có iPhone 15 không?", 
+                "Giá iPhone 15 Pro Max bao nhiêu?",
+                "MacBook Air M2 còn hàng không?",
+                "iPad Pro M2 có màu gì?",
+                "Có AirPods Pro 2 không?", // Thêm câu hỏi nhanh cho AirPods
+                "Có phụ kiện nào cho iPhone không?", // Thêm câu hỏi nhanh cho phụ kiện
+                "Chính sách bảo hành?",
+                "Có trả góp không?",
+                "Khuyến mãi hiện tại?",
+                "Ưu đãi cho học sinh sinh viên?" // Thêm câu hỏi nhanh cho chính sách HSSV
             ];
             
             quickQuestions.forEach(question => {
@@ -261,6 +287,7 @@
                 btn.addEventListener('click', function() {
                     userInput.value = question;
                     sendMessage();
+                    quickReplies.classList.add('hidden'); // Ẩn quick replies khi bấm
                 });
                 quickReplies.appendChild(btn);
             });
@@ -272,6 +299,9 @@
                 
                 addMessage('user', message);
                 userInput.value = '';
+                
+                // Ẩn quick replies sau khi gửi tin nhắn thủ công
+                quickReplies.classList.add('hidden'); 
                 
                 // Hiệu ứng đang gõ
                 const typingIndicator = document.createElement('div');
@@ -289,6 +319,8 @@
                     typingIndicator.remove();
                     const response = generateResponse(message);
                     addMessage('bot', response);
+                    // Sau khi bot trả lời, hiển thị lại quick replies
+                    quickReplies.classList.remove('hidden'); 
                 }, 800 + Math.random() * 1000);
             }
             
@@ -308,6 +340,45 @@
                         weekend: "10:00 - 20:00 (Thứ 7 & CN)"
                     },
                     map: "https://maps.apple.com/?address=12+Chua+Boc"
+                };
+
+                // Dữ liệu sản phẩm chi tiết
+                const products = {
+                    iphone: [
+                        { model: "iphone 15 pro max", status: "Còn hàng", price: "43.990.000đ", colors: "Titan xanh, Titan đen, Titan tự nhiên, Titan trắng", storage: "256GB, 512GB, 1TB", promotion: "Tặng dán màn hình, giảm 50% ốp lưng" },
+                        { model: "iphone 15 pro", status: "Còn hàng", price: "28.990.000đ", colors: "Titan xanh, Titan đen, Titan tự nhiên, Titan trắng", storage: "128GB, 256GB, 512GB, 1TB" },
+                        { model: "iphone 15 plus", status: "Còn hàng", price: "23.990.000đ", colors: "Đen, Xanh dương, Xanh lá, Hồng, Vàng", storage: "128GB, 256GB, 512GB" },
+                        { model: "iphone 15", status: "Tạm hết", restock: "25/12", price: "20.990.000đ", colors: "Đen, Xanh dương, Xanh lá, Hồng, Vàng", storage: "128GB, 256GB, 512GB" },
+                        { model: "iphone 14 pro max", status: "Còn hàng", price: "26.990.000đ", colors: "Tím đậm, Vàng, Bạc, Đen", storage: "128GB, 256GB, 512GB, 1TB", promotion: "Giảm 10%" },
+                        { model: "iphone 14 pro", status: "Còn hàng", price: "23.990.000đ", colors: "Tím đậm, Vàng, Bạc, Đen", storage: "128GB, 256GB, 512GB, 1TB" },
+                        { model: "iphone 14 plus", status: "Còn hàng", price: "19.990.000đ", colors: "Đen, Trắng, Xanh dương, Tím", storage: "128GB, 256GB, 512GB" },
+                        { model: "iphone 14", status: "Còn hàng", price: "17.990.000đ", colors: "Đen, Trắng, Xanh dương, Tím", storage: "128GB, 256GB, 512GB", promotion: "Giảm 10%" },
+                        { model: "iphone 13", status: "Còn hàng", price: "15.990.000đ", colors: "Đen, Trắng, Hồng, Xanh lá", storage: "128GB, 256GB, 512GB" }
+                    ],
+                    macbook: [
+                        { model: "macbook air m1", status: "Còn hàng", price: "21.990.000đ", chip: "M1", ram: "8GB, 16GB", storage: "256GB, 512GB", colors: "Space Gray, Gold, Silver" },
+                        { model: "macbook air m2", status: "Còn hàng", price: "27.990.000đ", chip: "M2", ram: "8GB, 16GB, 24GB", storage: "256GB, 512GB, 1TB, 2TB", colors: "Midnight, Starlight, Space Gray, Silver" },
+                        { model: "macbook pro 14 m2", status: "Còn hàng", price: "42.990.000đ", chip: "M2 Pro, M2 Max", ram: "16GB, 32GB, 64GB, 96GB", storage: "512GB, 1TB, 2TB, 4TB, 8TB", colors: "Space Gray, Silver" },
+                        { model: "macbook pro 16 m2", status: "Còn hàng", price: "55.990.000đ", chip: "M2 Pro, M2 Max", ram: "16GB, 32GB, 64GB, 96GB", storage: "512GB, 1TB, 2TB, 4TB, 8TB", colors: "Space Gray, Silver" }
+                    ],
+                    ipad: [
+                        { model: "ipad pro m2", status: "Còn hàng", price: "22.990.000đ", chip: "M2", sizes: "11 inch, 12.9 inch", storage: "128GB, 256GB, 512GB, 1TB, 2TB", colors: "Bạc, Xám không gian" },
+                        { model: "ipad air 5", status: "Còn hàng", price: "16.990.000đ", chip: "M1", colors: "Xám không gian, Ánh sao, Hồng, Tím, Xanh lam", storage: "64GB, 256GB" },
+                        { model: "ipad mini 6", status: "Tạm hết hàng", restock: "20/12", price: "14.990.000đ", chip: "A15 Bionic", storage: "64GB, 256GB", colors: "Xám không gian, Ánh sao, Tím, Hồng" },
+                        { model: "ipad 10th gen", status: "Còn hàng", price: "11.990.000đ", chip: "A14 Bionic", storage: "64GB, 256GB", colors: "Bạc, Hồng, Xanh dương, Vàng" }
+                    ],
+                    airpod: [
+                        { model: "airpods pro 2", status: "Còn hàng", price: "5.490.000đ", connectivity: "MagSafe Charging Case (USB-C)", features: "Chống ồn chủ động, Xuyên âm thích ứng, Âm thanh không gian cá nhân hóa" },
+                        { model: "airpods 3", status: "Còn hàng", price: "4.290.000đ", connectivity: "Lightning Charging Case", features: "Âm thanh không gian cá nhân hóa, Chống mồ hôi và nước" },
+                        { model: "airpods 2", status: "Còn hàng", price: "2.990.000đ", connectivity: "Charging Case", features: "Chip H1, Kích hoạt Siri bằng giọng nói" }
+                    ],
+                    phu_kien: [
+                        { model: "apple pencil 2", status: "Còn hàng", price: "3.490.000đ", compatibility: "iPad Pro, iPad Air, iPad mini đời mới" },
+                        { model: "magic keyboard", status: "Còn hàng", price: "7.990.000đ", compatibility: "iPad Pro, iPad Air", features: "Trackpad tích hợp, đèn nền" },
+                        { model: "ốp lưng iphone 15 series", status: "Còn hàng", price: "890.000đ", material: "Silicone, Clear Case, FineWoven", promotion: "Giảm 50% khi mua kèm iPhone" },
+                        { model: "sạc magsafe", status: "Còn hàng", price: "1.290.000đ", features: "Sạc không dây từ tính", compatibility: "iPhone 12 trở lên" },
+                        { model: "dây sạc usb-c to lightning", status: "Còn hàng", price: "490.000đ", length: "1m, 2m" }
+                    ]
                 };
                 
                 // Xác định chủ đề câu hỏi
@@ -329,41 +400,54 @@
                            `- Hotline/Zalo: ${storeInfo.hotline}\n` +
                            `- Email: ${storeInfo.email}`;
                 
-                } else if (/(có [\w\s]+ không|hàng|tồn kho)/.test(lowerMsg)) {
-                    // Xử lý câu hỏi về hàng hóa
-                    if (/iphone|ip/.test(lowerMsg)) {
-                        const model = extractModel(message);
-                        return checkiPhoneStock(model);
-                    } else if (/mac|macbook/.test(lowerMsg)) {
-                        return checkMacStock(message);
-                    } else if (/ipad/.test(lowerMsg)) {
-                        return checkiPadStock(message);
+                } else if (/(iphone|Iphone|macbook|ipad|airpod|phụ kiện|sản phẩm|hàng|tồn kho|còn hàng|màu gì|màu nào|dung lượng|bản bao nhiêu)/.test(lowerMsg)) {
+                    let productType = null;
+                    if (lowerMsg.includes("iphone")) {
+                        productType = "iphone";
+                    } else if (lowerMsg.includes("macbook")) {
+                        productType = "macbook";
+                    } else if (lowerMsg.includes("ipad")) {
+                        productType = "ipad";
+                    } else if (lowerMsg.includes("airpod") || lowerMsg.includes("airpods")) {
+                        productType = "airpod";
+                    } else if (lowerMsg.includes("phụ kiện") || lowerMsg.includes("phu kien") || lowerMsg.includes("sạc") || lowerMsg.includes("ốp lưng") || lowerMsg.includes("pencil") || lowerMsg.includes("magic keyboard")) {
+                        productType = "phu_kien";
                     }
-                    return "Chúng tôi có đầy đủ sản phẩm Apple chính hãng. Bạn cần hỏi cụ thể model nào ạ?";
+                    
+                    if (productType) {
+                        return checkProductStock(productType, lowerMsg, products);
+                    }
+                    return "Chúng tôi có đầy đủ sản phẩm Apple chính hãng và phụ kiện. Bạn cần hỏi cụ thể loại sản phẩm nào ạ?";
                 
                 } else if (/(giá|bao nhiêu|price)/.test(lowerMsg)) {
-                    return getPriceInfo(message);
+                    return getPriceInfo(lowerMsg, products);
+
+                } else if (/(học sinh|sinh viên|hssv|ưu đãi hssv|khuyến mãi học sinh|chính sách học sinh)/.test(lowerMsg)) {
+                    return `📚 **Chính sách ưu đãi dành cho Học sinh/Sinh viên:**\n` +
+                           `- Giảm thêm **1%** trên tổng giá trị hóa đơn (áp dụng cho các sản phẩm Apple chính)\n` +
+                           `- Ưu đãi đặc biệt khi mua combo (ví dụ: MacBook + iPad)\n` +
+                           `- Miễn phí cài đặt phần mềm và hỗ trợ kỹ thuật trọn đời\n` +
+                           `- Yêu cầu: Vui lòng xuất trình thẻ học sinh/sinh viên hoặc giấy tờ xác nhận đang theo học hợp lệ tại thời điểm mua hàng.`;
                 
                 } else if (/(trả góp|installment)/.test(lowerMsg)) {
                     return `💳 Chính sách trả góp:\n` +
                            `- Trả góp 0% qua thẻ tín dụng\n` +
                            `- Kỳ hạn 6/12 tháng\n` +
                            `- Thủ tục đơn giản, duyệt nhanh trong 15 phút\n` +
-                           `- Chỉ cần CMND + thẻ tín dụng`;
+                           `- Chỉ cần CCCD/CMND + thẻ tín dụng`;
                 
                 } else if (/(bảo hành|warranty)/.test(lowerMsg)) {
                     return `🛡️ Chính sách bảo hành:\n` +
-                           `- Bảo hành chính hãng 12 tháng\n` +
-                           `- Đổi mới 30 ngày đầu nếu lỗi\n` +
-                           `- Hỗ trợ mua AppleCare+ (thêm 12 tháng)\n` +
-                           `- Bảo hành tại tất cả trung tâm ủy quyền Apple`;
+                           `- Bảo hành chính hãng 12 tháng tại tất cả trung tâm ủy quyền Apple\n` +
+                           `- Đổi mới 30 ngày đầu nếu lỗi do nhà sản xuất\n` +
+                           `- Hỗ trợ mua gói bảo hành mở rộng AppleCare+`;
                 
                 } else if (/(khuyến mãi|giảm giá|sale|ưu đãi)/.test(lowerMsg)) {
                     return `🎁 Ưu đãi hiện tại:\n` +
-                           `- Giảm 5% khi mua kèm phụ kiện\n` +
-                           `- Tặng AirPods 2 khi mua MacBook\n` +
-                           `- Giảm thêm 1% cho sinh viên\n` +
-                           `- Bảo hành màn hình 2 năm khi mua iPhone`;
+                           `- Giảm đến 10% cho các sản phẩm iPhone đời cũ (tùy mẫu)\n` +
+                           `- Tặng kèm phụ kiện chính hãng khi mua MacBook/iPad\n` +
+                           `- Giảm thêm 1% cho khách hàng là học sinh/sinh viên\n` +
+                           `- Miễn phí cài đặt phần mềm và hỗ trợ kỹ thuật trọn đời sản phẩm.`;
                 
                 } else if (/(cảm ơn|thanks)/.test(lowerMsg)) {
                     return "Cảm ơn bạn đã liên hệ! Nếu cần thêm thông tin gì, cứ thoải mái hỏi nhé 😊";
@@ -371,125 +455,160 @@
                 } else {
                     return "Xin lỗi, tôi chưa hiểu rõ câu hỏi của bạn. Bạn có thể hỏi về:\n" +
                            "- Địa chỉ/giờ mở cửa\n" +
-                           "- Tình trạng hàng hóa\n" +
+                           "- Tình trạng hàng hóa (ví dụ: 'iPhone 15 Pro Max còn hàng không?', 'MacBook Air M2 giá bao nhiêu?', 'iPad Pro M2 có màu gì?', 'Có AirPods Pro 2 không?', 'Giá ốp lưng iPhone là bao nhiêu?')\n" +
                            "- Giá cả sản phẩm\n" +
                            "- Chính sách bảo hành/trả góp\n" +
+                           "- Ưu đãi cho Học sinh/Sinh viên\n" +
                            "Hoặc chọn một trong các câu hỏi nhanh bên dưới!";
                 }
             }
             
-            // Hàm hỗ trợ kiểm tra kho iPhone
-            function checkiPhoneStock(model) {
-                const stock = {
-                    "15 pro max": {
-                        status: "Còn hàng",
-                        colors: "Titan xanh, Titan đen, Titan tự nhiên",
-                        price: "43.990.000đ"
-                    },
-                    "15 pro": {
-                        status: "Còn hàng",
-                        colors: "4 màu",
-                        price: "28.990.000đ"
-                    },
-                    "15": {
-                        status: "Tạm hết",
-                        restock: "25/12",
-                        price: "20.990.000đ"
-                    },
-                    "14": {
-                        status: "Còn hàng",
-                        promotion: "Giảm 10%",
-                        price: "17.990.000đ"
+            // Hàm hỗ trợ kiểm tra kho sản phẩm cụ thể và trả lời chi tiết (Áp dụng cho iPhone, MacBook, iPad, AirPod, Phụ kiện)
+            function checkProductStock(type, msg, productsData) {
+                const productList = productsData[type];
+                let foundSpecificProduct = null;
+                let matchedSeriesNumber = null;
+                const sortedProductList = [...productList].sort((a, b) => b.model.length - a.model.length);
+
+                for (const product of sortedProductList) {
+                    if (msg.includes(product.model)) {
+                        foundSpecificProduct = product;
+                        break;
                     }
-                };
+                }
                 
-                if (model && stock[model]) {
-                    const item = stock[model];
-                    let response = `📱 iPhone ${model.toUpperCase()}:\n` +
-                                  `- Tình trạng: ${item.status}\n` +
-                                  `- Giá: ${item.price}`;
+                // Nếu tìm thấy một sản phẩm cụ thể, trả lời chi tiết về sản phẩm đó
+                if (foundSpecificProduct) {
+                    let response = `Thông tin về ${foundSpecificProduct.model.toUpperCase()}:\n`;
+                    response += `- Tình trạng: ${foundSpecificProduct.status}`;
+                    if (foundSpecificProduct.status === "Tạm hết" && foundSpecificProduct.restock) {
+                        response += ` (dự kiến có lại vào ${foundSpecificProduct.restock})`;
+                    }
+                    response += `\n- Giá: ${foundSpecificProduct.price}\n`;
+                    // Thêm các thuộc tính đặc trưng cho từng loại sản phẩm
+                    if (foundSpecificProduct.colors) response += `- Màu sắc: ${foundSpecificProduct.colors}\n`;
+                    if (foundSpecificProduct.storage) response += `- Dung lượng: ${foundSpecificProduct.storage}\n`;
+                    if (foundSpecificProduct.chip) response += `- Chip: ${foundSpecificProduct.chip}\n`;
+                    if (foundSpecificProduct.ram) response += `- RAM: ${foundSpecificProduct.ram}\n`;
+                    if (foundSpecificProduct.sizes) response += `- Kích thước: ${foundSpecificProduct.sizes}\n`;
+                    if (foundSpecificProduct.connectivity) response += `- Kết nối: ${foundSpecificProduct.connectivity}\n`; // AirPod
+                    if (foundSpecificProduct.features) response += `- Tính năng nổi bật: ${foundSpecificProduct.features}\n`; // AirPod, Phụ kiện
+                    if (foundSpecificProduct.compatibility) response += `- Tương thích: ${foundSpecificProduct.compatibility}\n`; // Phụ kiện
+                    if (foundSpecificProduct.material) response += `- Chất liệu: ${foundSpecificProduct.material}\n`; // Phụ kiện
+                    if (foundSpecificProduct.length) response += `- Chiều dài: ${foundSpecificProduct.length}\n`; // Phụ kiện
+                    if (foundSpecificProduct.promotion) response += `- Khuyến mãi: ${foundSpecificProduct.promotion}\n`;
                     
-                    if (item.colors) response += `\n- Màu sắc: ${item.colors}`;
-                    if (item.promotion) response += `\n- Khuyến mãi: ${item.promotion}`;
-                    if (item.restock) response += `\n- Dự kiến có hàng lại: ${item.restock}`;
-                    
-                    return response;
+                    return response.trim();
                 }
-                return "Cửa hàng có đầy đủ iPhone từ series 12 trở lên. Bạn quan tâm model cụ thể nào ạ?";
-            }
-            
-            // Hàm kiểm tra kho Mac
-            function checkMacStock(msg) {
-                const lowerMsg = msg.toLowerCase();
-                if (/air m1/.test(lowerMsg)) {
-                    return "💻 MacBook Air M1:\n- Còn hàng\n- Giá: 21.990.000đ\n- Khuyến mãi: Tặng AirPods 2";
-                } else if (/air m2/.test(lowerMsg)) {
-                    return "💻 MacBook Air M2:\n- Còn hàng\n- Giá: 27.990.000đ\n- Màu: Midnight, Starlight, Space Gray";
-                } else if (/pro 14/.test(lowerMsg)) {
-                    return "💻 MacBook Pro 14\" M2:\n- Còn hàng\n- Giá từ 42.990.000đ";
+
+                // Nếu không tìm thấy sản phẩm cụ thể, thử tìm dòng sản phẩm chung
+                // Ví dụ: "iphone 15" -> tìm các model có số "15", hoặc "có ipad không"
+                // Hoặc tìm kiếm loại sản phẩm chung như "airpod" hay "phụ kiện"
+                let regexPattern;
+                if (type === "airpod") {
+                    regexPattern = `\\b(airpod|airpods)\\s*(\\d+)?\\b`;
+                } else if (type === "phu_kien") {
+                    regexPattern = `\\b(phụ kiện|phu kien|sạc|ốp lưng|pencil|magic keyboard)\\b`; // Phụ kiện không có số series phổ biến
                 } else {
-                    return "Hiện có đầy đủ MacBook Air/Pro các đời từ M1 đến M2. Bạn cần loại nào?";
+                    regexPattern = `\\b(${type})\\s*(\\d+)?\\b`;
                 }
-            }
-            
-            // Hàm kiểm tra kho iPad
-            function checkiPadStock(msg) {
-                const lowerMsg = msg.toLowerCase();
-                if (/pro/.test(lowerMsg)) {
-                    return "📱 iPad Pro M2:\n- Còn hàng\n- Giá từ 22.990.000đ\n- 2 size: 11\" và 12.9\"";
-                } else if (/air/.test(lowerMsg)) {
-                    return "📱 iPad Air:\n- Còn hàng\n- Giá từ 16.990.000đ\n- Hỗ trợ Apple Pencil 2";
-                } else if (/mini/.test(lowerMsg)) {
-                    return "📱 iPad mini:\n- Tạm hết hàng\n- Giá từ 14.990.000đ\n- Dự kiến có lại 20/12";
-                } else {
-                    return "Hiện có đầy đủ iPad các dòng từ cơ bản đến chuyên nghiệp. Bạn cần loại nào?";
+
+                const seriesMatch = msg.match(new RegExp(regexPattern));
+                
+                if (seriesMatch && (seriesMatch[1].includes(type) || (type === "phu_kien" && /(phụ kiện|phu kien|sạc|ốp lưng|pencil|magic keyboard)/.test(seriesMatch[1])) )) {
+                    matchedSeriesNumber = seriesMatch[2]; 
+
+                    // Nếu có số series hoặc chỉ hỏi tên loại sản phẩm chung (ví dụ "có ipad không", "có airpod không", "có phụ kiện không")
+                    if (matchedSeriesNumber || msg.includes(type.replace('_',' '))) { // 'type.replace('_',' ')' để chuyển 'phu_kien' thành 'phu kien' khi so sánh
+                        const modelsInSeries = productList.filter(p => 
+                            p.model.includes(type.replace('_',' ')) && (!matchedSeriesNumber || p.model.includes(matchedSeriesNumber))
+                        );
+                        
+                        if (modelsInSeries.length > 0) {
+                            let response = `Hiện tại, dòng ${type.toUpperCase().replace('_',' ')}`;
+                            if (matchedSeriesNumber) response += ` ${matchedSeriesNumber}`;
+                            response += ` có các model sau:\n`;
+                            
+                            let hasAvailable = false;
+                            modelsInSeries.forEach(p => {
+                                response += `- ${p.model.toUpperCase()}:\n`;
+                                response += `  Tình trạng: ${p.status === "Còn hàng" ? `Còn hàng ✅` : `Tạm hết ❌`}`;
+                                if (p.restock) response += ` (dự kiến ${p.restock})`;
+                                response += ` - Giá từ: ${p.price}\n`;
+                                if (p.promotion) response += `  Khuyến mãi: ${p.promotion}\n`; // Chỉ hiển thị khuyến mãi chung trong danh sách
+                                
+                                if (p.status === "Còn hàng") {
+                                    hasAvailable = true;
+                                }
+                            });
+                            
+                            if (hasAvailable) {
+                                response += `\nBạn vui lòng chọn model cụ thể để được tư vấn chi tiết hơn nhé!`;
+                            } else {
+                                response += `\nHiện tại, các mẫu ${type.toUpperCase().replace('_',' ')}`;
+                                if (matchedSeriesNumber) response += ` ${matchedSeriesNumber}`;
+                                response += ` đang tạm hết hàng. Bạn có thể tham khảo các dòng sản phẩm khác hoặc để lại thông tin để chúng tôi thông báo khi có hàng lại.`;
+                            }
+                            
+                            return response.trim();
+                        }
+                    }
                 }
+                
+                // Nếu không tìm thấy model cụ thể hay dòng, đưa ra danh sách các model đang có
+                const availableModels = productList.map(p => {
+                    let info = p.model.toUpperCase();
+                    if (p.status === "Còn hàng") {
+                        info += ` (Còn hàng - ${p.price})`;
+                    } else if (p.status === "Tạm hết") {
+                        info += ` (Tạm hết - dự kiến ${p.restock})`;
+                    }
+                    return info;
+                }).join('\n- ');
+
+                return `Hiện tại chúng tôi có các mẫu ${type.toUpperCase().replace('_',' ')} sau:\n- ${availableModels}\n\nVui lòng hỏi cụ thể mẫu bạn quan tâm để được tư vấn chi tiết hơn nhé!`;
             }
-            
+
             // Hàm trả về thông tin giá
-            function getPriceInfo(msg) {
-                const lowerMsg = msg.toLowerCase();
-                if (/iphone/.test(lowerMsg)) {
-                    return "💰 Giá iPhone tham khảo:\n" +
-                           "- iPhone 15: từ 20.990.000đ\n" +
-                           "- iPhone 15 Pro: từ 28.990.000đ\n" +
-                           "- iPhone 15 Pro Max: từ 43.990.000đ\n" +
-                           "- iPhone 14: từ 17.990.000đ (giảm 10%)";
-                } else if (/mac/.test(lowerMsg)) {
-                    return "💰 Giá MacBook tham khảo:\n" +
-                           "- MacBook Air M1: 21.990.000đ\n" +
-                           "- MacBook Air M2: 27.990.000đ\n" +
-                           "- MacBook Pro 14\": từ 42.990.000đ";
-                } else if (/ipad/.test(lowerMsg)) {
-                    return "💰 Giá iPad tham khảo:\n" +
-                           "- iPad 10th gen: từ 11.990.000đ\n" +
-                           "- iPad Air: từ 16.990.000đ\n" +
-                           "- iPad Pro: từ 22.990.000đ";
-                } else {
-                    return "Bạn muốn xem giá sản phẩm nào ạ? Chúng tôi có:\n" +
-                           "- iPhone các model\n" +
-                           "- MacBook Air/Pro\n" +
-                           "- iPad các dòng\n" +
-                           "- Apple Watch\n" +
-                           "Vui lòng hỏi cụ thể model bạn quan tâm!";
+            function getPriceInfo(msg, productsData) {
+                const productTypes = ["iphone", "macbook", "ipad", "airpod", "phu_kien"];
+                
+                // Kiểm tra xem có sản phẩm cụ thể nào được hỏi không
+                for (const type of productTypes) {
+                    // Cần kiểm tra kỹ từ khóa để không nhầm lẫn
+                    if ((type === "iphone" && msg.includes("iphone")) ||
+                        (type === "macbook" && msg.includes("macbook")) ||
+                        (type === "ipad" && msg.includes("ipad")) ||
+                        (type === "airpod" && (msg.includes("airpod") || msg.includes("airpods"))) ||
+                        (type === "phu_kien" && (msg.includes("phụ kiện") || msg.includes("phu kien") || msg.includes("sạc") || msg.includes("ốp lưng") || msg.includes("pencil") || msg.includes("magic keyboard")))) 
+                    {
+                        const productList = productsData[type];
+                        // Sắp xếp để ưu tiên các model có tên dài hơn
+                        const sortedProductList = [...productList].sort((a, b) => b.model.length - a.model.length);
+
+                        for (const product of sortedProductList) {
+                            if (msg.includes(product.model)) {
+                                return `💰 Giá ${product.model.toUpperCase()} là: ${product.price}. ${product.status === "Còn hàng" ? "Sản phẩm đang có sẵn." : `Sản phẩm ${product.status.toLowerCase()} ${product.restock ? `dự kiến có lại vào ${product.restock}` : ""}.`}`;
+                            }
+                        }
+                        // Nếu không tìm thấy model cụ thể, trả về giá các dòng chính
+                        const prices = productList.map(p => {
+                            let info = `- ${p.model.toUpperCase()}: ${p.price}`;
+                            if (p.promotion) info += ` (KM: ${p.promotion})`;
+                            return info;
+                        }).join('\n');
+                        return `💰 Giá các dòng ${type.toUpperCase().replace('_',' ')} bạn có thể tham khảo:\n${prices}\nVui lòng hỏi cụ thể model bạn quan tâm để biết giá chính xác nhất kèm khuyến mãi (nếu có) nhé.`;
+                    }
                 }
-            }
-            
-            // Hàm trích xuất model từ câu hỏi
-            function extractModel(text) {
-                const models = ["15 pro max", "15 pro", "15", "14 pro", "14", "13"];
-                text = text.toLowerCase();
-                for (const model of models) {
-                    if (text.includes(model)) return model;
-                }
-                return "";
+                return "Bạn muốn xem giá sản phẩm nào ạ? Chúng tôi có iPhone, MacBook, iPad, AirPods và nhiều phụ kiện Apple khác. Vui lòng hỏi cụ thể model bạn quan tâm!";
             }
             
             // Thêm tin nhắn vào chat
             function addMessage(sender, text) {
                 const message = document.createElement('div');
                 message.className = `message ${sender}`;
-                message.textContent = text;
+                // Sử dụng innerHTML để hỗ trợ xuống dòng
+                message.innerHTML = text.replace(/\n/g, '<br>'); 
                 chatbotMessages.appendChild(message);
                 chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
                 return message;
@@ -509,6 +628,7 @@
             window.addEventListener('click', function(event) {
                 if (!chatbotPopup.contains(event.target) && !chatbotToggle.contains(event.target)) {
                     chatbotPopup.classList.remove('active');
+                    quickReplies.classList.add('hidden'); // Ẩn khi đóng
                 }
             });
             
@@ -516,6 +636,7 @@
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape') {
                     chatbotPopup.classList.remove('active');
+                    quickReplies.classList.add('hidden'); // Ẩn khi đóng
                 }
             });
             

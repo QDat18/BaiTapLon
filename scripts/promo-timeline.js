@@ -43,7 +43,7 @@ const PromoTimeline = {
       .then(res => res.json())
       .then(data => {
         if (!data.events || !Array.isArray(data.events)) {
-          // Nếu không có dữ liệu hoặc dữ liệu không hợp lệ, tạo dữ liệu mẫu
+
           this.events = this.generateSampleEvents();
         } else {
           // Sắp xếp sự kiện theo thời gian
