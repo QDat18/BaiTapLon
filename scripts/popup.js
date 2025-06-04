@@ -27,17 +27,17 @@ function initializePopupSystem() {
   createDealPopup();
   createPromotionPopup();
 
-  const visitedBefore = getCookie('visited') === 'true';
-  const lastPopupShown = parseInt(getCookie('lastPopupShown'), 10) || 0;
+  const visitedBefore = localStorage.getItem('visited') === 'true';
+  const lastPopupShown = parseInt(localStorage.getItem('lastPopupShown'), 10) || 0;
   const now = Date.now();
 
   if (!visitedBefore) {
     setTimeout(() => showPopup('welcome'), 500);
-    setCookie('visited', 'true', 30);
-    setCookie('lastPopupShown', now, 30);
-  } else if (lastPopupShown && (now - lastPopupShown) > 86400000) {
+    localStorage.setItem('visited', 'true');
+    localStorage.setItem('lastPopupShown', now.toString());
+  } else if ((now - lastPopupShown) > 86400000) {
     setTimeout(() => showPopup('promotion'), 1000);
-    setCookie('lastPopupShown', now, 30);
+    localStorage.setItem('lastPopupShown', now.toString());
   } else {
     let scrollTriggered = false;
     const onScroll = () => {
@@ -120,14 +120,11 @@ function createDealPopup() {
     <div class="popup-content deal-content">
       <button class="popup-close" data-popup="deal" aria-label="Đóng popup">×</button>
       <div class="deal-header">
-        <div class="popup-date">20.07</div>
-        <h3 class="deal-title" id="deal-popup-title">DEAL LÀM ĐẸP</h3>
-        <div class="deal-subtitle">RINH TRIỆU QUÀ</div>
-        <div class="deal-price"><span class="price-tag">100K</span></div>
+        <div class="popup-date">10.06</div>
       </div>
-      <img src="assets/promotions/deal-products.png" alt="Sản phẩm khuyến mãi" class="deal-products-img">
+      <img src="assets/banner/digisale.png" alt="Sản phẩm khuyến mãi" class="deal-products-img">
       <div class="deal-footer">
-        <a href="promotion.html" class="deal-button">MUA NGAY</a>
+        <a href="product.html" class="deal-button">MUA NGAY</a>
       </div>
     </div>
   `;
@@ -149,9 +146,9 @@ function createPromotionPopup() {
       <button class="popup-close" data-popup="promotion" aria-label="Đóng popup">×</button>
       <h3 id="promotion-popup-title">ƯU ĐÃI ĐẶC BIỆT</h3>
       <div class="promo-body">
-        <img src="assets/promotions/iphone-promo.png" alt="${productName}" class="promo-product-img">
+        <img src="assets/banner/ip15giamgia.jpg alt="${productName}" class="promo-product-img">
         <div class="promo-info">
-          <div class="promo-title">${productName}</div>
+          <div class="promo-title">${productName}</div> 
           <div class="promo-price">
             <span class="current-price">25.990.000₫</span>
             <span class="old-price">29.990.000₫</span>
@@ -256,19 +253,6 @@ function hidePopup(popupId) {
   }
 }
 
-function setCookie(name, value, days) {
-  const date = new Date();
-  date.setTime(date.getTime() + (days * 86400000));
-  document.cookie = `${name}=${encodeURIComponent(value)};expires=${date.toUTCString()};path=/`;
-}
-
-function getCookie(name) {
-  const nameEQ = `${name}=`;
-  return document.cookie.split(';').reduce((acc, c) => {
-    c = c.trim();
-    return c.startsWith(nameEQ) ? decodeURIComponent(c.substring(nameEQ.length)) : acc;
-  }, null);
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   initializePopupSystem();
