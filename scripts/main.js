@@ -811,6 +811,16 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.2
   });
 
+  // gan su kien cho nut so huu ngay
+  const BuynowButton = showcase.querySelector('.buy-now-btn');
+  if (BuynowButton) {
+    BuynowButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = "iphone.html";
+    });
+  } else {
+    console.error('Nút "Mua ngay" không tìm thấy trong phần giới thiệu sản phẩm.');
+  }
   observer.observe(showcase);
 });
 
@@ -1043,7 +1053,7 @@ const featuredProductsData = [
     price: 29990000,
     oldPrice: 31990000,
     category: "iPhone",
-    image: "https://picsum.photos/300/250?random=1",
+    image: "assets/products/iphone/iphone16pro_titanden.png",
     stock: 10
   },
   {
@@ -1052,7 +1062,7 @@ const featuredProductsData = [
     price: 34990000,
     oldPrice: 36990000,
     category: "iPhone",
-    image: "https://picsum.photos/300/250?random=2",
+    image: "assets/products/iphone/iphone15prm_titanxanh.png",
     stock: 8
   },
   {
@@ -1061,7 +1071,7 @@ const featuredProductsData = [
     price: 19990000,
     oldPrice: 22990000,
     category: "iPhone",
-    image: "https://picsum.photos/300/250?random=3",
+    image: "assets/products/iphone/iphone14_vang_256GB.png",
     stock: 15
   },
   {
@@ -1070,7 +1080,7 @@ const featuredProductsData = [
     price: 16990000,
     oldPrice: 18990000,
     category: "iPhone",
-    image: "https://picsum.photos/300/250?random=4",
+    image: "assets/products/iphone/iphone13_xanhla_512v256.png",
     stock: 20
   },
   {
@@ -1079,7 +1089,7 @@ const featuredProductsData = [
     price: 39990000,
     oldPrice: 42990000,
     category: "iPad",
-    image: "https://picsum.photos/300/250?random=5",
+    image: "assets/products/ipad/ipad_proM4_den.png",
     stock: 5
   },
   {
@@ -1088,7 +1098,7 @@ const featuredProductsData = [
     price: 16490000,
     oldPrice: 17990000,
     category: "iPad",
-    image: "https://picsum.photos/300/250?random=6",
+    image: "assets/products/ipad/ipad_Air6M2_Tim.png",
     stock: 12
   },
   {
@@ -1097,7 +1107,7 @@ const featuredProductsData = [
     price: 11990000,
     oldPrice: 13990000,
     category: "iPad",
-    image: "https://picsum.photos/300/250?random=7",
+    image: "assets/products/ipad/ipad_10_Bac.png",
     stock: 18
   },
   {
@@ -1106,7 +1116,7 @@ const featuredProductsData = [
     price: 12990000,
     oldPrice: 14990000,
     category: "iPad",
-    image: "https://picsum.photos/300/250?random=8",
+    image: "assets/products/ipad/ipad_mini_denxam.png",
     stock: 10
   },
   {
@@ -1115,7 +1125,7 @@ const featuredProductsData = [
     price: 28990000,
     oldPrice: 30990000,
     category: "macbook",
-    image: "https://picsum.photos/300/250?random=9",
+    image: "assets/products/macbook/MacbookAir_Bac.png",
     stock: 7
   },
   {
@@ -1124,7 +1134,7 @@ const featuredProductsData = [
     price: 39990000,
     oldPrice: 42990000,
     category: "macbook",
-    image: "https://picsum.photos/300/250?random=10",
+    image: "assets/products/macbook/MacbookPro_Bac.png",
     stock: 4
   },
   {
@@ -1133,16 +1143,16 @@ const featuredProductsData = [
     price: 34990000,
     oldPrice: 36990000,
     category: "macbook",
-    image: "https://picsum.photos/300/250?random=11",
+    image: "assets/products/macbook/iMac24_M3_Hong.png",
     stock: 6
   },
   {
     id: 12,
-    name: "Mac mini M2",
-    price: 14990000,
-    oldPrice: 16990000,
+    name: "Mac mini M4",
+    price: 20990000,
+    oldPrice: 22990000,
     category: "macbook",
-    image: "https://picsum.photos/300/250?random=12",
+    image: "assets/products/macbook/Macmini_M4_Bac.png",
     stock: 9
   },
   {
@@ -1151,7 +1161,7 @@ const featuredProductsData = [
     price: 21990000,
     oldPrice: 23990000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=13",
+    image: "assets/products/watch/applewatch_ultra2_dayocean.png",
     stock: 11
   },
   {
@@ -1160,7 +1170,7 @@ const featuredProductsData = [
     price: 10990000,
     oldPrice: 12990000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=14",
+    image: "assets/products/watch/applewatch_series10_bac.png",
     stock: 15
   },
   {
@@ -1169,16 +1179,16 @@ const featuredProductsData = [
     price: 6990000,
     oldPrice: 7990000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=15",
+    image: "assets/products/watch/applewatch_se2_bac.png",
     stock: 20
   },
   {
     id: 16,
-    name: "AirPods Pro 2",
+    name: "AirPods Pro USB C",
     price: 5990000,
     oldPrice: 6990000,
     category: "airpod",
-    image: "https://picsum.photos/300/250?random=16",
+    image: "assets/products/tainghe/Airpods_pro_usb_c.png",
     stock: 25
   },
   {
@@ -1187,7 +1197,7 @@ const featuredProductsData = [
     price: 3490000,
     oldPrice: 3990000,
     category: "airpod",
-    image: "https://picsum.photos/300/250?random=17",
+    image: "assets/products/tainghe/Airpods4_chongon.png",
     stock: 30
   },
   {
@@ -1196,7 +1206,7 @@ const featuredProductsData = [
     price: 1090000,
     oldPrice: 1290000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=18",
+    image: "assets/products/phukien/desackhongday_TypeC.png",
     stock: 50
   },
   {
@@ -1205,7 +1215,7 @@ const featuredProductsData = [
     price: 3490000,
     oldPrice: 3990000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=19",
+    image: "assets/products/phukien/apple_pencilpro.png",
     stock: 15
   },
   {
@@ -1214,7 +1224,7 @@ const featuredProductsData = [
     price: 7990000,
     oldPrice: 8990000,
     category: "accessory",
-    image: "https://picsum.photos/300/250?random=20",
+    image: "assets/products/phukien/MagicKeyboard.png",
     stock: 10
   }
 ];

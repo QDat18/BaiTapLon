@@ -1042,7 +1042,7 @@
     {
       "id": "apple-watch-se-2",
       "name": "Apple Watch SE (Thế hệ 2)",
-      "image": "assets/products/watch/applewatch_se2_bac",
+      "image": "assets/products/watch/applewatch_se2_bac.png",
       "price": 5990000,
       "originalPrice": 6490000,
       "discount": 7
@@ -1172,7 +1172,7 @@
     {
       "id": "apple-watch-se-2",
       "name": "Apple Watch SE (Thế hệ 2)",
-      "image": "assets/products/watch/applewatch_se2_trangstarlight",
+      "image": "assets/products/watch/applewatch_se2_trangstarlight.png",
       "price": 5990000,
       "originalPrice": 6490000,
       "discount": 7

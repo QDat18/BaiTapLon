@@ -8,7 +8,7 @@
       "endDate": "2023-12-01T21:00:00",
       "type": "flash-sale",
       "url": "#flash-sale",
-      "imageUrl": "assets/promotions/flash-sale.jpg"
+      "imageUrl": "assets/promotion_event/1.png"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "endDate": "2023-12-05T23:59:59",
       "type": "new-collection",
       "url": "#new-collection",
-      "imageUrl": "assets/promotions/new-collection.jpg"
+      "imageUrl": "assets/promotion_event/2.png"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "endDate": "2023-12-10T23:59:59",
       "type": "mega-sale",
       "url": "#weekend-sale",
-      "imageUrl": "assets/promotions/weekend-sale.jpg"
+      "imageUrl": "assets/promotion_event/3.png"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "endDate": "2023-12-24T23:59:59",
       "type": "guide",
       "url": "#holiday-gifts",
-      "imageUrl": "assets/promotions/holiday-guide.jpg"
+      "imageUrl": "assets/promotion_event/4.png"
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "endDate": "2023-12-17T23:59:59",
       "type": "shipping-promo",
       "url": "#free-shipping",
-      "imageUrl": "assets/promotions/free-shipping.jpg"
+      "imageUrl": "assets/promotion_event/5.png"
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "endDate": "2023-12-24T23:59:59",
       "type": "countdown",
       "url": "#christmas-countdown",
-      "imageUrl": "assets/promotions/christmas-countdown.jpg"
+      "imageUrl": "assets/promotion_event/6.png"
     },
     {
       "id": 7,
@@ -68,7 +68,7 @@
       "endDate": "2024-01-07T23:59:59",
       "type": "new-year-sale",
       "url": "#new-year-sale",
-      "imageUrl": "assets/promotions/new-year-sale.jpg"
+      "imageUrl": "assets/promotion_event/7.png"
     },
     {
       "id": 8,
@@ -78,7 +78,7 @@
       "endDate": "2024-01-31T21:00:00",
       "type": "clearance",
       "url": "#winter-clearance",
-      "imageUrl": "assets/promotions/winter-clearance.jpg"
+      "imageUrl": "assets/promotion_event/8.png"
     },
     {
       "id": 9,
@@ -88,7 +88,7 @@
       "endDate": "2024-02-14T23:59:59",
       "type": "holiday-promo",
       "url": "#valentines-day",
-      "imageUrl": "assets/promotions/valentines-day.jpg"
+      "imageUrl": "assets/promotion_event/9.png"
     },
     {
       "id": 10,
@@ -98,7 +98,7 @@
       "endDate": "2024-02-28T23:59:59",
       "type": "new-collection",
       "url": "#spring-preview",
-      "imageUrl": "assets/promotions/spring-preview.jpg"
+      "imageUrl": "assets/promotion_event/10.png"
     },
     {
       "id": 11,
@@ -108,7 +108,7 @@
       "endDate": "2024-03-31T21:00:00",
       "type": "holiday-promo",
       "url": "#easter-bonanza",
-      "imageUrl": "assets/promotions/easter-bonanza.jpg"
+      "imageUrl": "assets/promotion_event/11.png"
     },
     {
       "id": 12,
@@ -118,7 +118,7 @@
       "endDate": "2024-04-15T23:59:59",
       "type": "mid-season-sale",
       "url": "#mid-season-sale",
-      "imageUrl": "assets/promotions/mid-season-sale.jpg"
+      "imageUrl": "assets/promotion_event/12.png"
     },
     {
       "id": 13,
@@ -128,7 +128,7 @@
       "endDate": "2024-05-12T23:59:59",
       "type": "guide",
       "url": "#mothers-day-gifts",
-      "imageUrl": "assets/promotions/mothers-day.jpg"
+      "imageUrl": "assets/promotion_event/13.png"
     },
     {
       "id": 14,
@@ -138,7 +138,7 @@
       "endDate": "2024-06-10T23:59:59",
       "type": "seasonal-sale",
       "url": "#summer-kickoff",
-      "imageUrl": "assets/promotions/summer-kickoff.jpg"
+      "imageUrl": "assets/promotion_event/14.png"
     },
     {
       "id": 15,
@@ -148,7 +148,7 @@
       "endDate": "2024-06-16T21:00:00",
       "type": "guide",
       "url": "#fathers-day-finds",
-      "imageUrl": "assets/promotions/fathers-day.jpg"
+      "imageUrl": "assets/promotion_event/15.png"
     },
     {
       "id": 16,
@@ -158,7 +158,7 @@
       "endDate": "2024-07-05T23:59:59",
       "type": "holiday-sale",
       "url": "#independence-day",
-      "imageUrl": "assets/promotions/independence-day.jpg"
+      "imageUrl": "assets/promotion_event/16.png"
     },
     {
       "id": 17,
@@ -168,7 +168,7 @@
       "endDate": "2024-08-15T21:00:00",
       "type": "seasonal-sale",
       "url": "#back-to-school",
-      "imageUrl": "assets/promotions/back-to-school.jpg"
+      "imageUrl": "assets/promotion_event/17.png"
     },
     {
       "id": 18,
@@ -178,7 +178,7 @@
       "endDate": "2024-09-30T23:59:59",
       "type": "new-collection",
       "url": "#fall-collection",
-      "imageUrl": "assets/promotions/fall-collection.jpg"
+      "imageUrl": "assets/promotion_event/18.png"
     },
     {
       "id": 19,
@@ -188,7 +188,7 @@
       "endDate": "2024-10-31T23:59:59",
       "type": "holiday-promo",
       "url": "#halloween-haul",
-      "imageUrl": "assets/promotions/halloween-haul.jpg"
+      "imageUrl": "assets/promotion_event/19.png"
     },
     {
       "id": 20,
@@ -198,7 +198,7 @@
       "endDate": "2024-11-28T21:00:00",
       "type": "preview",
       "url": "#black-friday-preview",
-      "imageUrl": "assets/promotions/black-friday-preview.jpg"
+      "imageUrl": "assets/promotion_event/20.png"
     },
     {
       "id": 21,
@@ -208,7 +208,7 @@
       "endDate": "2024-12-31T23:59:59",
       "type": "clearance",
       "url": "#year-end-clearance",
-      "imageUrl": "assets/promotions/year-end-clearance.jpg"
+      "imageUrl": "assets/promotion_event/21.png"
     },
     {
       "id": 22,
@@ -218,7 +218,7 @@
       "endDate": "2025-01-10T23:59:59",
       "type": "new-year-sale",
       "url": "#new-year-new-you",
-      "imageUrl": "assets/promotions/new-year-new-you.jpg"
+      "imageUrl": "assets/promotion_event/22.png"
     },
     {
       "id": 23,
@@ -228,7 +228,7 @@
       "endDate": "2025-02-05T21:00:00",
       "type": "holiday-promo",
       "url": "#lunar-new-year",
-      "imageUrl": "assets/promotions/lunar-new-year.jpg"
+      "imageUrl": "assets/promotion_event/23.png"
     },
     {
       "id": 24,
@@ -238,7 +238,7 @@
       "endDate": "2025-03-15T23:59:59",
       "type": "seasonal-sale",
       "url": "#spring-refresh",
-      "imageUrl": "assets/promotions/spring-refresh.jpg"
+      "imageUrl": "assets/promotion_event/24.png"
     },
     {
       "id": 25,
@@ -248,7 +248,7 @@
       "endDate": "2025-04-22T23:59:59",
       "type": "awareness",
       "url": "#earth-day-deals",
-      "imageUrl": "assets/promotions/earth-day.jpg"
+      "imageUrl": "assets/promotion_event/25.png"
     },
     {
       "id": 26,
@@ -258,7 +258,7 @@
       "endDate": "2025-05-26T23:59:59",
       "type": "holiday-sale",
       "url": "#memorial-day-sale",
-      "imageUrl": "assets/promotions/memorial-day.jpg"
+      "imageUrl": "assets/promotion_event/26.png"
     }
   ]
 }
