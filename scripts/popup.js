@@ -162,7 +162,7 @@ function createPromotionPopup() {
             <div class="countdown-label">Kết thúc:</div>
             <div class="countdown-timer" id="promo-countdown-timer">00:00:00</div>
           </div>
-          <a href="product-detail.html?id=${encodeURIComponent(productName)}" class="promo-button">MUA NGAY</a>
+          <a href="product-detail.html?id=${encodeURIComponent(productID)}" class="promo-button">MUA NGAY</a>
         </div>
       </div>
     </div>
