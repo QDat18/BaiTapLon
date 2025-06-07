@@ -250,15 +250,15 @@ function setupEventListeners() {
 // Load product from URL parameters
 async function loadProductFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
-  const productName = urlParams.get('product') || urlParams.get('name') || urlParams.get('id');
+  const productID = urlParams.get('id');
 
-  if (!productName) {
+  if (!productID) {
     showError('Không tìm thấy thông tin sản phẩm');
     return;
   }
 
   try {
-    const productData = await fetchProductData(productName);
+    const productData = await fetchProductData(productID);
     if (productData) {
       currentProduct = productData;
       displayProduct(productData);
@@ -275,39 +275,25 @@ async function loadProductFromURL() {
 }
 
 // Fetch product data from JSON file
-async function fetchProductData(productName) {
-  try {
-    const response = await fetch('data/product.json');
-    if (!response.ok) {
-      throw new Error('Không thể tải dữ liệu sản phẩm');
-    }
+async function fetchProductData(key) {
+  const response = await fetch('data/product.json');
+  const data = await response.json();
 
-    const data = await response.json();
-
-    // Search for product in all categories
-    for (const category of data.categories) {
-      const product = category.products.find(p =>
-        p.name === productName ||
-        p.name.toLowerCase().includes(productName.toLowerCase())
-      );
-
-      if (product) {
-        // Transform product data to standardized format
-        return transformProductData(product, category);
-      }
-    }
-
-    return null;
-  } catch (error) {
-    console.error('Lỗi khi fetch dữ liệu:', error);
-    throw error;
+  for (const category of data.categories) {
+    const product = category.products.find(p => 
+      p.id === key || p.name.toLowerCase() === key.toLowerCase()
+    );
+    if (product) return transformProductData(product, category);
   }
+
+  return null;
 }
+
 
 // Transform product data to standardized format
 function transformProductData(product, category) {
   const transformed = {
-    id: product.name.replace(/\s+/g, '-').toLowerCase(),
+    id: product.id,
     name: product.name,
     category: category.id,
     categoryName: getCategoryDisplayName(category.id),
@@ -1044,8 +1030,8 @@ function generateStars(rating) {
 
 // View product
 function viewProduct(product) {
-  const productName = encodeURIComponent(product.name);
-  window.location.href = `product-detail.html?product=${productName}`;
+  const productID = encodeURIComponent(product.id);
+  window.location.href = `product-detail.html?id=${productID}`;
 }
 
 // Get recently viewed products
@@ -1079,7 +1065,7 @@ function addToRecentlyViewed(product) {
     name: product.name,
     price: product.price,
     image: product.images?.[0]?.url || product.defaultImage,
-    timestamp: Date.now()
+    timestamp: Date.now(),
   };
 
   // Remove if already exists
@@ -1093,7 +1079,6 @@ function addToRecentlyViewed(product) {
 
   localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
 }
-
 // Update stock status
 function updateStockStatus(inStock) {
   const stockInfo = document.querySelector('.stock-info');

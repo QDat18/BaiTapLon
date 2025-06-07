@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       title: "Chào mừng đến với Anh Em Rọt Store",
       description: "Nơi cung cấp các sản phẩm Apple chính hãng với giá tốt nhất và dịch vụ hậu mãi tuyệt vời.",
-      imageUrl: "https://picsum.photos/1920/800?random=1",
+      imageUrl: "assets/banner/modau.jpg",
       button1Text: "Mua ngay",
       button1Link: "product.html",
       button2Text: "Tìm hiểu thêm",

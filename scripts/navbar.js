@@ -769,7 +769,7 @@ if (searchIcon && searchInputContainer && searchInput && closeSearchBtn && searc
                 if (e.target.classList.contains('add-to-cart-btn')) return;
                 showNotification(`Chuyển hướng đến trang sản phẩm ${product.name}`, 'info');
                 setTimeout(() => {
-                    window.location.href = `product-detail.html?product=${encodeURIComponent(product.name)}#product/${product.id}`;
+                    window.location.href = `product-detail.html?id=${encodeURIComponent(product.id)}#product/${product.id}`;
                 }, 1000);
             });
 

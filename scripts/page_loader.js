@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
       progress += Math.random() * 8;
       bar().style.width = Math.min(progress, 100) + "%";
     }
-  }, 50);
+  }, 30);
 
   // Khi trang load xong
   window.addEventListener("load", () => {
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const el = document.getElementById("page-loader");
         if (el) el.remove();
       }, 500);
-    }, 1000);
+    }, 500);
   });
 
   // === CSS TOÀN CỤC ===

@@ -5,6 +5,7 @@
       "id": "iphone",
       "products": [
       {
+  "id": "iphone-16-pro-max",
   "name": "iPhone 16 Pro Max",
   "defaultImage": "assets/products/iphone/iphone16prm_titanden.png",
   "description": {
@@ -138,6 +139,7 @@
   ]
 },
 {
+  "id": "iphone-16-pro",
   "name": "iPhone 16 Pro",
   "defaultImage": "assets/products/iphone/iphone16pro_titantunhien.png",
   "description": {
@@ -283,6 +285,7 @@
   ]
 },
 {
+  "id": "iphone-16-plus",
   "name": "iPhone 16 Plus",
   "defaultImage": "assets/products/iphone/iphone16plus_hong.png",
   "description": {
@@ -421,6 +424,7 @@
   ]
 },
 {
+  "id": "iphone-16",
   "name": "iPhone 16",
   "defaultImage": "assets/products/iphone/iphone16_trang.png",
   "description": {
@@ -559,6 +563,7 @@
   ]
 },
 {
+  "id": "iphone-16e",
   "name": "iPhone 16e",
   "defaultImage": "assets/products/iphone/iphone16e_trang.png",
   "description": {
@@ -663,6 +668,7 @@
   ]
 },
 {
+  "id": "iphone-15-pro-max",
   "name": "iPhone 15 Pro Max",
   "defaultImage": "assets/products/iphone/iphone15prm_titanden.png",
   "description": {
@@ -788,6 +794,7 @@
   ]
 },
 {
+  "id": "iphone-15-pro",
   "name": "iPhone 15 Pro",
   "defaultImage": "assets/products/iphone/iphone15pro_titanden.png",
   "description": {
@@ -925,6 +932,7 @@
   ]
 },
 {
+  "id": "iphone-15-plus",
   "name": "iPhone 15 Plus",
   "defaultImage": "assets/products/iphone/iphone15plus_hongnhat.png",
   "description": {
@@ -1055,6 +1063,7 @@
   ]
 },
 {
+  "id": "iphone-15",
   "name": "iPhone 15",
   "defaultImage": "assets/products/iphone/iphone15_xanhduongnhat.png",
   "description": {
@@ -1193,6 +1202,7 @@
   ]
 },
 {
+  "id": "iphone-14-pro-max",
   "name": "iPhone 14 Pro Max",
   "defaultImage": "assets/products/iphone/iphone14prm_vang.png",
   "description": {
@@ -1306,6 +1316,7 @@
   ]
 },
 {
+  "id": "iphone-14-pro",
   "name": "iPhone 14 Pro",
   "defaultImage": "assets/products/iphone/iphone14pro_vang.png",
   "description": {
@@ -1426,6 +1437,7 @@
   ]
 },
 {
+  "id": "iphone-14-plus",
   "name": "iPhone 14 Plus",
   "defaultImage": "assets/products/iphone/iphone14plus_vang_256v128.png",
   "description": {
@@ -1550,6 +1562,7 @@
   ]
 },
 {
+  "id": "iphone-14",
   "name": "iPhone 14",
   "defaultImage": "assets/products/iphone/iphone14_xanhduong_256v128.png",
   "description": {
@@ -1668,6 +1681,7 @@
   ]
 },
 {
+  "id": "iphone-13-pro-max",
   "name": "iPhone 13 Pro Max",
   "defaultImage": "assets/products/iphone/iphone13prm_xam.png",
   "description": {
@@ -1773,6 +1787,7 @@
   ]
 },
 {
+  "id": "iphone-13-pro",
   "name": "iPhone 13 Pro",
   "defaultImage": "assets/products/iphone/iphone13pro_xanhla.jpg",
   "description": {
@@ -1859,6 +1874,7 @@
   ]
 },
 {
+  "id": "iphone-13",
   "name": "iPhone 13",
   "defaultImage": "assets/products/iphone/iphone13_do.png",
   "description": {
@@ -1983,6 +1999,7 @@
   ]
 },
 {
+  "id": "iphone-12-pro-max",
   "name": "iPhone 12 Pro Max",
   "defaultImage": "assets/products/iphone/iphone12prm_xanhduong.png",
   "description": {
@@ -2095,6 +2112,7 @@
   ]
 },
 {
+  "id": "iphone-12-pro",
   "name": "iPhone 12 Pro",
   "defaultImage": "assets/products/iphone/iphone12pro_xam.png",
   "description": {
@@ -2219,6 +2237,7 @@
   ]
 },
 {
+  "id": "iphone-12",
   "name": "iPhone 12",
   "defaultImage": "assets/products/iphone/iphone12_tim.png",
   "description": {
@@ -2348,6 +2367,7 @@
   "id": "ipad",
   "products": [
 {
+  "id": "ipad-air-m3",
   "name": "iPad Air M3 (2024)",
   "defaultImage": "assets/products/ipad/ipad_AirM3_Tim.png",
   "description": {
@@ -2446,6 +2466,7 @@
   ]
 },
 {
+  "id": "ipad-10",
   "name": "iPad 10 (A16 Bionic)",
   "defaultImage": "assets/products/ipad/ipad_10_Hong.png",
   "description": {
@@ -2543,6 +2564,7 @@
   ]
 },
 {
+  "id": "ipad-pro-m4",
   "name": "iPad Pro M4 (2024)",
   "defaultImage": "assets/products/ipad/ipad_proM4_bac.png",
   "description": {
@@ -2624,6 +2646,7 @@
   ]
 },
 {
+  "id": "ipad-air-m2",
   "name": "iPad Air M2 (2024)",
   "defaultImage": "assets/products/ipad/ipad_Air6M2_TrangStarlight.png",
   "description": {
@@ -2708,6 +2731,7 @@
   ]
 },
 {
+  "id": "ipad-mini",
   "name": "iPad Mini (Gen 6)",
   "defaultImage": "assets/products/ipad/ipad_mini_trangstarlight.png",
   "description": {
@@ -2784,6 +2808,7 @@
   ]
 },
 {
+  "id": "ipad-9",
   "name": "iPad 9 (2021)",
   "defaultImage": "assets/products/ipad/ipad_9_Bac.png",
   "description": {
@@ -2861,6 +2886,7 @@
   ]
 },
 {
+  "id": "ipad-10-a14",
   "name": "iPad 10 (A14 Bionic)",
   "defaultImage": "assets/products/ipad/ipad_10_Bac.png",
   "description": {
@@ -2963,7 +2989,7 @@
   "id": "macbook",
   "products": [
  {
-
+      "id": "macbook-air",
       "name": "MacBook Air",
       "defaultImage": "assets/products/macbook/MacbookAir_Vang.png",
       "description": {
@@ -3056,6 +3082,7 @@
       ]
     },
 {
+  "id": "macbook-pro",
   "name": "MacBook Pro",
   "defaultImage": "assets/products/macbook/MacbookPro_Bac.png",
   "description": {
@@ -3189,6 +3216,7 @@
   ]
 },
 {
+  "id": "mac-mini",
   "name": "Mac mini",
   "defaultImage": "assets/products/macbook/Macmini_M4_Bac.png",
   "description": {
@@ -3256,6 +3284,7 @@
   ]
 },
 {
+  "id": "mac-studio",
   "name": "Mac Studio M2 Ultra",
   "defaultImage": "assets/products/macbook/MacStudio_M2Ultra.png",
   "description": {
@@ -3329,6 +3358,7 @@
   "id":"applewatch",
   "products": [
 {
+    "id": "applewatch-series10",
     "name": "Apple Watch Series 10",
     "defaultImage": "assets/products/watch/applewatch_series10_vanghong.png",
     "description": {
@@ -3411,6 +3441,7 @@
     ]
   },
 {
+    "id": "applewatch-ultra2",
     "name": "Apple Watch Ultra 2",
     "defaultImage": "assets/products/watch/applewatch_ultra2_dayocean.png",
     "description": {
@@ -3485,6 +3516,7 @@
     ]
   },
  {
+    "id": "applewatch-series9",
     "name": "Apple Watch Series 9",
     "defaultImage": "assets/products/watch/applewatch_series9_do.png",
     "description": {
@@ -3563,6 +3595,7 @@
     ]
   },
   {
+    "id": "applewatch-se2",
     "name": "Apple Watch SE 2",
     "defaultImage": "assets/products/watch/applewatch_se2_xanhden.png",
     "description": {
@@ -3640,6 +3673,7 @@
   "id": "airpod",
   "products": [
   {
+    "id": "earpods-lightning",
     "name": "EarPods Lightning",
     "defaultImage": "assets/products/tainghe/Earpods_lightning.png",
     "description": {
@@ -3673,6 +3707,7 @@
     ]
   },
   {
+    "id": "earpods-usb-c",
     "name": "EarPods USB-C",
     "defaultImage": "assets/products/tainghe/earpods_usb_c.png",
     "description": {
@@ -3706,6 +3741,7 @@
     ]
   },
   {
+    "id": "airpods-3",
     "name": "AirPods 3",
     "defaultImage": "assets/products/tainghe/Airpod3_lightning.png",
     "description": {
@@ -3753,6 +3789,7 @@
     ]
   },
   {
+    "id": "airpods-pro",
     "name": "AirPods Pro",
     "defaultImage": "assets/products/tainghe/Airpods_pro_usb_c.png",
     "description": {
@@ -3803,6 +3840,7 @@
     ]
   },
   {
+    "id": "airpods-max",
     "name": "AirPods Max",
     "defaultImage": "assets/products/tainghe/AirpodsMax_Hong.png",
     "description": {
@@ -3854,6 +3892,7 @@
     ]
   },
   {
+  "id": "airpods-4",
   "name": "AirPods 4",
   "defaultImage": "assets/products/tainghe/Airpods4_chongon.png",
   "description": {
@@ -3909,6 +3948,7 @@
   "id": "phukien",
   "products": [
 {
+  "id": "cap-sac-typeC",
   "name": "Adapter sạc sbC",
   "defaultImage": "assets/products/phukien/Adapter_sacusbC.png",
   "description": {
@@ -3941,6 +3981,7 @@
   ]
 },
 {
+  "id": "airtag",
   "name": "Airtag",
   "defaultImage": "assets/products/phukien/Airtag.png",
   "description": {
@@ -3973,6 +4014,7 @@
   ]
 },
 {
+  "id": "apple_pencilpro",
   "name": "Apple Pencil Pro",
   "defaultImage": "assets/products/phukien/apple_pencilpro.png",
   "description": {
@@ -4005,6 +4047,7 @@
   ]
 },
 {
+  "id": "bandichuot",
   "name": "Bandichuot",
   "defaultImage": "assets/products/phukien/bandichuot.png",
   "description": {
@@ -4037,6 +4080,7 @@
   ]
 },
 {
+  "id": "baodaIpad",
   "name": "Baoda iPad",
   "defaultImage": "assets/products/phukien/baodaIpad.png",
   "description": {
@@ -4069,6 +4113,7 @@
   ]
 },
 {
+  "id": "cap_typeC",
   "name": "Cáp Type-C",
   "defaultImage": "assets/products/phukien/cap_typeC.png",
   "description": {
@@ -4101,6 +4146,7 @@
   ]
 },
 {
+  "id": "capsac_typeC",
   "name": "Capsac Type-C",
   "defaultImage": "assets/products/phukien/capsac_typeC.png",
   "description": {
@@ -4133,6 +4179,7 @@
   ]
 },
 {
+  "id": "chuotlaptop",
   "name": "Chuot Laptop",
   "defaultImage": "assets/products/phukien/chuotlaptop.png",
   "description": {
@@ -4165,6 +4212,7 @@
   ]
 },
 {
+  "id": "cuongluc_iPadAir",
   "name": "Cuongluc iPad Air",
   "defaultImage": "assets/products/phukien/cuongluc_iPadAir.png",
   "description": {
@@ -4197,6 +4245,7 @@
   ]
 },
 {
+  "id": "cuongluc_iPadPro",
   "name": "Cuongluc iPad Pro",
   "defaultImage": "assets/products/phukien/cuongluc_iPadPro.png",
   "description": {
@@ -4229,6 +4278,7 @@
   ]
 },
 {
+  "id": "cuongluc_AppleWatch",
   "name": "Cuongluc Apple Watch",
   "defaultImage": "assets/products/phukien/cuonglucAppleWatch.png",
   "description": {
@@ -4261,6 +4311,7 @@
   ]
 },
 {
+  "id": "cuongluc_iPhone",
   "name": "Cuongluc iPhone",
   "defaultImage": "assets/products/phukien/cuonglucIphone.png",
   "description": {
@@ -4293,6 +4344,7 @@
   ]
 },
 {
+  "id": "cuonglucMac",
   "name": "Cuongluc Mac",
   "defaultImage": "assets/products/phukien/cuonglucMac.png",
   "description": {
@@ -4325,6 +4377,7 @@
   ]
 },
 {
+  "id": "Dayda-Apple-Watch",
   "name": "Daycaosu Apple Watch",
   "defaultImage": "assets/products/phukien/daycaosuAppleWatch.png",
   "description": {
@@ -4357,6 +4410,7 @@
   ]
 },
 {
+  "id": "Daynylon-Apple-Watch",
   "name": "Daynylon Apple Watch",
   "defaultImage": "assets/products/phukien/dayNylonAppleWatch.png",
   "description": {
@@ -4389,6 +4443,7 @@
   ]
 },
 {
+  "id": "Daysilicone-Apple-Watch",
   "name": "Daysilicone Aggi Apple Watch",
   "defaultImage": "assets/products/phukien/daysiliconeAppleWatch.png",
   "description": {
@@ -4421,6 +4476,7 @@
   ]
 },
 {
+  "id": "daythepkhonggiAppleWatch",
   "name": "Daythephkhong ggi Apple Watch",
   "defaultImage": "assets/products/phukien/daythepkhonggiAppleWatch.png",
   "description": {
@@ -4453,6 +4509,7 @@
   ]
 },
 {
+  "id": "desackhongday_TypeC",
   "name": "Desachkhongday Type-C",
   "defaultImage": "assets/products/phukien/desackhongday_TypeC.png",
   "description": {
@@ -4485,6 +4542,7 @@
   ]
 },
 {
+  "id": "GiadoLaptop",
   "name": "Giado Laptop",
   "defaultImage": "assets/products/phukien/GiadoLaptop.png",
   "description": {
@@ -4517,6 +4575,7 @@
   ]
 },
 {
+  "id": "MagicKeyboard",
   "name": "Magic Keyboard",
   "defaultImage": "assets/products/phukien/MagicKeyboard.png",
   "description": {
@@ -4549,6 +4608,7 @@
   ]
 },
 {
+  "id": "OpAppleWatch",
   "name": "Op Apple Watch",
   "defaultImage": "assets/products/phukien/OpAppleWatch.png",
   "description": {
@@ -4581,6 +4641,7 @@
   ]
 },
 {
+  "id": "thiet-bi-cam-tay",
   "name": "Thietbicamtay chongrung",
   "defaultImage": "assets/products/phukien/thietbicamtaychongrung.png",
   "description": {
@@ -4613,6 +4674,7 @@
   ]
 },
 {
+  "id": "thuam",
   "name": "Thuam",
   "defaultImage": "assets/products/phukien/thuam.png",
   "description": {
