@@ -370,10 +370,10 @@
             email
           }));
 
-          showNotification('Đăng ký thành công! Bạn đã được đăng nhập', 'success');
+          showNotification('Đăng ký thành công! Bạn có thể đăng nhập', 'success');
 
           setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
           }, 1500);
         } catch (error) {
           showNotification(error.message, 'error');
