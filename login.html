@@ -314,7 +314,6 @@
         const email = emailInput.value.trim();
         const password = passwordInput.value.trim();
 
-        // Basic validation
         if (!email || !password) {
           showNotification('Vui lòng nhập email và mật khẩu.', 'error');
           return;
@@ -323,8 +322,8 @@
         // Show loading state
         loginBtn.disabled = true;
         loginBtn.classList.add('loading');
-
-        // Simulate API call with delay
+        showNotification('Đang đăng nhập...', 'info');
+        
         try {
           await new Promise(resolve => setTimeout(resolve, 1500));
 
