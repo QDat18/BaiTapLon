@@ -185,3 +185,17 @@
     padding: 0.625rem;
   }
 }
+
+.password-feedback {
+    font-size: 0.85em; 
+    margin-top: 5px; 
+    color: red; 
+}
+
+.password-feedback p {
+    margin: 2px 0; 
+}
+
+.password-feedback.strong {
+    color: green;
+}
