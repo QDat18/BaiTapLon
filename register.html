@@ -345,7 +345,6 @@
         try {
           await new Promise(resolve => setTimeout(resolve, 1500));
 
-          // Kiểm tra email đã tồn tại chưa
           const users = JSON.parse(localStorage.getItem('users')) || [];
           const emailExists = users.some(user => user.email === email);
 
@@ -353,17 +352,15 @@
             throw new Error('Email đã được đăng ký. Vui lòng sử dụng email khác.');
           }
 
-          // Thêm user mới
           const newUser = {
             fullName,
             email,
-            password // Trong thực tế nên mã hóa password trước khi lưu
+            password 
           };
 
           users.push(newUser);
           localStorage.setItem('users', JSON.stringify(users));
 
-          // Tự động đăng nhập sau khi đăng ký
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('currentUser', JSON.stringify({
             fullName,
